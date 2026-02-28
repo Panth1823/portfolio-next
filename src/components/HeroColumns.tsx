@@ -1,139 +1,118 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { LightRays } from "@/components/ui/light-rays";
+import { Marquee } from "@/components/ui/marquee";
+
+const col1Images = [
+  "/images/Rectangle 2.png",
+  "/images/Rectangle 4.png",
+  "/images/Rectangle 8.png",
+];
+
+const col2Images = [
+  "/images/Rectangle 2.png",
+  "/images/Rectangle 4.png",
+  "/images/Rectangle 8.png",
+];
+
+const col3Images = [
+  "/images/Rectangle 2.png",
+  "/images/Rectangle 4.png",
+  "/images/Rectangle 8.png",
+];
+
+function ImageCard({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-white/5 shrink-0">
+      <Image src={src} alt={alt} fill className="object-cover" sizes="33vw" />
+    </div>
+  );
+}
 
 export default function HeroColumns() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  });
-
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, -200]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [0, 150]);
-
   return (
-    <section
-      ref={containerRef}
-      className="relative h-screen overflow-hidden bg-[#383838] flex items-center justify-center"
-    >
-      <LightRays
-        color="#c8ff00"
-        count={5}
-        speed={15}
-        blur={40}
-        className="opacity-20"
-      />
-
-      {/* Background Columns */}
-      <div className="absolute inset-0 flex justify-center gap-4 px-4 sm:gap-8 opacity-40 select-none -z-10 w-[120vw] -left-[10vw] -top-[30vh] h-[160vh]">
-        <motion.div
-          style={{ y: y1 }}
-          className="flex flex-col gap-4 sm:gap-8 w-1/3"
+    <section className="relative h-screen overflow-hidden bg-[var(--bg-primary)] flex items-center justify-center">
+      {/* 3 Vertical Infinite Scrolling Columns */}
+      <div className="absolute inset-0 flex justify-center gap-8 px-6 sm:px-12 opacity-10 select-none">
+        {/* Column 1 — scrolls up */}
+        <Marquee
+          vertical
+          className="h-full w-1/3 [--duration:25s] [--gap:32px]"
+          repeat={4}
         >
-          <div className="relative w-full h-[500px] rounded-xl overflow-hidden">
-            <Image
-              src="/images/hero-1.png"
-              alt="Portfolio 1"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="relative w-full h-[600px] rounded-xl overflow-hidden">
-            <Image
-              src="/images/hero-2.png"
-              alt="Portfolio 2"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </motion.div>
+          {col1Images.map((src, i) => (
+            <ImageCard key={i} src={src} alt={`Portfolio work ${i + 1}`} />
+          ))}
+        </Marquee>
 
-        <motion.div
-          style={{ y: y2 }}
-          className="flex flex-col gap-4 sm:gap-8 w-1/3"
+        {/* Column 2 — scrolls down (reverse) */}
+        <Marquee
+          vertical
+          reverse
+          className="h-full w-1/3 [--duration:30s] [--gap:32px]"
+          repeat={4}
         >
-          <div className="relative w-full h-[600px] rounded-xl overflow-hidden">
-            <Image
-              src="/images/hero-3.png"
-              alt="Portfolio 3"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="relative w-full h-[500px] rounded-xl overflow-hidden">
-            <Image
-              src="/images/hero-4.png"
-              alt="Portfolio 4"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </motion.div>
+          {col2Images.map((src, i) => (
+            <ImageCard key={i} src={src} alt={`Portfolio work ${i + 4}`} />
+          ))}
+        </Marquee>
 
-        <motion.div
-          style={{ y: y3 }}
-          className="flex flex-col gap-4 sm:gap-8 w-1/3"
+        {/* Column 3 — scrolls up */}
+        <Marquee
+          vertical
+          className="h-full w-1/3 [--duration:22s] [--gap:32px]"
+          repeat={4}
         >
-          <div className="relative w-full h-[400px] rounded-xl overflow-hidden">
-            <Image
-              src="/images/hero-5.png"
-              alt="Portfolio 5"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="relative w-full h-[700px] rounded-xl overflow-hidden">
-            <Image
-              src="/images/hero-1.png"
-              alt="Portfolio 6"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </motion.div>
+          {col3Images.map((src, i) => (
+            <ImageCard key={i} src={src} alt={`Portfolio work ${i + 7}`} />
+          ))}
+        </Marquee>
       </div>
 
-      {/* Dark Overlay Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-[#0a0a0a] z-0 pointer-events-none" />
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-primary)]/80 via-[var(--bg-primary)]/50 to-[var(--bg-primary)] z-[1] pointer-events-none" />
 
       {/* Foreground Content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-4 max-w-4xl pt-24">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="inline-flex items-center gap-2 px-4 py-2 border border-white/10 rounded-full bg-white/5 backdrop-blur-md mb-8"
-        >
-          <div className="w-2 h-2 rounded-full bg-[#c8ff00] animate-pulse" />
-          <span className="text-xs font-medium uppercase tracking-widest text-white/80">
-            Open to Opportunities
-          </span>
-        </motion.div>
-
+      <div className="relative z-10 flex flex-col items-start text-left px-6 sm:px-12 w-full max-w-7xl">
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tighter text-white mb-6"
+          className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tighter text-[var(--text-primary)] mb-4 leading-[0.95]"
         >
-          Product <span className="text-[#c8ff00] italic">Designer</span>
-          <br />& Developer
+          Product Designer
         </motion.h1>
+
+        <div className="flex items-center gap-4 mb-6">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+            className="text-xl sm:text-2xl md:text-3xl text-[var(--text-primary)] font-light"
+          >
+            focused on solving real user problems
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+            className="inline-flex items-center gap-2 px-4 py-2 border border-[var(--border)] rounded-full bg-[var(--bg-secondary)]/30 backdrop-blur-md shrink-0"
+          >
+            <div className="w-2 h-2 rounded-full bg-[#c8ff00] animate-pulse" />
+            <span className="text-xs font-medium uppercase tracking-widest text-[var(--text-secondary)] whitespace-nowrap">
+              Open to Opportunities
+            </span>
+          </motion.div>
+        </div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-          className="text-lg sm:text-xl text-white/60 max-w-2xl font-light"
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+          className="text-xl sm:text-2xl md:text-3xl font-light text-[var(--text-primary)]"
         >
-          Crafting cinematic websites and intuitive digital experiences.
-          Bridging the gap between creative vision and engineering.
+          for <span className="text-[#c8ff00] font-semibold">3+ years</span>
         </motion.p>
       </div>
     </section>

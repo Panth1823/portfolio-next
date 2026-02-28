@@ -30,11 +30,12 @@ function ExperienceCard({
 
   const y = useTransform(progress, [fadeInPos - 0.05, fadeInPos], [22, 0]);
 
-  // Active state color transition
+  // Active state color transition — use a hook-safe approach
+  // In light mode text-primary is dark, in dark mode it's white
   const titleColor = useTransform(
     progress,
     [activeStart - 0.01, activeStart, activeEnd, activeEnd + 0.01],
-    ["#ffffff", "#c8ff00", "#c8ff00", "#ffffff"],
+    ["var(--text-primary)", "#c8ff00", "#c8ff00", "var(--text-primary)"],
   );
 
   return (
@@ -42,10 +43,10 @@ function ExperienceCard({
       style={{ opacity, y }}
       className="flex-1 max-w-[280px] max-sm:max-w-full"
     >
-      <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-4 transition-colors">
+      <div className="w-12 h-12 rounded-full bg-[var(--card-icon-bg)] border border-[var(--card-icon-border)] flex items-center justify-center mb-4 transition-colors">
         {icon}
       </div>
-      <div className="text-[11px] font-medium text-white/40 tracking-widest uppercase mb-2">
+      <div className="text-[11px] font-medium text-[var(--text-muted)] tracking-widest uppercase mb-2">
         {company}
       </div>
       <motion.div
@@ -54,10 +55,10 @@ function ExperienceCard({
       >
         {title}
       </motion.div>
-      <div className="text-[11px] font-medium text-white/40 tracking-wide mb-3">
+      <div className="text-[11px] font-medium text-[var(--text-muted)] tracking-wide mb-3">
         {date}
       </div>
-      <p className="text-[13px] font-light leading-relaxed text-white/45 max-w-[230px]">
+      <p className="text-[13px] font-light leading-relaxed text-[var(--text-muted)] max-w-[230px]">
         {description}
       </p>
     </motion.div>
@@ -83,7 +84,7 @@ export default function ExperienceCards({
         icon={
           <svg
             viewBox="0 0 24 24"
-            className="w-5 h-5 fill-none stroke-white/80 stroke-[1.8] items-center"
+            className="w-5 h-5 fill-none stroke-[var(--text-secondary)] stroke-[1.8] items-center"
           >
             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
             <circle cx="12" cy="12" r="3" />
@@ -103,7 +104,7 @@ export default function ExperienceCards({
         icon={
           <svg
             viewBox="0 0 24 24"
-            className="w-5 h-5 fill-none stroke-white/80 stroke-[1.8]"
+            className="w-5 h-5 fill-none stroke-[var(--text-secondary)] stroke-[1.8]"
           >
             <polyline points="2,20 9,9 14,15 17,11 22,20" />
             <line x1="2" y1="20" x2="22" y2="20" />
@@ -123,7 +124,7 @@ export default function ExperienceCards({
         icon={
           <svg
             viewBox="0 0 24 24"
-            className="w-5 h-5 fill-none stroke-white/80 stroke-[1.8]"
+            className="w-5 h-5 fill-none stroke-[var(--text-secondary)] stroke-[1.8]"
           >
             <line x1="7" y1="4" x2="7" y2="20" />
             <polyline points="7,12 17,4" />
