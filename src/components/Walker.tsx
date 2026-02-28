@@ -77,7 +77,7 @@ export default function Walker({ progress }: WalkerProps) {
   return (
     <motion.div
       style={{ x, scaleX, scaleY }}
-      className="absolute bottom-[69px] -left-[180px] z-10 w-[110px] h-[260px] origin-bottom max-md:w-[90px] max-md:h-[210px] max-sm:w-[65px] max-sm:h-[150px] max-sm:bottom-[51px]"
+      className="absolute bottom-[30px] -left-[180px] z-10 w-[200px] h-[420px] origin-bottom max-md:w-[150px] max-md:h-[320px] max-sm:w-[100px] max-sm:h-[220px] max-sm:bottom-[20px]"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img

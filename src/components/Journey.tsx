@@ -52,7 +52,7 @@ export default function Journey() {
         {/* Ground Line */}
         <motion.div
           style={{ width: groundWidth }}
-          className="absolute bottom-[68px] left-0 h-[1px] bg-[#c8ff00]/70 z-[4] max-sm:bottom-[50px]"
+          className="absolute bottom-[30px] left-0 h-[1px] bg-[#c8ff00]/70 z-[4] max-sm:bottom-[20px]"
         />
 
         <Walker progress={scrollYProgress} />
