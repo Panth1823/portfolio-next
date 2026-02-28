@@ -1,12 +1,37 @@
 "use client";
 
 import { useRef } from "react";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 
 const bioText =
-  "I work at the intersection of people, process, and product to deliver meaningful digital experiences.  ".split(
+  "I work at the intersection of people, process, and product to deliver meaningful digital experiences.".split(
     " ",
   );
+
+function AnimatedWord({
+  word,
+  index,
+  total,
+  scrollYProgress,
+}: {
+  word: string;
+  index: number;
+  total: number;
+  scrollYProgress: MotionValue<number>;
+}) {
+  const start = index / total;
+  const end = start + 1 / total;
+  const opacity = useTransform(scrollYProgress, [start, end], [0.1, 1]);
+
+  return (
+    <motion.span
+      style={{ opacity }}
+      className="text-3xl sm:text-5xl md:text-6xl font-medium tracking-tight text-[var(--text-primary)]"
+    >
+      {word}
+    </motion.span>
+  );
+}
 
 export default function About() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -27,30 +52,16 @@ export default function About() {
         </h2>
 
         <div className="flex flex-wrap gap-x-3 gap-y-2 justify-center mb-24">
-          {bioText.map((word, i) => {
-            const start = i / bioText.length;
-            const end = start + 1 / bioText.length;
-            // eslint-disable-next-line react-hooks/rules-of-hooks
-            const opacity = useTransform(
-              scrollYProgress,
-              [start, end],
-              [0.1, 1],
-            );
-            return (
-              <motion.span
-                key={i}
-                style={{ opacity }}
-                className="text-3xl sm:text-5xl md:text-6xl font-medium tracking-tight text-[var(--text-primary)]"
-              >
-                {word}
-              </motion.span>
-            );
-          })}
+          {bioText.map((word, i) => (
+            <AnimatedWord
+              key={i}
+              word={word}
+              index={i}
+              total={bioText.length}
+              scrollYProgress={scrollYProgress}
+            />
+          ))}
         </div>
-
-        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full max-w-3xl text-left">
-          ...commented out by user
-        </div> */}
       </div>
     </section>
   );
