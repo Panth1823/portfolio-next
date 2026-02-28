@@ -74,17 +74,45 @@ export default function Walker({ progress }: WalkerProps) {
     [1, 1, 0.96, 1, 1, 0.96, 1, 1, 0.96, 1, 1],
   );
 
+  // Trail width follows the walker's x position (offset by ~100px for center of character)
+  const trailWidth = useTransform(progress, [0, 1], [0, endXValue + 100]);
+
   return (
-    <motion.div
-      style={{ x, scaleX, scaleY }}
-      className="absolute bottom-[30px] -left-[180px] z-10 w-[200px] h-[420px] origin-bottom max-md:w-[150px] max-md:h-[320px] max-sm:w-[100px] max-sm:h-[220px] max-sm:bottom-[20px]"
-    >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={`${FRAMES_DIR}${frameIndex}.png`}
-        alt="Walking character"
-        className="w-full h-full object-contain object-bottom mix-blend-screen"
-      />
-    </motion.div>
+    <>
+      {/* Gradient trailing line — anchored at left, width follows the walker */}
+      <motion.div
+        style={{ width: trailWidth }}
+        className="absolute bottom-[30px] left-0 h-[2px] z-[5] max-sm:bottom-[20px]"
+      >
+        <div
+          className="w-full h-full"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent 0%, rgba(200,255,0,0.03) 20%, rgba(200,255,0,0.1) 50%, rgba(200,255,0,0.4) 80%, #c8ff00 100%)",
+          }}
+        />
+        {/* Soft glow at the leading edge */}
+        <div
+          className="absolute right-0 top-1/2 -translate-y-1/2 w-[120px] h-[16px] max-sm:w-[60px] max-sm:h-[10px]"
+          style={{
+            background:
+              "radial-gradient(ellipse at right center, rgba(200,255,0,0.2) 0%, transparent 70%)",
+          }}
+        />
+      </motion.div>
+
+      {/* Walker character */}
+      <motion.div
+        style={{ x, scaleX, scaleY }}
+        className="absolute bottom-[30px] -left-[180px] z-10 w-[200px] h-[420px] origin-bottom max-md:w-[150px] max-md:h-[320px] max-sm:w-[100px] max-sm:h-[220px] max-sm:bottom-[20px]"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={`${FRAMES_DIR}${frameIndex}.png`}
+          alt="Walking character"
+          className="w-full h-full object-contain object-bottom mix-blend-screen"
+        />
+      </motion.div>
+    </>
   );
 }

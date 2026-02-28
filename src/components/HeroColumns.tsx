@@ -75,29 +75,20 @@ export default function HeroColumns() {
 
       {/* Foreground Content */}
       <div className="relative z-10 flex flex-col items-start text-left px-6 sm:px-12 w-full max-w-7xl">
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tighter text-[var(--text-primary)] mb-4 leading-[0.95]"
-        >
-          Product Designer
-        </motion.h1>
-
-        <div className="flex items-center gap-4 mb-6">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
+        <div className="flex items-center gap-5 mb-4">
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-            className="text-xl sm:text-2xl md:text-3xl text-[var(--text-primary)] font-light"
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tighter text-[var(--text-primary)] leading-[0.95]"
           >
-            focused on solving real user problems
-          </motion.p>
+            Product Designer
+          </motion.h1>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 border border-[var(--border)] rounded-full bg-[var(--bg-secondary)]/30 backdrop-blur-md shrink-0"
+            className="inline-flex items-center gap-2 px-4 py-4 border border-[var(--border)] rounded-xl   bg-[var(--bg-secondary)]/50 backdrop-blur-md shrink-0"
           >
             <div className="w-2 h-2 rounded-full bg-[#c8ff00] animate-pulse" />
             <span className="text-xs font-medium uppercase tracking-widest text-[var(--text-secondary)] whitespace-nowrap">
@@ -105,6 +96,15 @@ export default function HeroColumns() {
             </span>
           </motion.div>
         </div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+          className="text-xl sm:text-2xl md:text-3xl text-[var(--text-primary)] font-light mb-2"
+        >
+          focused on solving real user problems
+        </motion.p>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}

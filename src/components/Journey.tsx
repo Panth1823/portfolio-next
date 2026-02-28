@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useScroll } from "framer-motion";
 import Walker from "./Walker";
 import ExperienceCards from "./ExperienceCards";
 
@@ -12,8 +12,6 @@ export default function Journey() {
     target: containerRef,
     offset: ["start start", "end end"],
   });
-
-  const groundWidth = useTransform(scrollYProgress, [0, 0.93], ["0%", "100%"]);
 
   return (
     <section
@@ -48,12 +46,6 @@ export default function Journey() {
         </div>
 
         <ExperienceCards progress={scrollYProgress} />
-
-        {/* Ground Line */}
-        <motion.div
-          style={{ width: groundWidth }}
-          className="absolute bottom-[30px] left-0 h-[1px] bg-[#c8ff00]/70 z-[4] max-sm:bottom-[20px]"
-        />
 
         <Walker progress={scrollYProgress} />
       </div>
