@@ -57,7 +57,7 @@ export default function Contact() {
         </div>
       </motion.div>
       <div className="border-t border-[var(--border)] w-full pt-10 text-[var(--text-muted)] text-xs text-center flex justify-between items-center max-w-4xl">
-        <p>© 2026 Panth. All rights reserved.</p>
+        <p>© 2026 Shvetha. All rights reserved.</p>
         <p>Built with Next.js & Framer Motion</p>
       </div>
     </section>
