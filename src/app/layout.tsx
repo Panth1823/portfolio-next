@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter as InterGoogle } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = InterGoogle({ subsets: ["latin"] });
 
@@ -39,7 +40,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} antialiased selection:bg-[#c8ff00] selection:text-black`}
       >
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );

@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
+import ScrollStack, { ScrollStackItem } from "./ScrollStack";
 
 interface Project {
   title: string;
@@ -65,9 +65,9 @@ const projects: Project[] = [
 
 function CardContent({ project }: { project: Project }) {
   return (
-    <div className="group/card flex flex-col lg:flex-row rounded-2xl overflow-hidden bg-[var(--bg-card)] border border-[var(--border)] h-full">
+    <div className="group/card flex flex-col lg:flex-row rounded-2xl overflow-hidden bg-[var(--bg-card)] border border-[var(--border)] h-full p-6 gap-12">
       {/* Left — Screenshot */}
-      <div className="w-full lg:w-[55%] p-5 sm:p-6">
+      <div className="w-full lg:w-[55%]">
         <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden bg-[var(--bg-secondary)] border border-[var(--border)]">
           <Image
             src={project.images[2]}
@@ -129,59 +129,11 @@ function CardContent({ project }: { project: Project }) {
   );
 }
 
-function StackingCard({
-  project,
-  index,
-  totalCards,
-  range,
-  targetScale,
-  progress,
-}: {
-  project: Project;
-  index: number;
-  totalCards: number;
-  range: [number, number];
-  targetScale: number;
-  progress: any;
-}) {
-  const scale = useTransform(progress, range, [1, targetScale]);
-  // Each card slightly shrinks as the next card scrolls on top of it
-
-  return (
-    <div
-      className="h-screen flex items-center justify-center sticky top-0"
-      style={{ zIndex: index + 1 }}
-    >
-      <motion.div
-        className="w-full max-w-[1100px] origin-top"
-        style={{
-          scale,
-          // Each card sits slightly lower so you can peek at stacked cards behind
-          top: `calc(${index * 32}px)`,
-          position: "relative",
-        }}
-      >
-        <CardContent project={project} />
-      </motion.div>
-    </div>
-  );
-}
-
 export default function WorkSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
   return (
-    <section
-      id="work"
-      ref={containerRef}
-      className="bg-[var(--bg-primary)] relative"
-    >
-      {/* Section Header — sticky at top briefly */}
-      <div className="sticky top-0 z-[10] pt-32 sm:pt-40 pb-16 px-6 sm:px-12 bg-[var(--bg-primary)]">
+    <section id="work" className="bg-[var(--bg-primary)] relative">
+      {/* Section Header — sticky at top */}
+      <div className="sticky top-0 z-[10] pt-16 sm:pt-20 pb-6 px-6 sm:px-12 bg-[var(--bg-primary)]">
         <div className="max-w-[1100px] mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -206,25 +158,15 @@ export default function WorkSection() {
         </div>
       </div>
 
-      {/* Stacking Cards */}
+      {/* Stacking Cards using ScrollStack */}
       <div className="px-6 sm:px-12">
-        {projects.map((project, i) => {
-          const targetScale = 1 - (projects.length - i) * 0.03;
-          const rangeStart = i / projects.length;
-          const rangeEnd = (i + 1) / projects.length;
-
-          return (
-            <StackingCard
-              key={project.title}
-              project={project}
-              index={i}
-              totalCards={projects.length}
-              range={[rangeStart, rangeEnd]}
-              targetScale={targetScale}
-              progress={scrollYProgress}
-            />
-          );
-        })}
+        <ScrollStack>
+          {projects.map((project) => (
+            <ScrollStackItem key={project.title}>
+              <CardContent project={project} />
+            </ScrollStackItem>
+          ))}
+        </ScrollStack>
       </div>
     </section>
   );
