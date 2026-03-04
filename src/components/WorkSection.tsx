@@ -131,7 +131,10 @@ function CardContent({ project }: { project: Project }) {
 
 export default function WorkSection() {
   return (
-    <section id="work" className="bg-[var(--bg-primary)] relative">
+    <section
+      id="work"
+      className="bg-[var(--bg-primary)] relative pb-32 sm:pb-40"
+    >
       {/* Section Header — sticky at top */}
       <div className="sticky top-0 z-[10] pt-16 sm:pt-20 pb-6 px-6 sm:px-12 bg-[var(--bg-primary)]">
         <div className="max-w-[1100px] mx-auto">

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter as InterGoogle } from "next/font/google";
+import { Inter as InterGoogle, Manrope } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = InterGoogle({ subsets: ["latin"] });
+const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
 
 export const metadata: Metadata = {
   title: "Portfolio — Journey",
@@ -38,7 +39,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.className} antialiased selection:bg-[#c8ff00] selection:text-black`}
+        className={`${inter.className} ${manrope.variable} antialiased selection:bg-[#c8ff00] selection:text-black`}
       >
         <SmoothScroll>{children}</SmoothScroll>
       </body>

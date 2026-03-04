@@ -1,19 +1,25 @@
 import Nav from "@/components/Nav";
-import HeroColumns from "@/components/HeroColumns";
-import Journey from "@/components/Journey";
+import Hero from "@/components/Hero";
 import WorkSection from "@/components/WorkSection";
+import Journey from "@/components/Journey";
 import About from "@/components/About";
-import Contact from "@/components/Contact";
+import Curiosity from "@/components/Curiosity";
+import BeyondWork from "@/components/BeyondWork";
+import Polaroid from "@/components/Polaroid";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <main className="bg-black min-h-screen">
       <Nav />
-      <HeroColumns />
-      <Journey />
+      <Hero />
       <WorkSection />
+      <Journey />
       <About />
-      <Contact />
+      <Curiosity />
+      <BeyondWork />
+      <Polaroid />
+      <Footer />
     </main>
   );
 }

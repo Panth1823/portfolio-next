@@ -105,15 +105,20 @@ function PeekCarousel() {
             <motion.div
               key={currentIndex}
               custom={direction}
-              initial={(d: number) => ({
-                x: d > 0 ? "100%" : "-100%",
-                opacity: 0,
-              })}
-              animate={{ x: 0, opacity: 1 }}
-              exit={(d: number) => ({
-                x: d > 0 ? "-100%" : "100%",
-                opacity: 0,
-              })}
+              variants={{
+                initial: (d: number) => ({
+                  x: d > 0 ? "100%" : "-100%",
+                  opacity: 0,
+                }),
+                animate: { x: 0, opacity: 1 },
+                exit: (d: number) => ({
+                  x: d > 0 ? "-100%" : "100%",
+                  opacity: 0,
+                }),
+              }}
+              initial="initial"
+              animate="animate"
+              exit="exit"
               transition={{
                 x: { type: "spring", stiffness: 200, damping: 28 },
                 opacity: { duration: 0.35 },
@@ -279,28 +284,6 @@ export default function About() {
             ))}
           </div>
         </div>
-      </div>
-
-      {/* ── Curiosity Lab ── */}
-      <div className="px-6 sm:px-12 pb-20 sm:pb-24">
-        <CuriosityLab />
-      </div>
-
-      {/* ── Beyond Work — Scroll Velocity Marquee ── */}
-      <div className="relative py-12 sm:py-16 overflow-hidden">
-        {/* Left fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 sm:w-48 bg-gradient-to-r from-[var(--bg-primary)] to-transparent z-10 pointer-events-none" />
-        {/* Right fade */}
-        <div className="absolute right-0 top-0 bottom-0 w-32 sm:w-48 bg-gradient-to-l from-[var(--bg-primary)] to-transparent z-10 pointer-events-none" />
-
-        <ScrollVelocityRow baseVelocity={3} direction={1}>
-          <span className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[var(--text-primary)] opacity-20 mx-8 sm:mx-12">
-            BEYOND WORK
-          </span>
-          <span className="text-[var(--text-primary)] opacity-20 text-2xl mx-4">
-            •
-          </span>
-        </ScrollVelocityRow>
       </div>
     </section>
   );
