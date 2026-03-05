@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const POLAROIDS = [
   {
@@ -142,11 +143,13 @@ export default function Polaroid() {
                 i > 0 ? "-ml-[30px]" : ""
               } group shrink-0`}
             >
-              <div className="polaroid-img-container w-full aspect-square bg-[var(--bg-secondary)] overflow-hidden rounded-xl mb-5">
-                <img
+              <div className="polaroid-img-container w-full aspect-square bg-[var(--bg-secondary)] overflow-hidden rounded-xl mb-5 relative">
+                <Image
                   src={item.src}
                   alt={item.alt}
-                  className="w-full h-full object-cover opacity-80 transition-opacity duration-300 group-hover:opacity-100"
+                  fill
+                  sizes="280px"
+                  className="object-cover opacity-80 transition-opacity duration-300 group-hover:opacity-100"
                 />
               </div>
               <div className="polaroid-caption flex items-center justify-center gap-2.5 text-[15px] font-medium text-[var(--text-primary)] tracking-[-0.2px]">

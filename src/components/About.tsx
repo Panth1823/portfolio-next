@@ -9,7 +9,6 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import Image from "next/image";
-import { ScrollVelocityRow } from "@/components/ui/scroll-based-velocity";
 
 /* ───────────────────── Animated Bio Words ───────────────────── */
 const bioText =
@@ -284,6 +283,11 @@ export default function About() {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* ── Curiosity Lab ── */}
+      <div className="py-24 sm:py-32 px-6 sm:px-12">
+        <CuriosityLab />
       </div>
     </section>
   );

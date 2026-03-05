@@ -30,7 +30,7 @@ export default function Footer() {
             Interested in working together?
           </h2>
           <h2 className="footer-subtitle text-[48px] font-light tracking-[-1px] text-[var(--text-primary)]">
-            I'd love to hear from you.
+            I&apos;d love to hear from you.
           </h2>
         </div>
 

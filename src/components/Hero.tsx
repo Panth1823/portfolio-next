@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 
 const TILES = [
@@ -97,10 +98,12 @@ function HeroTile({
         }}
       >
         <div className="w-full h-full relative group-hover/tile:grayscale-0 transition-all duration-700">
-          <img
+          <Image
             src={tile.poster}
             alt=""
-            className={`absolute inset-0 w-full h-full object-cover pointer-events-none transition-opacity duration-700 ${isCentered ? "opacity-0" : "opacity-100"}`}
+            fill
+            sizes="(max-width: 768px) 300px, 400px"
+            className={`object-cover pointer-events-none transition-opacity duration-700 ${isCentered ? "opacity-0" : "opacity-100"}`}
           />
           {/* Video element - only active when centered or near center for pre-loading */}
           <video
@@ -250,7 +253,7 @@ export default function Hero() {
             const isCentered = diff === 0;
 
             // Width stays constant for equal spacing!
-            let width = "400px";
+            const width = "400px";
             let height = "515px";
             let opacity = 1;
 

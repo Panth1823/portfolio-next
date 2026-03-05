@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
+import Image from "next/image";
 
 const ITEMS = [
   { src: "/images/Brew.png", alt: "Brew" },
@@ -17,20 +18,20 @@ export default function Curiosity() {
   const GAP = 12;
   const maxOffset = ITEMS.length - VISIBLE;
 
-  const updateCarousel = () => {
+  const updateCarousel = useCallback(() => {
     if (!trackRef.current) return;
     const items = trackRef.current.children;
     if (items.length === 0) return;
     const itemWidth = (items[0] as HTMLElement).offsetWidth;
     const shift = currentOffset * (itemWidth + GAP);
     trackRef.current.style.transform = `translateX(-${shift}px)`;
-  };
+  }, [currentOffset, GAP]);
 
   useEffect(() => {
     updateCarousel();
     window.addEventListener("resize", updateCarousel);
     return () => window.removeEventListener("resize", updateCarousel);
-  }, [currentOffset]);
+  }, [updateCarousel]);
 
   return (
     <section className="curiosity-section w-full bg-[var(--bg-primary)] font-manrope relative z-[1]">
@@ -105,10 +106,12 @@ export default function Curiosity() {
                   key={i}
                   className="carousel-item w-[220px] h-[287px] rounded-[10px] overflow-hidden shrink-0 relative bg-[var(--bg-secondary)] border border-[var(--border)]"
                 >
-                  <img
+                  <Image
                     src={item.src}
                     alt={item.alt}
-                    className="w-full h-full object-cover pointer-events-none"
+                    fill
+                    className="object-cover pointer-events-none"
+                    sizes="220px"
                   />
                 </div>
               ))}
