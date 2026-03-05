@@ -86,7 +86,7 @@ function HeroTile({
     <div
       className="shrink-0 flex items-center justify-center group/tile"
       style={{
-        width: `400px`,
+        width: `clamp(240px, 30vw, 400px)`,
         height: "515px",
         transition: isTransitioning ? "all 1000ms ease-in-out" : "none",
       }}
@@ -145,7 +145,8 @@ export default function Hero() {
     currentIndexRef.current = currentIndex;
   }, [currentIndex]);
 
-  const TILE_WIDTH = 440; // 400px tile + 40px gap
+  const TILE_WIDTH =
+    typeof window !== "undefined" && window.innerWidth < 640 ? 260 : 440; // responsive tile width
 
   const moveToIndex = useCallback((index: number) => {
     setIsTransitioning(true);
@@ -231,7 +232,7 @@ export default function Hero() {
     <section
       ref={containerRef}
       className="relative w-full min-h-screen mx-auto bg-[var(--bg-primary)] flex flex-col items-center justify-center overflow-hidden font-manrope cursor-grab active:cursor-grabbing"
-      style={{ height: "100vh" }}
+      style={{ height: "100dvh" }}
       onMouseDown={onDragStart}
       onMouseMove={onDragMove}
       onMouseUp={onDragEnd}
@@ -291,26 +292,26 @@ export default function Hero() {
       </div>
 
       {/* Central Content */}
-      <div className="relative z-10 w-[737px] h-[268px] flex items-center justify-center pointer-events-none">
-        <div className="hero-content-inner bg-[var(--bg-card)]/60 backdrop-blur-xl border border-[var(--border)] w-full h-full rounded-[40px] flex flex-col items-center justify-center px-12 shadow-2xl">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--accent)]/40 bg-[var(--accent)]/5 mb-6">
+      <div className="relative z-10 w-[calc(100%-2rem)] sm:w-[90vw] md:w-[737px] max-w-[737px] min-h-[200px] sm:h-[268px] flex items-center justify-center pointer-events-none px-2 sm:px-0">
+        <div className="hero-content-inner bg-[var(--bg-card)]/60 backdrop-blur-xl border border-[var(--border)] w-full h-full rounded-[24px] sm:rounded-[40px] flex flex-col items-center justify-center px-5 sm:px-12 py-8 sm:py-0 shadow-2xl">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--accent)]/40 bg-[var(--accent)]/5 mb-4 sm:mb-6">
             <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
             <span className="text-[var(--text-primary)] text-xs font-medium tracking-wide">
               Open to Opportunities
             </span>
           </div>
-          <h1 className="text-7xl font-bold text-[var(--text-primary)] mb-4 tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-[var(--text-primary)] mb-3 sm:mb-4 tracking-tight text-center">
             Product Designer
           </h1>
-          <p className="text-lg text-[var(--text-secondary)] font-light text-center">
+          <p className="text-sm sm:text-lg text-[var(--text-secondary)] font-light text-center">
             Turning user insights into real product decisions for{" "}
             <span className="text-[var(--accent)] font-medium">3+ years</span>
           </p>
         </div>
       </div>
 
-      {/* Controls Widget — bottom-right, dark/light mode aware */}
-      <div className="absolute bottom-8 right-10 z-20 flex items-center gap-3 pointer-events-auto">
+      {/* Controls Widget — bottom-center on mobile, bottom-right on desktop */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-10 sm:bottom-8 z-20 flex items-center gap-3 pointer-events-auto">
         <button
           onClick={(e) => {
             e.stopPropagation();

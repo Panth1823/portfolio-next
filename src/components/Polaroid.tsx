@@ -107,9 +107,33 @@ const POLAROIDS = [
 
 export default function Polaroid() {
   return (
-    <section className="polaroid-section w-full mx-auto py-32 sm:py-40 px-6 sm:px-10 flex flex-col items-center gap-[60px] font-manrope bg-[var(--bg-primary)]">
-      <div className="gallery-container w-full max-w-[1120px] flex justify-center items-center py-0 perspective-[1120px]">
-        <div className="polaroid-wrapper flex items-center justify-center relative -gap-5">
+    <section className="polaroid-section w-full mx-auto py-20 sm:py-32 lg:py-40 px-6 sm:px-10 flex flex-col items-center gap-[60px] font-manrope bg-[var(--bg-primary)]">
+      <div className="w-full max-w-[1120px]">
+        {/* Mobile: 2-column card grid */}
+        <div className="grid grid-cols-2 gap-4 md:hidden">
+          {POLAROIDS.map((item, i) => (
+            <div
+              key={i}
+              className="bg-[var(--bg-card)]/60 backdrop-blur-xl p-3 pb-5 rounded-[16px] border border-[var(--border)] shadow-lg"
+            >
+              <div className="w-full aspect-square bg-[var(--bg-secondary)] overflow-hidden rounded-xl mb-3 relative">
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  sizes="45vw"
+                  className="object-cover opacity-80"
+                />
+              </div>
+              <div className="flex items-center justify-center gap-2 text-[12px] font-medium text-[var(--text-primary)]">
+                {item.icon}
+                {item.caption}
+              </div>
+            </div>
+          ))}
+        </div>
+        {/* Desktop: original fanned layout */}
+        <div className="hidden md:flex items-center justify-center relative -gap-5 perspective-[1120px]">
           {POLAROIDS.map((item, i) => (
             <motion.div
               layout
@@ -158,8 +182,10 @@ export default function Polaroid() {
               </div>
             </motion.div>
           ))}
-        </div>
-      </div>
+        </div>{" "}
+        {/* closes desktop flex */}
+      </div>{" "}
+      {/* closes max-w outer */}
     </section>
   );
 }

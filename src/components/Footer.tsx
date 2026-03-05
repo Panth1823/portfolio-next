@@ -14,7 +14,7 @@ export default function Footer() {
   };
 
   return (
-    <section className="footer-section relative w-full h-[670px] min-h-[670px] flex flex-col items-center justify-between py-[60px] pb-[40px] bg-[var(--bg-primary)] overflow-hidden font-manrope">
+    <section className="footer-section relative w-full min-h-[500px] sm:min-h-[600px] lg:min-h-[670px] flex flex-col items-center justify-between py-12 sm:py-[60px] pb-8 sm:pb-[40px] bg-[var(--bg-primary)] overflow-hidden font-manrope">
       {/* Background Grid Lines */}
       <div className="grid-lines absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1440px] h-full pointer-events-none z-0">
         <div className="grid-line absolute w-[1px] h-full left-[10%] bg-gradient-to-b from-transparent via-black/15 dark:via-white/15 to-transparent" />
@@ -25,11 +25,11 @@ export default function Footer() {
 
       {/* Content Container */}
       <div className="footer-content relative z-[5] text-center flex flex-col items-center my-auto">
-        <div className="title-group mb-12 animate-fadeInUp">
-          <h2 className="footer-title text-[48px] font-light mb-2 tracking-[-1px] text-[var(--text-muted)]">
+        <div className="title-group mb-8 sm:mb-12 animate-fadeInUp px-4">
+          <h2 className="footer-title text-[28px] sm:text-[38px] lg:text-[48px] font-light mb-2 tracking-[-1px] text-[var(--text-muted)] text-center leading-tight">
             Interested in working together?
           </h2>
-          <h2 className="footer-subtitle text-[48px] font-light tracking-[-1px] text-[var(--text-primary)]">
+          <h2 className="footer-subtitle text-[28px] sm:text-[38px] lg:text-[48px] font-light tracking-[-1px] text-[var(--text-primary)] text-center leading-tight">
             I&apos;d love to hear from you.
           </h2>
         </div>
@@ -37,7 +37,7 @@ export default function Footer() {
         <div className="email-wrapper relative mb-12">
           <button
             onClick={handleCopy}
-            className={`email-btn bg-[var(--bg-secondary)] border border-[var(--border)] py-3.5 px-6 rounded-xl text-[var(--text-primary)] text-[16px] font-normal cursor-pointer transition-all duration-500 hover:border-[var(--text-secondary)] hover:bg-[var(--bg-card)] hover:px-8 hover:gap-3 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] flex items-center justify-center gap-0 overflow-hidden whitespace-nowrap group animate-fadeInUp delay-200`}
+            className={`email-btn bg-[var(--bg-secondary)] border border-[var(--border)] py-3 sm:py-3.5 px-4 sm:px-6 rounded-xl text-[var(--text-primary)] text-[14px] sm:text-[16px] font-normal cursor-pointer transition-all duration-500 hover:border-[var(--text-secondary)] hover:bg-[var(--bg-card)] hover:px-8 hover:gap-3 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] flex items-center justify-center gap-0 overflow-hidden whitespace-nowrap group animate-fadeInUp delay-200`}
           >
             <span>{email}</span>
             <div className="copy-icon w-0 opacity-0 group-hover:w-[18px] group-hover:opacity-100 transition-all duration-400 flex items-center justify-center">
