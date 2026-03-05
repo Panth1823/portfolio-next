@@ -7,40 +7,40 @@ import gsap from "gsap";
 const TILES = [
   {
     poster:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=500&q=75",
     video:
       "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
   },
   {
     poster:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=500&q=75",
     video: "https://vjs.zencdn.net/v/oceans.mp4",
   },
   {
     poster:
-      "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=500&q=75",
     video: "https://vjs.zencdn.net/v/oceans.mp4",
   },
   {
     poster:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=500&q=75",
     video:
       "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
   },
   {
     poster:
-      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=500&q=75",
     video:
       "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
   },
   {
     poster:
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=500&q=75",
     video: "https://vjs.zencdn.net/v/oceans.mp4",
   },
   {
     poster:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=75",
     video:
       "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
   },
@@ -53,6 +53,8 @@ const OFFSET = TILES.length;
 function HeroTile({
   tile,
   isCentered,
+  isNear,
+  isLCP,
   width,
   height,
   opacity,
@@ -61,6 +63,8 @@ function HeroTile({
 }: {
   tile: (typeof TILES)[0];
   isCentered: boolean;
+  isNear: boolean;
+  isLCP: boolean;
   width: string;
   height: string;
   opacity: number;
@@ -102,13 +106,14 @@ function HeroTile({
             src={tile.poster}
             alt=""
             fill
-            sizes="(max-width: 768px) 300px, 400px"
+            sizes="400px"
+            priority={isLCP}
             className={`object-cover pointer-events-none transition-opacity duration-700 ${isCentered ? "opacity-0" : "opacity-100"}`}
           />
-          {/* Video element - only active when centered or near center for pre-loading */}
+          {/* Video — only load src when active or adjacent to avoid fetching 21 videos upfront */}
           <video
             ref={videoRef}
-            src={tile.video}
+            src={isNear ? tile.video : undefined}
             poster={tile.poster}
             muted
             loop
@@ -226,6 +231,7 @@ export default function Hero() {
     <section
       ref={containerRef}
       className="relative w-full min-h-screen mx-auto bg-[var(--bg-primary)] flex flex-col items-center justify-center overflow-hidden font-manrope cursor-grab active:cursor-grabbing"
+      style={{ height: "100vh" }}
       onMouseDown={onDragStart}
       onMouseMove={onDragMove}
       onMouseUp={onDragEnd}
@@ -246,6 +252,7 @@ export default function Hero() {
               ? "transform 1000ms cubic-bezier(0.2, 0, 0, 1)"
               : "none",
             gap: "40px",
+            willChange: "transform",
           }}
         >
           {DISPLAY_TILES.map((tile, i) => {
@@ -270,6 +277,8 @@ export default function Hero() {
                 key={i}
                 tile={tile}
                 isCentered={isCentered}
+                isNear={diff <= 1}
+                isLCP={i === OFFSET + 3}
                 width={width}
                 height={height}
                 opacity={opacity}

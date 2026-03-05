@@ -37,6 +37,8 @@ export default function RootLayout({
             `,
           }}
         />
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
       </head>
       <body
         className={`${inter.className} ${manrope.variable} antialiased selection:bg-[#c8ff00] selection:text-black`}
