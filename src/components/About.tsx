@@ -184,73 +184,6 @@ function PeekCarousel() {
   );
 }
 
-/* ───────────────────── Curiosity Lab Section ───────────────────── */
-function CuriosityLab() {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="w-full max-w-[1200px] mx-auto"
-    >
-      <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-stretch min-h-[380px]">
-        {/* Left — Text Content */}
-        <div className="w-full lg:w-[40%] flex flex-col justify-between">
-          {/* Top: Label + Divider line */}
-          <div>
-            <div className="flex items-center gap-3 mb-10">
-              <span className="text-[var(--text-muted)] text-[6px]">●</span>
-              <span className="text-sm font-medium text-[var(--text-secondary)] tracking-wide whitespace-nowrap">
-                Curiosity Lab
-              </span>
-              <div className="flex-1 h-px bg-[var(--border)]" />
-            </div>
-
-            {/* Icon — sparkle / experiment */}
-            <motion.div
-              className="w-10 h-10 mb-8 text-[var(--text-muted)]"
-              whileHover={{ rotate: 15, scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <svg
-                viewBox="0 0 24 24"
-                className="w-full h-full fill-current opacity-60"
-              >
-                <path d="M12 2C12.5523 2 13 2.44772 13 3V5C13 5.55228 12.5523 6 12 6C11.4477 6 11 5.55228 11 5V3C11 2.44772 11.4477 2 12 2ZM4.92893 4.92893C5.31946 4.53841 5.95262 4.53841 6.34315 4.92893L7.75736 6.34315C8.14789 6.73367 8.14789 7.36684 7.75736 7.75736C7.36684 8.14789 6.73367 8.14789 6.34315 7.75736L4.92893 6.34315C4.53841 5.95262 4.53841 5.31946 4.92893 4.92893ZM19.0711 4.92893C19.4616 5.31946 19.4616 5.95262 19.0711 6.34315L17.6569 7.75736C17.2663 8.14789 16.6332 8.14789 16.2426 7.75736C15.8521 7.36684 15.8521 6.73367 16.2426 6.34315L17.6569 4.92893C18.0474 4.53841 18.6805 4.53841 19.0711 4.92893ZM12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8ZM2 12C2 11.4477 2.44772 11 3 11H5C5.55228 11 6 11.4477 6 12C6 12.5523 5.55228 13 5 13H3C2.44772 13 2 12.5523 2 12ZM18 12C18 11.4477 18.4477 11 19 11H21C21.5523 11 22 11.4477 22 12C22 12.5523 21.5523 13 21 13H19C18.4477 13 18 12.5523 18 12ZM6.34315 16.2426C6.73367 15.8521 7.36684 15.8521 7.75736 16.2426C8.14789 16.6332 8.14789 17.2663 7.75736 17.6569L6.34315 19.0711C5.95262 19.4616 5.31946 19.4616 4.92893 19.0711C4.53841 18.6805 4.53841 18.0474 4.92893 17.6569L6.34315 16.2426ZM16.2426 16.2426C16.6332 15.8521 17.2663 15.8521 17.6569 16.2426L19.0711 17.6569C19.4616 18.0474 19.4616 18.6805 19.0711 19.0711C18.6805 19.4616 18.0474 19.4616 17.6569 19.0711L16.2426 17.6569C15.8521 17.2663 15.8521 16.6332 16.2426 16.2426ZM12 18C12.5523 18 13 18.4477 13 19V21C13 21.5523 12.5523 22 12 22C11.4477 22 11 21.5523 11 21V19C11 18.4477 11.4477 18 12 18Z" />
-              </svg>
-            </motion.div>
-
-            {/* Description — larger headline style */}
-            <p className="text-xl sm:text-2xl lg:text-[26px] leading-snug font-normal text-[var(--text-secondary)] mb-10">
-              Experiments that sparked my curiosity and led me down a few
-              unexpected creative directions - pushing my creative boundaries
-              along the way
-            </p>
-          </div>
-
-          {/* Bottom: Tags */}
-          <div className="flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-5 py-2 rounded-full text-xs font-medium text-[var(--text-secondary)] bg-[#1a1a1a] tracking-wide cursor-default hover:bg-[#222] transition-colors duration-300"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Right — 3-panel Peek Carousel */}
-        <div className="w-full lg:w-[60%] relative min-h-[320px]">
-          <PeekCarousel />
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
 /* ───────────────────── Main About Section ───────────────────── */
 export default function About() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -283,11 +216,6 @@ export default function About() {
             ))}
           </div>
         </div>
-      </div>
-
-      {/* ── Curiosity Lab ── */}
-      <div className="py-24 sm:py-32 px-6 sm:px-12">
-        <CuriosityLab />
       </div>
     </section>
   );
