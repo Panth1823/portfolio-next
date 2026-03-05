@@ -121,6 +121,7 @@ export default function Curiosity() {
             <button
               onClick={() => setCurrentOffset((prev) => Math.max(0, prev - 1))}
               disabled={currentOffset <= 0}
+              aria-label="Previous project"
               className="nav-btn prev-btn absolute top-1/2 -translate-y-1/2 left-[calc(50%-150px-22px)] w-9 h-9 rounded-full bg-[var(--bg-secondary)] border border-[var(--accent)] text-[var(--text-primary)] flex items-center justify-center cursor-pointer z-10 transition-all hover:enabled:bg-[var(--bg-card)] hover:enabled:border-[var(--text-secondary)] disabled:opacity-30 disabled:cursor-not-allowed"
             >
               <svg
@@ -135,6 +136,7 @@ export default function Curiosity() {
                 setCurrentOffset((prev) => Math.min(maxOffset, prev + 1))
               }
               disabled={currentOffset >= maxOffset}
+              aria-label="Next project"
               className="nav-btn next-btn absolute top-1/2 -translate-y-1/2 right-[calc(50%-150px-22px)] w-9 h-9 rounded-full bg-[var(--bg-secondary)] border border-[var(--accent)] text-[var(--text-primary)] flex items-center justify-center cursor-pointer z-10 transition-all hover:enabled:bg-[var(--bg-card)] hover:enabled:border-[var(--text-secondary)] disabled:opacity-30 disabled:cursor-not-allowed"
             >
               <svg

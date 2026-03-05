@@ -22,7 +22,7 @@ function AnimatedWord({
 }) {
   const start = index / total;
   const end = start + 1 / total;
-  const opacity = useTransform(scrollYProgress, [start, end], [0.1, 1]);
+  const opacity = useTransform(scrollYProgress, [start, end], [0.25, 1]);
 
   return (
     <motion.span

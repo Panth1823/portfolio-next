@@ -7,40 +7,40 @@ import gsap from "gsap";
 const TILES = [
   {
     poster:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=500&q=75",
+      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=400&q=70",
     video:
       "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
   },
   {
     poster:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=500&q=75",
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400&q=70",
     video: "https://vjs.zencdn.net/v/oceans.mp4",
   },
   {
     poster:
-      "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=500&q=75",
+      "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=400&q=70",
     video: "https://vjs.zencdn.net/v/oceans.mp4",
   },
   {
     poster:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=500&q=75",
+      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=400&q=70",
     video:
       "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
   },
   {
     poster:
-      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=500&q=75",
+      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=400&q=70",
     video:
       "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
   },
   {
     poster:
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=500&q=75",
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=70",
     video: "https://vjs.zencdn.net/v/oceans.mp4",
   },
   {
     poster:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=75",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=70",
     video:
       "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
   },
