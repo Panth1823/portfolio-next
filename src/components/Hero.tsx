@@ -300,18 +300,18 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Controls Widget */}
-      <div className="absolute top-[calc(50%+150px)] left-1/2 ml-[220px] z-20 flex items-center gap-4 group/controls pointer-events-auto">
+      {/* Controls Widget — bottom-right, dark/light mode aware */}
+      <div className="absolute bottom-8 right-10 z-20 flex items-center gap-3 pointer-events-auto">
         <button
           onClick={(e) => {
             e.stopPropagation();
             prev();
           }}
-          className="w-10 h-10 rounded-full border border-[var(--border)] bg-[#0e0e0e] flex items-center justify-center hover:bg-[#1a1a1a] transition-all text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+          className="w-9 h-9 rounded-full border border-[var(--border)] bg-[var(--bg-card)] flex items-center justify-center hover:bg-[var(--bg-secondary)] transition-all duration-200 text-[var(--text-muted)] hover:text-[var(--text-primary)]"
           aria-label="Previous Slide"
         >
           <svg
-            className="w-4 h-4 fill-none stroke-current stroke-[1.8]"
+            className="w-3.5 h-3.5 fill-none stroke-current stroke-[1.8]"
             viewBox="0 0 24 24"
           >
             <path d="M15 18l-6-6 6-6" />
@@ -323,12 +323,12 @@ export default function Hero() {
             e.stopPropagation();
             setIsPlaying(!isPlaying);
           }}
-          className="w-10 h-10 rounded-full border border-[var(--accent)]/30 bg-[#0e0e0e] flex items-center justify-center hover:bg-[#1a1a1a] transition-all"
+          className="w-9 h-9 rounded-full border border-[var(--accent)]/40 bg-[var(--bg-card)] flex items-center justify-center hover:bg-[var(--bg-secondary)] transition-all duration-200"
           aria-label={isPlaying ? "Pause" : "Play"}
         >
           {isPlaying ? (
             <svg
-              className="w-4 h-4 text-[var(--accent)] fill-current"
+              className="w-3.5 h-3.5 text-[var(--accent)] fill-current"
               viewBox="0 0 24 24"
             >
               <rect x="6" y="4" width="3.5" height="16" rx="1" />
@@ -336,7 +336,7 @@ export default function Hero() {
             </svg>
           ) : (
             <svg
-              className="w-4 h-4 text-[var(--accent)] fill-current ml-1"
+              className="w-3.5 h-3.5 text-[var(--accent)] fill-current ml-0.5"
               viewBox="0 0 24 24"
             >
               <path d="M5 3l14 9-14 9V3z" />
@@ -349,11 +349,11 @@ export default function Hero() {
             e.stopPropagation();
             next();
           }}
-          className="w-10 h-10 rounded-full border border-[var(--border)] bg-[#0e0e0e] flex items-center justify-center hover:bg-[#1a1a1a] transition-all text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+          className="w-9 h-9 rounded-full border border-[var(--border)] bg-[var(--bg-card)] flex items-center justify-center hover:bg-[var(--bg-secondary)] transition-all duration-200 text-[var(--text-muted)] hover:text-[var(--text-primary)]"
           aria-label="Next Slide"
         >
           <svg
-            className="w-4 h-4 fill-none stroke-current stroke-[1.8]"
+            className="w-3.5 h-3.5 fill-none stroke-current stroke-[1.8]"
             viewBox="0 0 24 24"
           >
             <path d="M9 18l6-6-6-6" />

@@ -12,13 +12,30 @@ export default function Nav() {
       transition={{ duration: 0.8, delay: 0.5 }}
       className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-8 sm:px-16 py-6"
     >
-      {/* Logo */}
-      <Link
-        href="/"
-        className="font-bold tracking-tighter text-2xl text-[var(--text-primary)]"
+      {/* Logo — hover reveals full name */}
+      <motion.div
+        initial="idle"
+        animate="idle"
+        whileHover="hovered"
+        className="flex items-center"
       >
-        S
-      </Link>
+        <Link
+          href="/"
+          className="flex items-center font-bold tracking-tighter text-2xl text-[var(--text-primary)]"
+        >
+          <span>S</span>
+          <motion.span
+            variants={{
+              idle: { width: 0, opacity: 0, x: -6 },
+              hovered: { width: "auto", opacity: 1, x: 0 },
+            }}
+            transition={{ type: "spring", stiffness: 320, damping: 28 }}
+            className="inline-block overflow-hidden whitespace-nowrap"
+          >
+            hvetha
+          </motion.span>
+        </Link>
+      </motion.div>
 
       {/* Nav Links + Theme Toggle */}
       <div className="flex items-center gap-8">

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion, MotionValue, useTransform } from "framer-motion";
 
 interface CardProps {
@@ -27,16 +28,20 @@ function ExperienceCard({
 }: CardProps) {
   // Fade in animation mapped to a narrow band around fadeInPos
   const opacity = useTransform(progress, [fadeInPos - 0.05, fadeInPos], [0, 1]);
-
   const y = useTransform(progress, [fadeInPos - 0.05, fadeInPos], [22, 0]);
 
-  // Active state color transition — use a hook-safe approach
-  // In light mode text-primary is dark, in dark mode it's white
-  const titleColor = useTransform(
+  // Track active state via a plain boolean — avoids CSS variable color interpolation
+  // which Framer Motion cannot handle
+  const isActiveMotion = useTransform(
     progress,
     [activeStart - 0.01, activeStart, activeEnd, activeEnd + 0.01],
-    ["var(--text-primary)", "#c8ff00", "#c8ff00", "var(--text-primary)"],
+    [0, 1, 1, 0],
   );
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    return isActiveMotion.on("change", (v) => setIsActive(v > 0.5));
+  }, [isActiveMotion]);
 
   return (
     <motion.div
@@ -49,12 +54,15 @@ function ExperienceCard({
       <div className="text-[11px] font-medium text-[var(--text-muted)] tracking-widest uppercase mb-2">
         {company}
       </div>
-      <motion.div
-        style={{ color: titleColor }}
-        className="text-[26px] max-md:text-[20px] max-sm:text-[18px] font-bold leading-tight mb-2.5 transition-colors duration-300"
+      <div
+        style={{
+          color: isActive ? "#c8ff00" : undefined,
+          transition: "color 300ms ease",
+        }}
+        className="text-[26px] max-md:text-[20px] max-sm:text-[18px] font-bold leading-tight mb-2.5 text-[var(--text-primary)]"
       >
         {title}
-      </motion.div>
+      </div>
       <div className="text-[11px] font-medium text-[var(--text-muted)] tracking-wide mb-3">
         {date}
       </div>
