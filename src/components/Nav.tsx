@@ -21,7 +21,7 @@ export default function Nav() {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}
-        className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 sm:px-16 py-5 sm:py-6"
+        className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 sm:px-16 py-5 sm:py-6 backdrop-blur-md bg-[var(--bg-primary)]/80 border-[var(--border)]/40"
       >
         {/* Logo — hover reveals full name */}
         <motion.div
@@ -32,7 +32,7 @@ export default function Nav() {
         >
           <Link
             href="/"
-            className="flex items-center font-bold tracking-tighter text-2xl text-[var(--text-primary)]"
+            className="flex items-center font-manrope font-extrabold tracking-tight text-2xl text-[var(--text-primary)]"
           >
             <span>S</span>
             <motion.span

@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-40 px-6 sm:px-12 bg-[var(--bg-primary)] flex flex-col justify-center items-center text-center"
+      className="py-20 sm:py-28 px-6 sm:px-12 bg-[var(--bg-primary)] flex flex-col justify-center items-center text-center"
     >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -56,7 +56,7 @@ export default function Contact() {
           </a>
         </div>
       </motion.div>
-      <div className="border-t border-[var(--border)] w-full pt-10 text-[var(--text-muted)] text-xs text-center flex justify-between items-center max-w-4xl">
+      <div className="border-t border-[var(--border)] w-full pt-8 text-[var(--text-muted)] text-xs text-center flex flex-col sm:flex-row justify-between items-center max-w-4xl gap-2">
         <p>© 2026 Shvetha. All rights reserved.</p>
         <p>Built with Next.js & Framer Motion</p>
       </div>

@@ -145,8 +145,9 @@ export default function Hero() {
     currentIndexRef.current = currentIndex;
   }, [currentIndex]);
 
-  const TILE_WIDTH =
-    typeof window !== "undefined" && window.innerWidth < 640 ? 260 : 440; // responsive tile width
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
+  const isTablet = typeof window !== "undefined" && window.innerWidth < 1024;
+  const TILE_WIDTH = isMobile ? 200 : isTablet ? 300 : 440;
 
   const moveToIndex = useCallback((index: number) => {
     setIsTransitioning(true);
@@ -252,7 +253,7 @@ export default function Hero() {
             transition: isTransitioning
               ? "transform 1000ms cubic-bezier(0.2, 0, 0, 1)"
               : "none",
-            gap: "40px",
+            gap: isMobile ? "16px" : isTablet ? "24px" : "40px",
             willChange: "transform",
           }}
         >
@@ -260,17 +261,17 @@ export default function Hero() {
             const diff = Math.abs(i - currentIndex);
             const isCentered = diff === 0;
 
-            // Width stays constant for equal spacing!
-            const width = "400px";
-            let height = "515px";
+            // Responsive sizing: mobile shows left-small / center-big / right-small
+            const width = isMobile ? "180px" : isTablet ? "260px" : "400px";
+            let height = isMobile ? "360px" : isTablet ? "460px" : "515px";
             let opacity = 1;
 
             if (diff === 1) {
-              height = "451px";
-              opacity = 0.8;
+              height = isMobile ? "270px" : isTablet ? "370px" : "451px";
+              opacity = isMobile ? 0.7 : 0.8;
             } else if (diff >= 2) {
-              height = "390px";
-              opacity = 0.4;
+              height = isMobile ? "200px" : isTablet ? "300px" : "390px";
+              opacity = isMobile ? 0.3 : 0.4;
             }
 
             return (
@@ -311,7 +312,13 @@ export default function Hero() {
       </div>
 
       {/* Controls Widget — bottom-center on mobile, bottom-right on desktop */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-10 sm:bottom-8 z-20 flex items-center gap-3 pointer-events-auto">
+      <div
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-10 sm:bottom-8 z-20 hidden sm:flex items-center gap-3 pointer-events-auto"
+        onMouseDown={(e) => e.stopPropagation()}
+        onMouseUp={(e) => e.stopPropagation()}
+        onTouchStart={(e) => e.stopPropagation()}
+        onTouchEnd={(e) => e.stopPropagation()}
+      >
         <button
           onClick={(e) => {
             e.stopPropagation();

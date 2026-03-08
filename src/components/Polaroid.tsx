@@ -107,21 +107,91 @@ const POLAROIDS = [
 
 export default function Polaroid() {
   return (
-    <section className="polaroid-section w-full mx-auto py-20 sm:py-32 lg:py-40 px-6 sm:px-10 flex flex-col items-center gap-[60px] font-manrope bg-[var(--bg-primary)]">
+    <section className="polaroid-section w-full mx-auto py-20 sm:py-28 px-6 sm:px-12 flex flex-col items-center gap-[60px] font-manrope bg-[var(--bg-primary)]">
       <div className="w-full max-w-[1120px]">
-        {/* Mobile: 2-column card grid */}
-        <div className="grid grid-cols-2 gap-4 md:hidden">
+        {/* Mobile: abstract staggered layout */}
+        <div className="sm:hidden relative w-full" style={{ height: "520px" }}>
+          {POLAROIDS.map((item, i) => {
+            // Abstract positions: alternate left/right columns with vertical offsets
+            const leftPositions = [4, 8, 4];
+            const rightPositions = [48, 52, 48];
+            const isLeft = i % 2 === 0;
+            const colIndex = Math.floor(i / 2);
+            const left = isLeft
+              ? `${leftPositions[colIndex % 3]}%`
+              : `${rightPositions[colIndex % 3]}%`;
+            const topOffsets = [10, 80, 160, 240, 320, 400];
+            const rotations = [-8, 6, -5, 9, -7, 4];
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 40, rotate: rotations[i] - 10 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  rotate: rotations[i],
+                  transition: {
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 18,
+                    delay: i * 0.08,
+                  },
+                }}
+                whileHover={{ scale: 1.06, rotate: 0, zIndex: 50 }}
+                viewport={{ once: true, margin: "-30px" }}
+                className="absolute bg-[var(--bg-card)]/70 backdrop-blur-xl p-2.5 pb-5 rounded-[16px] border border-[var(--border)] shadow-[0_8px_24px_-8px_rgba(0,0,0,0.5)] cursor-pointer"
+                style={{
+                  width: "42%",
+                  left,
+                  top: `${topOffsets[i] || 0}px`,
+                  zIndex: 10 - i,
+                }}
+              >
+                <div className="w-full aspect-square bg-[var(--bg-secondary)] overflow-hidden rounded-xl mb-3 relative">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    sizes="45vw"
+                    className="object-cover opacity-85"
+                  />
+                </div>
+                <div className="flex items-center justify-center gap-1.5 text-[11px] font-medium text-[var(--text-primary)]">
+                  {item.icon}
+                  {item.caption}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+        {/* Tablet: compact 3-per-row fanned layout */}
+        <div className="hidden sm:flex md:hidden items-end justify-center gap-4 flex-wrap">
           {POLAROIDS.map((item, i) => (
-            <div
+            <motion.div
               key={i}
-              className="bg-[var(--bg-card)]/60 backdrop-blur-xl p-3 pb-5 rounded-[16px] border border-[var(--border)] shadow-lg"
+              initial={{ opacity: 0, y: item.y + 40, rotate: item.rot - 8 }}
+              whileInView={{
+                opacity: 1,
+                y: item.y * 0.5,
+                rotate: item.rot * 0.7,
+                transition: {
+                  type: "spring",
+                  stiffness: 220,
+                  damping: 20,
+                  delay: i * 0.08,
+                },
+              }}
+              whileHover={{ scale: 1.08, rotate: 0, y: -10, zIndex: 50 }}
+              viewport={{ once: true, margin: "-40px" }}
+              className="bg-[var(--bg-card)]/60 backdrop-blur-xl p-3 pb-6 rounded-[18px] border border-[var(--border)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] cursor-pointer shrink-0"
+              style={{ width: "180px", zIndex: 10 - i }}
             >
               <div className="w-full aspect-square bg-[var(--bg-secondary)] overflow-hidden rounded-xl mb-3 relative">
                 <Image
                   src={item.src}
                   alt={item.alt}
                   fill
-                  sizes="45vw"
+                  sizes="180px"
                   className="object-cover opacity-80"
                 />
               </div>
@@ -129,7 +199,7 @@ export default function Polaroid() {
                 {item.icon}
                 {item.caption}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
         {/* Desktop: original fanned layout */}
@@ -182,8 +252,7 @@ export default function Polaroid() {
               </div>
             </motion.div>
           ))}
-        </div>{" "}
-        {/* closes desktop flex */}
+        </div>
       </div>{" "}
       {/* closes max-w outer */}
     </section>

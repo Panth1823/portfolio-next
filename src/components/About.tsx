@@ -27,7 +27,7 @@ function AnimatedWord({
   return (
     <motion.span
       style={{ opacity }}
-      className="text-3xl sm:text-5xl md:text-6xl font-medium tracking-tight text-[var(--text-primary)]"
+      className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-[var(--text-primary)]"
     >
       {word}
     </motion.span>
@@ -47,13 +47,9 @@ export default function About() {
       {/* ── Bio Text (scroll-driven reveal) ── */}
       <div
         ref={containerRef}
-        className="relative py-32 sm:py-40 px-6 sm:px-12 min-h-screen flex flex-col justify-center items-center text-center"
+        className="relative py-20 sm:py-28 px-6 sm:px-12 flex flex-col justify-center items-center text-center"
       >
         <div className="max-w-4xl w-full flex flex-col items-center">
-          <h2 className="text-[#c8ff00] text-sm font-semibold tracking-[2px] uppercase mb-12">
-            About Me
-          </h2>
-
           <div className="flex flex-wrap gap-x-3 gap-y-2 justify-center">
             {bioText.map((word, i) => (
               <AnimatedWord

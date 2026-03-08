@@ -56,10 +56,10 @@ function ExperienceCard({
       </div>
       <div
         style={{
-          color: isActive ? "#c8ff00" : undefined,
+          color: isActive ? "rgba(200,255,0,0.72)" : undefined,
           transition: "color 300ms ease",
         }}
-        className="text-[26px] max-md:text-[20px] max-sm:text-[18px] font-bold leading-tight mb-2.5 text-[var(--text-primary)]"
+        className="text-[22px] max-md:text-[18px] max-sm:text-[16px] font-semibold leading-tight mb-2.5 text-[var(--text-primary)]"
       >
         {title}
       </div>
@@ -79,7 +79,7 @@ export default function ExperienceCards({
   progress: MotionValue<number>;
 }) {
   return (
-    <div className="absolute bottom-[130px] left-[60px] right-[60px] flex justify-between gap-10 z-[5] max-md:left-[30px] max-md:right-[30px] max-md:gap-6 max-sm:flex-col max-sm:left-[24px] max-sm:right-[24px] max-sm:bottom-auto max-sm:top-[180px] max-sm:gap-7">
+    <div className="absolute bottom-[130px] left-[60px] right-[60px] flex justify-between gap-10 z-[5] max-md:left-6 max-md:right-6 max-md:bottom-[80px] max-md:gap-6 max-sm:flex-col max-sm:bottom-auto max-sm:top-[260px] max-sm:gap-6">
       <ExperienceCard
         progress={progress}
         fadeInPos={0.18}

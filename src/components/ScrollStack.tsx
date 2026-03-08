@@ -44,7 +44,7 @@ export function ScrollStackItem({ children, index = 0 }: ScrollStackItemProps) {
       style={{
         zIndex: index + 1,
         height: "100vh",
-        paddingTop: `calc(120px + ${index * 25}px)`,
+        paddingTop: `calc(clamp(60px, 8vw, 120px) + ${index * 20}px)`,
       }}
     >
       <motion.div

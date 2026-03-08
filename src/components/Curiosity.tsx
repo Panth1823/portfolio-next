@@ -35,9 +35,9 @@ export default function Curiosity() {
 
   return (
     <section className="curiosity-section w-full bg-[var(--bg-primary)] font-manrope relative z-[1]">
-      <div className="flex flex-col lg:flex-row items-center justify-between max-w-[1440px] w-full min-h-[460px] py-24 sm:py-32 lg:py-40 px-6 sm:px-12 lg:px-[160px] mx-auto gap-10">
+      <div className="flex flex-col lg:flex-row items-center justify-between max-w-[1440px] w-full py-20 sm:py-28 px-6 sm:px-12 lg:px-16 mx-auto gap-10">
         {/* Left Content */}
-        <div className="content-left w-[55%] shrink-0 z-[5]">
+        <div className="content-left w-full lg:w-[50%] shrink-0 z-[5]">
           <div className="section-label flex items-center gap-3 mb-10">
             <span className="text-[13px] font-normal text-[var(--text-muted)] tracking-[0.5px]">
               • Curiosity Lab
@@ -95,8 +95,8 @@ export default function Curiosity() {
         </div>
 
         {/* Right Carousel */}
-        <div className="carousel-right shrink-0 relative flex items-center justify-end">
-          <div className="carousel-container relative w-[507px] h-[287px] flex items-center justify-center overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_20%,black_80%,transparent_100%)]">
+        <div className="carousel-right w-full lg:w-auto shrink-0 relative flex items-center justify-center lg:justify-end">
+          <div className="carousel-container relative w-full max-w-[507px] h-[240px] sm:h-[287px] flex items-center justify-center overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_15%,black_85%,transparent_100%)]">
             <div
               ref={trackRef}
               className="carousel-track flex items-center justify-start gap-3 transition-transform duration-500 cubic-bezier(0.25,0.8,0.25,1) will-change-transform"
@@ -104,7 +104,7 @@ export default function Curiosity() {
               {ITEMS.map((item, i) => (
                 <div
                   key={i}
-                  className="carousel-item w-[220px] h-[287px] rounded-[10px] overflow-hidden shrink-0 relative bg-[var(--bg-secondary)] border border-[var(--border)]"
+                  className="carousel-item w-[160px] sm:w-[220px] h-[220px] sm:h-[287px] rounded-[10px] overflow-hidden shrink-0 relative bg-[var(--bg-secondary)] border border-[var(--border)] transition-all duration-500 hover:scale-[1.04] hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)] hover:border-[var(--text-muted)] hover:z-10 cursor-pointer"
                 >
                   <Image
                     src={item.src}

@@ -26,10 +26,10 @@ export default function Footer() {
       {/* Content Container */}
       <div className="footer-content relative z-[5] text-center flex flex-col items-center my-auto">
         <div className="title-group mb-8 sm:mb-12 animate-fadeInUp px-4">
-          <h2 className="footer-title text-[28px] sm:text-[38px] lg:text-[48px] font-light mb-2 tracking-[-1px] text-[var(--text-muted)] text-center leading-tight">
+          <h2 className="footer-title text-[22px] sm:text-[34px] lg:text-[46px] font-light mb-2 tracking-[-1px] text-[var(--text-muted)] text-center leading-tight">
             Interested in working together?
           </h2>
-          <h2 className="footer-subtitle text-[28px] sm:text-[38px] lg:text-[48px] font-light tracking-[-1px] text-[var(--text-primary)] text-center leading-tight">
+          <h2 className="footer-subtitle text-[22px] sm:text-[34px] lg:text-[46px] font-light tracking-[-1px] text-[var(--text-primary)] text-center leading-tight">
             I&apos;d love to hear from you.
           </h2>
         </div>
@@ -83,12 +83,10 @@ function SocialLink({
   iconClass: string;
 }) {
   const iconUrls: Record<string, string> = {
-    "linkedin-icon":
-      "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg",
+    "linkedin-icon": " https://img.icons8.com/forma-regular/48/linkedin.png",
     "instagram-icon":
-      "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg",
-    "behance-icon":
-      "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/behance.svg",
+      "https://img.icons8.com/forma-regular/48/instagram-new.png",
+    "behance-icon": "https://img.icons8.com/forma-regular/48/behance.png",
   };
 
   return (

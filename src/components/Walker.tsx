@@ -57,9 +57,9 @@ export default function Walker({ progress }: WalkerProps) {
   // X position mapped across progress [0, 1]
   // Originally: x = () => endX() + 180 = window.innerWidth - 160 + 180 = window.innerWidth + 20
   // Starts left -180px so it enters the screen.
-  const endXValue = windowWidth + 60; // Just slightly past right edge
+  const endXValue = windowWidth - 10; // stop with character fully in frame
 
-  const x = useTransform(progress, [0, 1], [0, endXValue]);
+  const x = useTransform(progress, [0, 0.93, 1], [0, endXValue, endXValue]);
 
   // Subtle scale bounces at 0.18, 0.5, 0.78
   // Each sequence is: base(1) -> arrive(1.06) -> leave(1)
@@ -74,29 +74,33 @@ export default function Walker({ progress }: WalkerProps) {
     [1, 1, 0.96, 1, 1, 0.96, 1, 1, 0.96, 1, 1],
   );
 
-  // Trail width follows the walker's x position (offset by ~100px for center of character)
-  const trailWidth = useTransform(progress, [0, 1], [0, endXValue + 100]);
+  // Trail width follows the walker's x position — freezes when character stops at 0.93
+  const trailWidth = useTransform(
+    progress,
+    [0, 0.93, 1],
+    [0, endXValue + 80, endXValue + 80],
+  );
 
   return (
     <>
       {/* Gradient trailing line — anchored at left, width follows the walker */}
       <motion.div
         style={{ width: trailWidth }}
-        className="absolute bottom-[30px] left-0 h-[2px] z-[5] max-sm:bottom-[20px]"
+        className="absolute bottom-[30px] left-0 h-[1px] z-[5] max-sm:bottom-[20px]"
       >
         <div
           className="w-full h-full"
           style={{
             background:
-              "linear-gradient(90deg, transparent 0%, rgba(200,255,0,0.03) 20%, rgba(200,255,0,0.1) 50%, rgba(200,255,0,0.4) 80%, #c8ff00 100%)",
+              "linear-gradient(90deg, transparent 0%, rgba(200,255,0,0.01) 20%, rgba(200,255,0,0.05) 50%, rgba(200,255,0,0.18) 80%, rgba(200,255,0,0.55) 100%)",
           }}
         />
         {/* Soft glow at the leading edge */}
         <div
-          className="absolute right-0 top-1/2 -translate-y-1/2 w-[120px] h-[16px] max-sm:w-[60px] max-sm:h-[10px]"
+          className="absolute right-0 top-1/2 -translate-y-1/2 w-[80px] h-[10px] max-sm:w-[40px] max-sm:h-[6px]"
           style={{
             background:
-              "radial-gradient(ellipse at right center, rgba(200,255,0,0.2) 0%, transparent 70%)",
+              "radial-gradient(ellipse at right center, rgba(200,255,0,0.1) 0%, transparent 70%)",
           }}
         />
       </motion.div>
