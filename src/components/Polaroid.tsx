@@ -22,7 +22,7 @@ const POLAROIDS = [
     ),
   },
   {
-    src: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80",
+    src: "/images/Workshop-Npr.jpeg",
     alt: "Workshop",
     caption: "Workshop @ NPR",
     rot: 6,
@@ -54,7 +54,7 @@ const POLAROIDS = [
     ),
   },
   {
-    src: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=400&q=80",
+    src: "/images/U&I-volunteer.jpeg",
     alt: "Volunteer",
     caption: "Volunteer @ U&I",
     rot: 2,
@@ -69,7 +69,7 @@ const POLAROIDS = [
     ),
   },
   {
-    src: "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&w=400&q=80",
+    src: "/images/Pawful.jpeg",
     alt: "Paw-ful",
     caption: "Paw-ful",
     rot: -8,
