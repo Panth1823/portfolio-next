@@ -132,7 +132,7 @@ export default function WorkSection() {
   return (
     <section
       id="work"
-      className="bg-[var(--bg-primary)] relative pb-20 sm:pb-28"
+      className="bg-[var(--bg-primary)] relative sm:pb-20"
     >
       {/* Stacking Cards using ScrollStack */}
       <div className="px-6 sm:px-12">

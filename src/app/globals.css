@@ -120,3 +120,7 @@ body {
   animation: none;
   mix-blend-mode: normal;
 }
+
+.glow-green-sm {
+  box-shadow: 0 0 20px -5px hsl(82 100% 54% / 0.2);
+}

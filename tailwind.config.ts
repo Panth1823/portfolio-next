@@ -46,6 +46,9 @@ const config: Config = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        "tag-red": "#FF6B6B",
+        "tag-orange": "#FF9F43",
+        "tag-yellow": "#FECA57",
         chart: {
           "1": "hsl(var(--chart-1))",
           "2": "hsl(var(--chart-2))",
@@ -60,10 +63,15 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       animation: {
+        float: "float 4s ease-in-out infinite",
         marquee: "marquee var(--duration) infinite linear",
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
       },
       keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
         marquee: {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(calc(-100% - var(--gap)))" },

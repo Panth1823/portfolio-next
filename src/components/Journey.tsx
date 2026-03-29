@@ -34,7 +34,7 @@ export default function Journey() {
         </div>
 
         {/* Header */}
-        <div className="relative z-[5] pt-20 sm:pt-24 px-6 sm:px-12">
+        <div className="relative z-[5] pt-20 sm:pt-20 px-6 sm:px-12">
           <div className="flex items-center gap-4 mb-[22px]">
             <span className="text-sm font-normal text-[var(--text-muted)] tracking-[1px] whitespace-nowrap">
               • Walking Through The Journey
