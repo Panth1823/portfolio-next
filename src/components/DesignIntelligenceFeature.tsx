@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface Tag {
   label: string;
@@ -38,7 +39,6 @@ const FeatureSection = ({
   tags,
   image,
   imageAlt,
-  reverse = false,
 }: FeatureSectionProps) => {
   return (
     <section className="py-24 px-6 md:px-12 lg:px-24">
@@ -108,10 +108,12 @@ const FeatureSection = ({
           transition={{ duration: 0.7, delay: 0.2 }}
         >
           <div className="group rounded-2xl border border-border overflow-hidden bg-card">
-            <img
+            <Image
               src={image}
               alt={imageAlt}
-              className="w-full transition-transform duration-500 group-hover:scale-[1.02]"
+              width={1600}
+              height={900}
+              className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
             />
           </div>
         </motion.div>

@@ -48,7 +48,7 @@ const ProblemSection = () => {
           </span>
 
           <h2 className="mt-6 text-3xl md:text-4xl font-bold tracking-tight">
-            Checking design quality isn't seamless
+            Checking design quality isn&apos;t seamless
           </h2>
         </motion.div>
 
@@ -140,7 +140,7 @@ const ProblemSection = () => {
         >
           <Sparkles className="h-6 w-6 text-accent mb-4" />
           <p className="text-accent text-base font-medium leading-relaxed">
-            It's that they don't exist inside the workflow.
+            It&apos;s that they don&apos;t exist inside the workflow.
           </p>
         </motion.div>
 
@@ -158,7 +158,7 @@ const ProblemSection = () => {
           <h2 className="mt-6 text-3xl md:text-4xl font-bold tracking-tight">
             Developers have AI.
             <br />
-            Why don't designers?
+            Why don&apos;t designers?
           </h2>
         </motion.div>
 
@@ -229,7 +229,7 @@ const ProblemSection = () => {
         >
           <Sparkles className="h-5 w-5 text-accent mb-3" />
           <p className="text-accent text-base font-medium leading-relaxed">
-            That's where the idea started.
+            That&apos;s where the idea started.
             <br />
             To build this as a real-time assistant workflow.
           </p>
