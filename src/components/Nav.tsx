@@ -3,17 +3,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [projectsOpen, setProjectsOpen] = useState(false);
-
-  const projects = [
-    { href: "/projects/design-intelligence", label: "Design Intelligence" },
-  ];
 
   const links = [
+    { href: "/projects", label: "Projects" },
     { href: "/#about", label: "About" },
     { href: "/#contact", label: "Contact" },
     { href: "/resume", label: "Resume" },
@@ -52,77 +47,31 @@ export default function Nav() {
           </Link>
         </motion.div>
 
-        {/* Desktop Nav Links */}
-        <div className="hidden md:flex items-center gap-8">
-          {/* Projects Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setProjectsOpen(true)}
-            onMouseLeave={() => setProjectsOpen(false)}
-          >
-            <button
-              type="button"
-              onClick={() => setProjectsOpen((prev) => !prev)}
-              aria-expanded={projectsOpen}
-              aria-haspopup="menu"
-              className="text-sm font-medium text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors tracking-wide flex items-center gap-2"
-            >
-              Projects
-              <motion.svg
-                className="w-4 h-4"
-                animate={{ rotate: projectsOpen ? 180 : 0 }}
-                transition={{ duration: 0.2 }}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+        {/* Nav Links & Actions */}
+        <div className="flex items-center gap-6 md:gap-10">
+          {/* Desktop Nav Links */}
+          <div className="hidden md:flex items-center gap-8">
+            {links.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="text-sm font-medium text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors tracking-wide"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 9l6 6 6-6"
-                />
-              </motion.svg>
-            </button>
-            <motion.div
-              initial={{ opacity: 0, y: -4 }}
-              animate={
-                projectsOpen
-                  ? { opacity: 1, y: 0, pointerEvents: "auto" }
-                  : { opacity: 0, y: -4, pointerEvents: "none" }
-              }
-              transition={{ duration: 0.2 }}
-              role="menu"
-              className="absolute left-0 mt-0 w-48 bg-[var(--bg-card)] border border-[var(--border)] rounded-lg shadow-lg py-2"
-            >
-              {projects.map((p) => (
-                <Link
-                  key={p.href}
-                  href={p.href}
-                  onClick={() => setProjectsOpen(false)}
-                  className="block px-4 py-2 text-sm text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-colors"
-                >
-                  {p.label}
-                </Link>
-              ))}
-            </motion.div>
+                {l.label}
+              </Link>
+            ))}
           </div>
 
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="text-sm font-medium text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors tracking-wide"
-            >
-              {l.label}
-            </Link>
-          ))}
-          <AnimatedThemeToggler className="w-8 h-8 flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer [&_svg]:w-4 [&_svg]:h-4" />
-        </div>
+          <button
+            onClick={() => window.dispatchEvent(new Event("toggle-ai-chat"))}
+            className="flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 bg-[var(--theme-surface)] border border-[var(--theme-border)] rounded-full text-[var(--theme-hi)] text-[14px] md:text-[16px] font-medium hover:bg-[var(--theme-border)] transition-all active:scale-95 group"
+          >
+            <span>Chat with My AI</span>
+            <span className="text-[14px] md:text-[16px] opacity-60 group-hover:opacity-100 transition-opacity">✨</span>
+          </button>
 
-        {/* Mobile: theme toggle + hamburger */}
-        <div className="flex md:hidden items-center gap-4">
-          <AnimatedThemeToggler className="w-8 h-8 flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer [&_svg]:w-4 [&_svg]:h-4" />
+          {/* Mobile: hamburger */}
+          <div className="flex md:hidden items-center gap-4">
           <button
             onClick={() => setMenuOpen((o) => !o)}
             aria-label="Toggle menu"
@@ -142,6 +91,7 @@ export default function Nav() {
             />
           </button>
         </div>
+        </div>
       </motion.nav>
 
       {/* Mobile drawer */}
@@ -154,60 +104,6 @@ export default function Nav() {
             transition={{ duration: 0.2 }}
             className="fixed inset-x-0 top-[68px] z-40 md:hidden bg-[var(--bg-card)]/95 backdrop-blur-xl border-b border-[var(--border)] px-6 py-6 flex flex-col gap-5"
           >
-            {/* Mobile Projects Dropdown */}
-            <div>
-              <button
-                onClick={() => setProjectsOpen(!projectsOpen)}
-                aria-expanded={projectsOpen}
-                aria-haspopup="menu"
-                className="text-lg font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors flex items-center gap-2 w-full"
-              >
-                Projects
-                <motion.svg
-                  className="w-4 h-4"
-                  animate={{ rotate: projectsOpen ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 9l6 6 6-6"
-                  />
-                </motion.svg>
-              </button>
-              <AnimatePresence>
-                {projectsOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="pl-4 pt-2 flex flex-col gap-3">
-                      {projects.map((p) => (
-                        <Link
-                          key={p.href}
-                          href={p.href}
-                          onClick={() => {
-                            setMenuOpen(false);
-                            setProjectsOpen(false);
-                          }}
-                          className="text-base text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
-                        >
-                          {p.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
             {links.map((l, i) => (
               <motion.div
                 key={l.href}

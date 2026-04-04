@@ -1,64 +1,55 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import ScrollStack, { ScrollStackItem } from "./ScrollStack";
 
 interface Project {
   title: string;
   subtitle: string;
   description: string;
-  year: string;
-  category: string;
-  link?: string;
-  images: string[];
+  tags: string[];
+  link: string;
+  image: string | null;
   iconColor: string;
 }
 
 const projects: Project[] = [
   {
-    title: "Pocketwise",
-    subtitle: "A smart budgeting app designed for millennials and Gen Z.",
-    description:
-      "Designed end-to-end UX flows, from onboarding to expense tracking. Created custom illustrations and a cohesive design system across iOS and Android.",
-    year: "2024",
-    category: "Mobile Application",
-    link: "#",
-    images: [
-      "/images/Rectangle 2.png",
-      "/images/Rectangle 4.png",
-      "/images/Rectangle 8.png",
-    ],
-    iconColor: "#c8ff00",
+    title: "Project 1",
+    subtitle: "Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur.",
+    description: "Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur.",
+    tags: ["2024", "Mobile Application"],
+    link: "/projects/project-1",
+    image: null,
+    iconColor: "#e5e7eb",
   },
   {
-    title: "Flavoura",
-    subtitle: "Recipe discovery platform with curated collections.",
-    description:
-      "Built a visually rich recipe exploration experience with scroll-driven animations and personalized recommendations based on dietary preferences.",
-    year: "2024",
-    category: "Web Application",
-    link: "#",
-    images: [
-      "/images/Rectangle 4.png",
-      "/images/Rectangle 8.png",
-      "/images/Rectangle 2.png",
-    ],
-    iconColor: "#ff6b6b",
+    title: "Design Intelligence",
+    subtitle: "Real-Time Design Review Inside Figma",
+    description: "A product concept exploring how design review can be integrated directly into the design process instead of being treated as a separate step.",
+    tags: ["2026", "Product Concept"],
+    link: "/projects/design-intelligence",
+    image: "/images/Project 2 - Design Intelligence Case study Images/Summary - DI.png",
+    iconColor: "#F24E1E",
   },
   {
-    title: "Koiostudio",
-    subtitle: "Brand identity and product design for a creative agency.",
-    description:
-      "As an early design hire, worked across brand and product design. Established design guidelines, component library, and marketing assets.",
-    year: "2025",
-    category: "Brand Identity",
-    link: "#",
-    images: [
-      "/images/Rectangle 8.png",
-      "/images/Rectangle 2.png",
-      "/images/Rectangle 4.png",
-    ],
-    iconColor: "#7c5cfc",
+    title: "Budgeting App",
+    subtitle: "Redefining How Students Make Financial Decisions",
+    description: "Reimagined how student budgeting apps should work. Instead of overwhelming users with numbers, I focused on making money management simple and easy to understand.",
+    tags: ["2025", "Mobile Application", "Fintech"],
+    link: "/projects/budgeting-app",
+    image: "/images/Project 3 - Finance app Case Study Images/Summary - PW.png",
+    iconColor: "#14B8A6",
+  },
+  {
+    title: "Design experiments",
+    subtitle: "Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur.",
+    description: "Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur.",
+    tags: ["2024", "Mobile Application"],
+    link: "/projects/design-experiments",
+    image: null,
+    iconColor: "#e5e7eb",
   },
 ];
 
@@ -68,13 +59,20 @@ function CardContent({ project }: { project: Project }) {
       {/* Left — Screenshot */}
       <div className="w-full lg:w-[55%]">
         <div className="relative w-full h-[220px] sm:h-[280px] lg:h-full lg:aspect-[4/3] rounded-xl overflow-hidden bg-[var(--bg-secondary)] border border-[var(--border)]">
-          <Image
-            src={project.images[2]}
-            alt={`${project.title} preview`}
-            fill
-            className="object-cover object-top"
-            sizes="(max-width: 1024px) 100vw, 55vw"
-          />
+          {project.image ? (
+            <Image
+              src={project.image}
+              alt={`${project.title} preview`}
+              fill
+              className="object-cover object-top"
+              sizes="(max-width: 1024px) 100vw, 55vw"
+            />
+          ) : (
+            <div 
+              className="w-full h-full absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" 
+              style={{ backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><rect width="20" height="20" fill="%23000"/><rect x="20" y="20" width="20" height="20" fill="%23000"/></svg>')` }} 
+            />
+          )}
         </div>
       </div>
 
@@ -116,12 +114,11 @@ function CardContent({ project }: { project: Project }) {
 
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mt-auto">
-          <span className="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-medium border border-[var(--border)] text-[var(--text-secondary)] bg-[var(--bg-secondary)]/50 tracking-wide">
-            {project.year}
-          </span>
-          <span className="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-medium border border-[var(--border)] text-[var(--text-secondary)] bg-[var(--bg-secondary)]/50 tracking-wide">
-            {project.category}
-          </span>
+          {project.tags.map((tag) => (
+            <span key={tag} className="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-medium border border-[var(--border)] text-[var(--text-secondary)] bg-[var(--bg-secondary)]/50 tracking-wide">
+              {tag}
+            </span>
+          ))}
         </div>
       </div>
     </div>
@@ -139,7 +136,9 @@ export default function WorkSection() {
         <ScrollStack>
           {projects.map((project) => (
             <ScrollStackItem key={project.title}>
-              <CardContent project={project} />
+              <Link href="/projects" className="block">
+                <CardContent project={project} />
+              </Link>
             </ScrollStackItem>
           ))}
         </ScrollStack>

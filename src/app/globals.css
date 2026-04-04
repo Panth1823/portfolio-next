@@ -124,3 +124,12 @@ body {
 .glow-green-sm {
   box-shadow: 0 0 20px -5px hsl(82 100% 54% / 0.2);
 }
+
+@keyframes wave {
+  0%, 100% {
+    transform: scaleY(0.5);
+  }
+  50% {
+    transform: scaleY(1.5);
+  }
+}
