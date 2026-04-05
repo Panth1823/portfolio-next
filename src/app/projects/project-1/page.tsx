@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import RelatedProjects from "@/components/RelatedProjects";
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
@@ -387,7 +388,7 @@ export default function FinanceAppPage() {
                   ].map((p) => (
                     <div
                       key={p}
-                      className="px-4 py-2.5 rounded-[100px] border text-[16px] font-medium cursor-default select-none whitespace-nowrap hover:opacity-80 transition-opacity border-[var(--theme-border)] text-[var(--theme-text-lo)]"
+                      className="px-4 py-2.5 rounded-[100px] border text-[16px] font-medium cursor-default select-none whitespace-nowrap border-[var(--theme-border)] text-[var(--theme-text-lo)]"
                     >
                       {p}
                     </div>
@@ -465,7 +466,7 @@ export default function FinanceAppPage() {
                       User Testing
                     </h2>
                     <div className="w-[50px] h-[3px] rounded-full mb-10 bg-[var(--theme-accent)]"></div>
-                    <p className="text-[14px] leading-[1.7] max-w-[400px] text-[var(--theme-text-lo)]">
+                    <p className="text-[16px] leading-[1.7] max-w-[400px] text-[var(--theme-text-lo)]">
                       This phase focused on validating how users understand
                       insights and make financial decisions using the redesigned
                       experience.
@@ -506,7 +507,7 @@ export default function FinanceAppPage() {
                 id="impact"
                 className="scroll-mt-32 mt-24 mb-16 lg:ml-2 flex flex-col gap-8"
               >
-                <div className="w-full border rounded-[32px] p-10 lg:p-14 bg-[var(--theme-surface)] border-[var(--theme-border)]">
+                <div className="w-full border rounded-[32px] p-10 lg:p-14 bg-transparent border-[#FAFAFA]">
                   <h2 className="text-[32px] md:text-[32px] font-medium mb-3 tracking-tight text-[var(--theme-text-hi)]">
                     Design Impact
                   </h2>
@@ -565,6 +566,7 @@ export default function FinanceAppPage() {
                   </div>
                 </div>
               </div>
+              <RelatedProjects currentProject="Project 1" />
             </div>
           </div>
         </main>

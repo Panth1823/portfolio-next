@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   title: "Portfolio — Journey",
   description:
     "A cinematic scroll-driven portfolio journey showcasing design experience.",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -38,6 +43,7 @@ export default function RootLayout({
             `,
           }}
         />
+        <link rel="icon" href="/icon.png" type="image/png" />
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
       </head>

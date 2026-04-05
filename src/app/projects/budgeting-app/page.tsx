@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import RelatedProjects from "@/components/RelatedProjects";
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
@@ -15,9 +16,9 @@ export default function FinanceAppPage() {
     const sections = [
       "summary",
       "problem",
-      "research",
+      "users",
       "frustrations",
-      "concept",
+      "design",
       "testing",
       "snippets",
       "impact",
@@ -120,12 +121,12 @@ export default function FinanceAppPage() {
                 {[
                   { id: "#summary", label: "01 / Summary" },
                   { id: "#problem", label: "02 / The Problem" },
-                  { id: "#research", label: "03 / Users and Research" },
+                  { id: "#users", label: "03 / Users and Research" },
                   {
                     id: "#frustrations",
                     label: "04 / Frustrations and Findings",
                   },
-                  { id: "#concept", label: "05 / Design Concept" },
+                  { id: "#design", label: "05 / Design Concept" },
                   { id: "#testing", label: "06 / User Testing" },
                   { id: "#snippets", label: "07 / Snippets" },
                   { id: "#impact", label: "08 / Impact and Learnings" },
@@ -185,7 +186,7 @@ export default function FinanceAppPage() {
                         ["More Engagement", "25%"],
                       ].map(([label, val]) => (
                         <div key={label}>
-                          <p className="text-[14px] font-medium mb-3 tracking-wide uppercase opacity-80 text-[var(--theme-text-lo)]">
+                          <p className="text-[14px] font-medium mb-3 tracking-wide text-[var(--theme-text-lo)]">
                             {label}
                           </p>
                           <p className="text-[36px] md:text-[44px] font-medium leading-none tracking-tight text-[var(--theme-text-hi)]">
@@ -203,6 +204,7 @@ export default function FinanceAppPage() {
                     width={1000}
                     height={700}
                     className="w-auto max-h-[700px] object-contain rounded-[24px]"
+                    priority
                   />
                 </div>
               </div>
@@ -219,63 +221,86 @@ export default function FinanceAppPage() {
                 <p className="text-base leading-[1.65] text-left max-w-[820px] mb-20 text-[var(--theme-text-lo)]">
                   Budgeting tools rely heavily on data presentation but fail to
                   support decision-making.
-                  <br />
-                  Users are left to interpret complex charts and fragmented
-                  information on their own.
+                  <br className="hidden md:block" /> Users are left to interpret
+                  complex charts and fragmented information on their own.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-20">
                   <div className="flex flex-col border rounded-[20px] p-2 bg-[var(--theme-surface)] border-[var(--theme-border)]">
-                    <div className="w-full aspect-[4/3] rounded-[12px] mb-4 relative overflow-hidden">
-                      <Image
-                        src="/images/Project 3 - Finance app Case Study Images/PW Problem - 1.png"
-                        alt="Information Overload"
-                        fill
-                        className="object-cover"
-                      />
+                    <div className="w-full aspect-[4/3] bg-white rounded-[12px] mb-4 flex flex-col items-start justify-start p-6 border border-gray-100 relative overflow-hidden">
+                      <span className="text-[28px] font-bold text-[#222] leading-none mb-2">
+                        £840
+                        <span className="text-sm font-normal text-gray-400 ml-1">
+                          left
+                        </span>
+                      </span>
+                      <span className="text-[14px] text-[#84CC16] tracking-wide font-medium">
+                        from £2400 this month
+                      </span>
                     </div>
-                    <div className="px-2 pb-2 flex flex-col">
+                    <div className="px-2 pb-2">
                       <h3 className="text-[16px] font-medium mb-3 text-[var(--theme-text-hi)]">
                         Information Overload
                       </h3>
-                      <p className="text-[14px] leading-[1.65] text-[var(--theme-text-lo)]">
+                      <p className="text-[16px] leading-[1.65] text-[var(--theme-text-lo)]">
                         Too many categories and charts make it difficult to
                         identify what actually matters.
                       </p>
                     </div>
                   </div>
                   <div className="flex flex-col border rounded-[20px] p-2 bg-[var(--theme-surface)] border-[var(--theme-border)]">
-                    <div className="w-full aspect-[4/3] rounded-[12px] mb-4 relative overflow-hidden">
-                      <Image
-                        src="/images/Project 3 - Finance app Case Study Images/PW Problem - 2.png"
-                        alt="Lack of Direction"
-                        fill
-                        className="object-cover"
-                      />
+                    <div className="w-full aspect-[4/3] bg-white rounded-[12px] mb-4 flex flex-col items-start justify-center p-6 border border-gray-100">
+                      <div className="flex justify-between w-full items-baseline mb-4">
+                        <span className="text-[16px] font-semibold text-gray-700">
+                          Monthly Budget
+                        </span>
+                        <span className="text-[16px] font-medium text-[#14B8A6]">
+                          £560 left
+                        </span>
+                      </div>
+                      <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden mb-6">
+                        <div className="w-[30%] h-full bg-[#14B8A6] rounded-full"></div>
+                      </div>
+                      <span className="text-[16px] font-semibold text-gray-700">
+                        Spending Overview
+                      </span>
+                      <div className="w-full h-1 bg-gray-100 mt-4">
+                        <div className="w-1/2 h-full bg-gray-300"></div>
+                      </div>
                     </div>
-                    <div className="px-2 pb-2 flex flex-col">
+                    <div className="px-2 pb-2">
                       <h3 className="text-[16px] font-medium mb-3 text-[var(--theme-text-hi)]">
                         Lack of Direction
                       </h3>
-                      <p className="text-[14px] leading-[1.65] text-[var(--theme-text-lo)]">
+                      <p className="text-[16px] leading-[1.65] text-[var(--theme-text-lo)]">
                         Users see data but don&apos;t know what actions to take.
                       </p>
                     </div>
                   </div>
                   <div className="flex flex-col border rounded-[20px] p-2 bg-[var(--theme-surface)] border-[var(--theme-border)]">
-                    <div className="w-full aspect-[4/3] rounded-[12px] mb-4 relative overflow-hidden">
-                      <Image
-                        src="/images/Project 3 - Finance app Case Study Images/PW Problem - 3.png"
-                        alt="High Cognitive Effort"
-                        fill
-                        className="object-cover"
-                      />
+                    <div className="w-full aspect-[4/3] bg-white rounded-[12px] mb-4 flex flex-col justify-start p-6 border border-gray-100 gap-3">
+                      <div className="flex flex-col gap-1 w-full">
+                        <span className="text-[11px] text-gray-800 font-semibold tracking-tight">
+                          Add Expense
+                        </span>
+                        <div className="w-full border border-gray-100 rounded-md p-2 text-[12px] text-gray-400 bg-gray-50 uppercase tracking-widest">
+                          £40
+                        </div>
+                      </div>
+                      <div className="flex flex-col gap-1 w-full mt-2">
+                        <span className="text-[10px] text-gray-800 font-semibold tracking-tight">
+                          Date
+                        </span>
+                        <div className="w-full border border-gray-100 rounded-md p-2 text-[12px] text-gray-400 bg-gray-50">
+                          Today, 14 Oct
+                        </div>
+                      </div>
                     </div>
-                    <div className="px-2 pb-2 flex flex-col">
+                    <div className="px-2 pb-2">
                       <h3 className="text-[16px] font-medium mb-3 text-[var(--theme-text-hi)]">
                         High Cognitive Effort
                       </h3>
-                      <p className="text-[14px] leading-[1.65] text-[var(--theme-text-lo)]">
+                      <p className="text-[16px] leading-[1.65] text-[var(--theme-text-lo)]">
                         Understanding finances requires time and mental effort,
                         leading to drop-offs.
                       </p>
@@ -284,18 +309,18 @@ export default function FinanceAppPage() {
                 </div>
               </div>
 
-              {/* 03: Research */}
               <div
-                id="research"
+                id="users"
                 className="scroll-mt-32 w-full border rounded-[32px] p-10 lg:p-14 mb-16 lg:ml-2 mt-20 md:mt-32 bg-[var(--theme-surface)] border-[var(--theme-border)]"
               >
                 <h2 className="text-[32px] md:text-[32px] font-medium mb-3 tracking-tight text-[var(--theme-text-hi)]">
                   Users and Research
                 </h2>
-                <div className="w-[50px] h-[3px] rounded-full mb-16 bg-[var(--theme-accent)]"></div>
+                <div className="w-[50px] h-[3px] rounded-full mb-12 bg-[var(--theme-accent)]"></div>
+
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14 mb-16">
-                  <div className="flex flex-col">
-                    <h3 className="text-[18px] font-medium mb-4 text-[var(--theme-text-hi)]">
+                  <div className="flex flex-col gap-3">
+                    <h3 className="text-[16px] font-medium tracking-wide text-[var(--theme-text-hi)]">
                       Why it Started ?
                     </h3>
                     <p className="text-[16px] leading-[1.7] text-[var(--theme-text-lo)]">
@@ -305,8 +330,8 @@ export default function FinanceAppPage() {
                       confusion instead of clarity.
                     </p>
                   </div>
-                  <div className="flex flex-col">
-                    <h3 className="text-[18px] font-medium mb-4 text-[var(--theme-text-hi)]">
+                  <div className="flex flex-col gap-3">
+                    <h3 className="text-[16px] font-medium tracking-wide text-[var(--theme-text-hi)]">
                       Who are we solving for?
                     </h3>
                     <p className="text-[16px] leading-[1.7] text-[var(--theme-text-lo)]">
@@ -316,8 +341,8 @@ export default function FinanceAppPage() {
                       seconds.
                     </p>
                   </div>
-                  <div className="flex flex-col">
-                    <h3 className="text-[18px] font-medium mb-4 text-[var(--theme-text-hi)]">
+                  <div className="flex flex-col gap-3">
+                    <h3 className="text-[16px] font-medium tracking-wide text-[var(--theme-text-hi)]">
                       How are we solving it?
                     </h3>
                     <p className="text-[16px] leading-[1.7] text-[var(--theme-text-lo)]">
@@ -329,40 +354,44 @@ export default function FinanceAppPage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 w-full">
                   <div className="flex flex-col gap-6">
-                    <div className="w-full aspect-[4/3] rounded-[24px] overflow-hidden border border-[var(--theme-border)] relative p-3">
-                      <Image
-                        src="/images/Project 3 - Finance app Case Study Images/PW - User Research - Research approach - 1.png"
-                        alt="Research Approach"
-                        fill
-                        className="object-contain rounded-[16px]"
-                      />
+                    <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
+                      <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
+                        <Image
+                          src="/images/Project 3 - Finance app Case Study Images/PW - User Research - Research approach - 1.png"
+                          alt="Research Approach"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
                     </div>
-                    <div className="flex flex-col gap-2">
-                      <h3 className="text-[16px] font-medium text-[var(--theme-text-hi)]">
+                    <div className="flex flex-col gap-2 px-1">
+                      <h4 className="text-[16px] font-medium text-[var(--theme-text-hi)]">
                         Research Approach
-                      </h3>
-                      <p className="text-[16px] leading-[1.65] text-[var(--theme-text-lo)]">
+                      </h4>
+                      <p className="text-[14px] leading-[1.65] text-[var(--theme-text-lo)]">
                         Focused on understanding how users interpret financial
                         data rather than how they input it.
                       </p>
                     </div>
                   </div>
                   <div className="flex flex-col gap-6">
-                    <div className="w-full aspect-[4/3] rounded-[24px] overflow-hidden border border-[var(--theme-border)] relative p-3">
-                      <Image
-                        src="/images/Project 3 - Finance app Case Study Images/PW - User Research - AI Oppurtunity - 2.png"
-                        alt="AI Opportunity"
-                        fill
-                        className="object-contain rounded-[16px]"
-                      />
+                    <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
+                      <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
+                        <Image
+                          src="/images/Project 3 - Finance app Case Study Images/PW - User Research - AI Oppurtunity - 2.png"
+                          alt="AI Opportunity"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
                     </div>
-                    <div className="flex flex-col gap-2">
-                      <h3 className="text-[16px] font-medium text-[var(--theme-text-hi)]">
+                    <div className="flex flex-col gap-2 px-1">
+                      <h4 className="text-[16px] font-medium text-[var(--theme-text-hi)]">
                         AI Opportunity
-                      </h3>
-                      <p className="text-[16px] leading-[1.65] text-[var(--theme-text-lo)]">
+                      </h4>
+                      <p className="text-[14px] leading-[1.65] text-[var(--theme-text-lo)]">
                         AI allows the product to move from passive reporting to
                         proactive financial assistance.
                       </p>
@@ -406,7 +435,7 @@ export default function FinanceAppPage() {
                   ].map((p) => (
                     <div
                       key={p}
-                      className="px-4 py-2.5 rounded-[100px] border text-[16px] font-medium cursor-default select-none whitespace-nowrap hover:opacity-80 transition-opacity border-[var(--theme-border)] text-[var(--theme-text-lo)]"
+                      className="px-4 py-2.5 rounded-[100px] border text-[16px] font-medium cursor-default select-none whitespace-nowrap border-[var(--theme-border)] text-[var(--theme-text-lo)]"
                     >
                       {p}
                     </div>
@@ -415,125 +444,140 @@ export default function FinanceAppPage() {
               </div>
 
               {/* 05: Concept */}
-              <div id="concept" className="scroll-mt-32 mt-24 mb-16 lg:ml-2">
+              <div
+                id="design"
+                className="scroll-mt-32 w-full mb-32 pt-10 lg:ml-2"
+              >
                 <h2 className="text-[32px] md:text-[32px] font-medium mb-3 tracking-tight text-[var(--theme-text-hi)]">
                   Design Concept
                 </h2>
-                <div className="w-[50px] h-[3px] rounded-full mb-16 bg-[var(--theme-accent)]"></div>
+                <div className="w-[50px] h-[3px] rounded-full mb-20 bg-[var(--theme-accent)]"></div>
 
-                <div className="flex flex-col gap-24">
+                <div className="flex flex-col gap-24 lg:gap-32">
                   {/* Guided Financial Clarity */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-                    <div className="flex flex-col order-2 lg:order-1">
-                      <h3 className="text-[24px] font-medium mb-4 text-[var(--theme-text-hi)]">
-                        Guided Financial Clarity
-                      </h3>
-                      <p className="text-[16px] leading-[1.65] mb-6 text-[var(--theme-text-lo)] max-w-[400px]">
-                        Simplified the interface to highlight only what truly
-                        matters for quick understanding.
-                      </p>
-                      <ul className="flex flex-col gap-3">
-                        {[
-                          "Removed excessive charts and unnecessary categories",
-                          "Prioritized key metrics like balance and budget status",
-                          "Simplified hierarchy for faster visual scanning",
-                          "Structured content for clarity and readability",
-                          "Focused on showing only relevant information",
-                        ].map((item, i) => (
-                          <li
-                            key={i}
-                            className="flex items-start text-[15px] leading-[1.6] text-[var(--theme-text-hi)]"
-                          >
-                            <span className="w-1.5 h-1.5 rounded-full mt-2 mr-3 shrink-0 bg-[var(--theme-text-lo)] opacity-50"></span>
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
+                  <div className="grid grid-cols-1 lg:grid-cols-11 gap-10 lg:gap-16 items-start">
+                    <div className="col-span-1 lg:col-span-11 xl:col-span-5 flex flex-col pt-1 h-auto xl:h-[260px] justify-between">
+                      <div>
+                        <h3 className="text-[22px] font-medium mb-6 tracking-tight text-[var(--theme-text-hi)]">
+                          Guided Financial Clarity
+                        </h3>
+                        <p className="text-[16px] leading-[1.6] mb-6 text-[var(--theme-text-lo)]">
+                          Simplified the interface to highlight only what truly
+                          matters for quick understanding.
+                        </p>
+                        <ul className="flex flex-col gap-3.5 pl-1">
+                          {[
+                            "Removed excessive charts and unnecessary categories",
+                            "Prioritized key metrics like balance and budget status",
+                            "Simplified hierarchy for faster visual scanning",
+                            "Structured content for clarity and readability",
+                            "Focused on showing only relevant information",
+                          ].map((item, i) => (
+                            <li
+                              key={i}
+                              className="flex items-center gap-3 text-[16px] leading-none text-[var(--theme-text-lo)]"
+                            >
+                              <div className="w-1.5 h-1.5 rounded-sm shrink-0 bg-[#FAFAFA]"></div>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                    <div className="w-full aspect-[4/3] rounded-[16px] order-1 lg:order-2 overflow-hidden border border-[var(--theme-border)] p-2">
-                      <Image
-                        src="/images/Project 3 - Finance app Case Study Images/PW - Design Concept - 1.png"
-                        alt="Guided Financial Clarity"
-                        fill
-                        className="object-cover rounded-[8px]"
-                      />
+                    <div className="col-span-1 lg:col-span-11 xl:col-span-6 xl:pl-10 flex items-start justify-end">
+                      <div className="w-full xl:w-[408px] h-auto aspect-[4/3] xl:aspect-auto xl:h-[260px] border rounded-[24px] p-2 relative overflow-hidden bg-[var(--theme-surface)] border-[var(--theme-border)]">
+                        <Image
+                          src="/images/Project 3 - Finance app Case Study Images/PW - Design Concept - 1.png"
+                          alt="Guided Financial Clarity"
+                          fill
+                          className="object-cover rounded-[16px]"
+                        />
+                      </div>
                     </div>
                   </div>
 
                   {/* Decision-First Experience */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-                    <div className="flex flex-col order-2 lg:order-1">
-                      <h3 className="text-[24px] font-medium mb-4 text-[var(--theme-text-hi)]">
-                        Decision-First Experience
-                      </h3>
-                      <p className="text-[16px] leading-[1.65] mb-6 text-[var(--theme-text-lo)] max-w-[400px]">
-                        Reframed the experience to support decisions instead of
-                        passive tracking.
-                      </p>
-                      <ul className="flex flex-col gap-3">
-                        {[
-                          "Shifted focus from data display to decision support",
-                          "Added real-time feedback during user actions",
-                          "Reduced steps to understand spending impact",
-                          "Designed flows around key user questions",
-                          "Eliminated delays between action and insight",
-                          "Enabled faster, more confident decisions",
-                        ].map((item, i) => (
-                          <li
-                            key={i}
-                            className="flex items-start text-[15px] leading-[1.6] text-[var(--theme-text-hi)]"
-                          >
-                            <span className="w-1.5 h-1.5 rounded-full mt-2 mr-3 shrink-0 bg-[var(--theme-text-lo)] opacity-50"></span>
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
+                  <div className="grid grid-cols-1 lg:grid-cols-11 gap-10 lg:gap-16 items-start">
+                    <div className="col-span-1 lg:col-span-11 xl:col-span-5 flex flex-col pt-1 h-auto xl:h-[260px] justify-between">
+                      <div>
+                        <h3 className="text-[22px] font-medium mb-6 tracking-tight text-[var(--theme-text-hi)]">
+                          Decision-First Experience
+                        </h3>
+                        <p className="text-[16px] leading-[1.6] mb-6 text-[var(--theme-text-lo)]">
+                          Reframed the experience to support decisions instead
+                          of passive tracking.
+                        </p>
+                        <ul className="flex flex-col gap-3.5 pl-1">
+                          {[
+                            "Shifted focus from data display to decision support",
+                            "Added real-time feedback during user actions",
+                            "Reduced steps to understand spending impact",
+                            "Designed flows around key user questions",
+                            "Eliminated delays between action and insight",
+                            "Enabled faster, more confident decisions",
+                          ].map((item, i) => (
+                            <li
+                              key={i}
+                              className="flex items-center gap-3 text-[16px] leading-none text-[var(--theme-text-lo)]"
+                            >
+                              <div className="w-1.5 h-1.5 rounded-sm shrink-0 bg-[#FAFAFA]"></div>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                    <div className="w-full aspect-[4/3] rounded-[16px] order-1 lg:order-2 overflow-hidden border border-[var(--theme-border)] p-2">
-                      <Image
-                        src="/images/Project 3 - Finance app Case Study Images/PW - Design Concept - 2.png"
-                        alt="Decision-First Experience"
-                        fill
-                        className="object-cover rounded-[8px]"
-                      />
+                    <div className="col-span-1 lg:col-span-11 xl:col-span-6 xl:pl-10 flex items-start justify-end">
+                      <div className="w-full xl:w-[408px] h-auto aspect-[4/3] xl:aspect-auto xl:h-[260px] border rounded-[24px] p-2 relative overflow-hidden bg-[var(--theme-surface)] border-[var(--theme-border)]">
+                        <Image
+                          src="/images/Project 3 - Finance app Case Study Images/PW - Design Concept - 2.png"
+                          alt="Decision-First Experience"
+                          fill
+                          className="object-cover rounded-[16px]"
+                        />
+                      </div>
                     </div>
                   </div>
 
                   {/* AI-Driven Financial Guidance */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-                    <div className="flex flex-col order-2 lg:order-1">
-                      <h3 className="text-[24px] font-medium mb-4 text-[var(--theme-text-hi)]">
-                        AI-Driven Financial Guidance
-                      </h3>
-                      <p className="text-[16px] leading-[1.65] mb-6 text-[var(--theme-text-lo)] max-w-[400px]">
-                        Introduced intelligence to guide users with relevant and
-                        timely insights.
-                      </p>
-                      <ul className="flex flex-col gap-3">
-                        {[
-                          "Replaced static summaries with contextual insights",
-                          "Reduced need for manual data interpretation",
-                          "Highlighted actions instead of raw information",
-                          "Positioned AI as a decision support system",
-                          "Enabled proactive financial guidance",
-                        ].map((item, i) => (
-                          <li
-                            key={i}
-                            className="flex items-start text-[15px] leading-[1.6] text-[var(--theme-text-hi)]"
-                          >
-                            <span className="w-1.5 h-1.5 rounded-full mt-2 mr-3 shrink-0 bg-[var(--theme-text-lo)] opacity-50"></span>
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
+                  <div className="grid grid-cols-1 lg:grid-cols-11 gap-10 lg:gap-16 items-start">
+                    <div className="col-span-1 lg:col-span-11 xl:col-span-5 flex flex-col pt-1 h-auto xl:h-[260px] justify-between">
+                      <div>
+                        <h3 className="text-[22px] font-medium mb-6 tracking-tight text-[var(--theme-text-hi)]">
+                          AI-Driven Financial Guidance
+                        </h3>
+                        <p className="text-[16px] leading-[1.6] mb-6 text-[var(--theme-text-lo)]">
+                          Introduced intelligence to guide users with relevant
+                          and timely insights.
+                        </p>
+                        <ul className="flex flex-col gap-3.5 pl-1">
+                          {[
+                            "Replaced static summaries with contextual insights",
+                            "Reduced need for manual data interpretation",
+                            "Highlighted actions instead of raw information",
+                            "Positioned AI as a decision support system",
+                            "Enabled proactive financial guidance",
+                          ].map((item, i) => (
+                            <li
+                              key={i}
+                              className="flex items-center gap-3 text-[16px] leading-none text-[var(--theme-text-lo)]"
+                            >
+                              <div className="w-1.5 h-1.5 rounded-sm shrink-0 bg-[#FAFAFA]"></div>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                    <div className="w-full aspect-[4/3] rounded-[16px] order-1 lg:order-2 overflow-hidden border border-[var(--theme-border)] p-2">
-                      <Image
-                        src="/images/Project 3 - Finance app Case Study Images/PW - Design Concept - 3.png"
-                        alt="AI-Driven Financial Guidance"
-                        fill
-                        className="object-cover rounded-[8px]"
-                      />
+                    <div className="col-span-1 lg:col-span-11 xl:col-span-6 xl:pl-10 flex items-start justify-end">
+                      <div className="w-full xl:w-[408px] h-auto aspect-[4/3] xl:aspect-auto xl:h-[260px] border rounded-[24px] p-2 relative overflow-hidden bg-[var(--theme-surface)] border-[var(--theme-border)]">
+                        <Image
+                          src="/images/Project 3 - Finance app Case Study Images/PW - Design Concept - 3.png"
+                          alt="AI-Driven Financial Guidance"
+                          fill
+                          className="object-cover rounded-[16px]"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -579,21 +623,25 @@ export default function FinanceAppPage() {
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mt-4">
-                  <div className="w-full aspect-[4/3] rounded-[24px] overflow-hidden border border-[var(--theme-border)] relative p-3">
-                    <Image
-                      src="/images/Project 3 - Finance app Case Study Images/PW - User Testing - 1.png"
-                      alt="Testing 1"
-                      fill
-                      className="object-contain rounded-[16px]"
-                    />
+                  <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
+                    <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
+                      <Image
+                        src="/images/Project 3 - Finance app Case Study Images/PW - User Testing - 1.png"
+                        alt="Testing 1"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
                   </div>
-                  <div className="w-full aspect-[4/3] rounded-[24px] overflow-hidden border border-[var(--theme-border)] relative p-3">
-                    <Image
-                      src="/images/Project 3 - Finance app Case Study Images/PW - User Testing - 2.png"
-                      alt="Testing 2"
-                      fill
-                      className="object-contain rounded-[16px]"
-                    />
+                  <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
+                    <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
+                      <Image
+                        src="/images/Project 3 - Finance app Case Study Images/PW - User Testing - 2.png"
+                        alt="Testing 2"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -604,49 +652,54 @@ export default function FinanceAppPage() {
                   Snippets
                 </h2>
                 <div className="w-[50px] h-[3px] rounded-full mb-12 bg-[var(--theme-accent)]"></div>
-
-                <h3 className="text-[18px] font-medium mb-6 tracking-wide text-[var(--theme-text-hi)]">
-                  Before & After
+                <h3 className="text-[20px] font-medium mb-6 tracking-wide text-[var(--theme-text-hi)]">
+                  Before &amp; After
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
                   <div className="flex flex-col gap-4">
-                    <div className="w-full aspect-[4/3] rounded-[24px] overflow-hidden border border-[var(--theme-border)] relative p-3">
-                      <Image
-                        src="/images/Project 3 - Finance app Case Study Images/PW Before.png"
-                        alt="Before"
-                        fill
-                        className="object-contain rounded-[16px]"
-                      />
+                    <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
+                      <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
+                        <Image
+                          src="/images/Project 3 - Finance app Case Study Images/PW Before.png"
+                          alt="Before"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
                     </div>
-                    <span className="text-[14px] text-[var(--theme-text-lo)]">
+                    <span className="text-[16px] text-[var(--theme-text-lo)]">
                       Before
                     </span>
                   </div>
                   <div className="flex flex-col gap-4">
-                    <div className="w-full aspect-[4/3] rounded-[24px] overflow-hidden border border-[var(--theme-border)] relative p-3">
-                      <Image
-                        src="/images/Project 3 - Finance app Case Study Images/PW After.png"
-                        alt="After"
-                        fill
-                        className="object-contain rounded-[16px]"
-                      />
+                    <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
+                      <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
+                        <Image
+                          src="/images/Project 3 - Finance app Case Study Images/PW After.png"
+                          alt="After"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
                     </div>
-                    <span className="text-[14px] text-[var(--theme-text-lo)]">
+                    <span className="text-[16px] text-[var(--theme-text-lo)]">
                       After
                     </span>
                   </div>
                 </div>
 
-                <h3 className="text-[18px] font-medium mb-6 tracking-wide text-[var(--theme-text-hi)]">
+                <h3 className="text-[20px] font-medium mb-6 tracking-wide text-[var(--theme-text-hi)]">
                   Designs and explorations
                 </h3>
-                <div className="w-full aspect-[16/9] md:aspect-[2/1] rounded-[24px] overflow-hidden border border-[var(--theme-border)] relative p-3">
-                  <Image
-                    src="/images/Project 3 - Finance app Case Study Images/PW Design Explorations.png"
-                    alt="Design Explorations"
-                    fill
-                    className="object-cover rounded-[16px]"
-                  />
+                <div className="w-full aspect-[16/9] md:aspect-[2/1] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
+                  <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
+                    <Image
+                      src="/images/Project 3 - Finance app Case Study Images/PW Design Explorations.png"
+                      alt="Design Explorations"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -655,7 +708,7 @@ export default function FinanceAppPage() {
                 id="impact"
                 className="scroll-mt-32 mt-24 mb-16 lg:ml-2 flex flex-col gap-8"
               >
-                <div className="w-full border rounded-[32px] p-10 lg:p-14 bg-[var(--theme-surface)] border-[var(--theme-border)]">
+                <div className="w-full border rounded-[32px] p-10 lg:p-14 bg-transparent border-[#FAFAFA]">
                   <h2 className="text-[32px] md:text-[32px] font-medium mb-3 tracking-tight text-[var(--theme-text-hi)]">
                     Design Impact
                   </h2>
@@ -667,14 +720,11 @@ export default function FinanceAppPage() {
                       ["25%", "More Engagement"],
                       ["35%", "Smarter Spending"],
                     ].map(([val, label]) => (
-                      <div
-                        key={label}
-                        className="flex flex-col items-center md:items-start text-center md:text-left"
-                      >
+                      <div key={label} className="flex flex-col items-start">
                         <span className="text-[36px] md:text-[44px] font-medium mb-3 leading-none text-[var(--theme-text-hi)]">
                           {val}
                         </span>
-                        <span className="text-[13px] font-medium tracking-wide text-[var(--theme-text-lo)]">
+                        <span className="text-[14px] font-medium tracking-wide uppercase opacity-80 text-[var(--theme-text-lo)]">
                           {label}
                         </span>
                       </div>
@@ -682,7 +732,7 @@ export default function FinanceAppPage() {
                   </div>
                 </div>
 
-                <div className="w-full border rounded-[32px] p-10 lg:p-14 bg-[var(--theme-surface)] border-[var(--theme-border)]">
+                <div className="w-full border rounded-[32px] p-10 lg:p-14 bg-transparent border-[#FAFAFA]">
                   <h2 className="text-[32px] md:text-[32px] font-medium mb-3 tracking-tight text-[var(--theme-text-hi)]">
                     Learnings
                   </h2>
@@ -729,8 +779,8 @@ export default function FinanceAppPage() {
                   <h2 className="text-[32px] md:text-[32px] font-medium mb-3 tracking-tight text-[var(--theme-text-hi)]">
                     What&apos;s Next
                   </h2>
-                  <div className="w-[60px] h-[3px] rounded-full mb-16 bg-[var(--theme-accent)]"></div>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14 relative z-10">
+                  <div className="w-[60px] h-[3px] rounded-full mb-20 bg-[var(--theme-accent)]"></div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 relative z-10">
                     {[
                       [
                         "Smarter Personalization",
@@ -746,10 +796,10 @@ export default function FinanceAppPage() {
                       ],
                     ].map(([title, desc]) => (
                       <div key={title} className="flex flex-col">
-                        <h3 className="text-[18px] font-medium mb-3 text-[var(--theme-text-hi)]">
+                        <h3 className="text-[20px] font-medium mb-4 text-[var(--theme-text-hi)]">
                           {title}
                         </h3>
-                        <p className="text-[15px] leading-[1.7] text-[var(--theme-text-lo)]">
+                        <p className="text-[16px] leading-[1.7] text-[var(--theme-text-lo)]">
                           {desc}
                         </p>
                       </div>
@@ -758,59 +808,14 @@ export default function FinanceAppPage() {
                 </div>
 
                 <div className="flex justify-center mt-20 mb-10 w-full text-center">
-                  <span className="text-[14px] text-[var(--theme-text-lo)] opacity-70">
+                  <span className="text-[16px] text-[var(--theme-text-lo)] opacity-70">
                     Thanks for reading . More projects coming in
                   </span>
                 </div>
               </div>
 
               {/* Related Projects */}
-              <div className="w-full mt-32 border-t border-[var(--theme-border)] pt-20 pb-10">
-                <h2 className="text-[32px] font-medium mb-10 tracking-tight text-[var(--theme-text-hi)]">
-                  Related Projects
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {[
-                    {
-                      name: "Project 1",
-                      href: "/projects/project-1",
-                      img: null,
-                    },
-                    {
-                      name: "Design Intelligence",
-                      href: "/projects/design-intelligence",
-                      img: "/images/Project 2 - Design Intelligence Case study Images/Summary - DI.png",
-                    },
-                    {
-                      name: "Design experiments",
-                      href: "/projects/design-experiments",
-                      img: null,
-                    },
-                  ].map((proj) => (
-                    <Link
-                      key={proj.name}
-                      href={proj.href}
-                      className="flex flex-col gap-4 group"
-                    >
-                      <div className="w-full aspect-[4/3] rounded-[16px] overflow-hidden border border-[var(--theme-border)] bg-[var(--theme-surface)] relative flex items-center justify-center group-hover:border-[var(--theme-accent)] transition-colors">
-                        {proj.img ? (
-                          <Image
-                            src={proj.img}
-                            alt={proj.name}
-                            fill
-                            className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.03]"
-                          />
-                        ) : (
-                          <div className="absolute inset-0 pattern-dots pattern-gray-400 pattern-bg-transparent pattern-size-4 pattern-opacity-10 scale-150 mix-blend-overlay"></div>
-                        )}
-                      </div>
-                      <span className="text-[16px] font-medium text-[var(--theme-text-hi)]">
-                        {proj.name}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
+              <RelatedProjects currentProject="Budgeting App" />
             </div>
           </div>
         </main>

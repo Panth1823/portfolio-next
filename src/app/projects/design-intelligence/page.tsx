@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import RelatedProjects from "@/components/RelatedProjects";
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
@@ -333,13 +334,15 @@ export default function FinanceAppPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 w-full">
                   <div className="flex flex-col gap-6">
-                    <div className="w-full aspect-[4/3] rounded-[24px] relative border border-[var(--theme-border)] p-3">
-                      <Image
-                        src="/images/Project 2 - Design Intelligence Case study Images/DI User Research - Research Approach - 1.png"
-                        alt="Research Approach"
-                        fill
-                        className="object-cover rounded-[16px]"
-                      />
+                    <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
+                      <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
+                        <Image
+                          src="/images/Project 2 - Design Intelligence Case study Images/DI User Research - Research Approach - 1.png"
+                          alt="Research Approach"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
                     </div>
                     <div className="flex flex-col gap-2 px-1">
                       <h4 className="text-[16px] font-medium text-[var(--theme-text-hi)]">
@@ -352,13 +355,15 @@ export default function FinanceAppPage() {
                     </div>
                   </div>
                   <div className="flex flex-col gap-6">
-                    <div className="w-full aspect-[4/3] rounded-[24px] relative border border-[var(--theme-border)] p-3">
-                      <Image
-                        src="/images/Project 2 - Design Intelligence Case study Images/DI User Research - Intelligence oppurtunity - 2.png"
-                        alt="Intelligence Opportunity"
-                        fill
-                        className="object-cover rounded-[16px]"
-                      />
+                    <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
+                      <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
+                        <Image
+                          src="/images/Project 2 - Design Intelligence Case study Images/DI User Research - Intelligence oppurtunity - 2.png"
+                          alt="Intelligence Opportunity"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
                     </div>
                     <div className="flex flex-col gap-2 px-1">
                       <h4 className="text-[16px] font-medium text-[var(--theme-text-hi)]">
@@ -406,7 +411,7 @@ export default function FinanceAppPage() {
                   ].map((p) => (
                     <div
                       key={p}
-                      className="px-4 py-2.5 rounded-[100px] border text-[16px] font-medium cursor-default select-none whitespace-nowrap hover:opacity-80 transition-opacity border-[var(--theme-border)] text-[var(--theme-text-lo)]"
+                      className="px-4 py-2.5 rounded-[100px] border text-[16px] font-medium cursor-default select-none whitespace-nowrap border-[var(--theme-border)] text-[var(--theme-text-lo)]"
                     >
                       {p}
                     </div>
@@ -447,7 +452,7 @@ export default function FinanceAppPage() {
                             key={li}
                             className="flex items-center gap-3 text-[16px] leading-none text-[var(--theme-text-lo)]"
                           >
-                            <div className="w-1.5 h-1.5 rounded-sm shrink-0 bg-[var(--theme-accent)]"></div>
+                            <div className="w-1.5 h-1.5 rounded-sm shrink-0 bg-[#FAFAFA]"></div>
                             {li}
                           </li>
                         ))}
@@ -485,7 +490,7 @@ export default function FinanceAppPage() {
                             key={li}
                             className="flex items-center gap-3 text-[16px] leading-none text-[var(--theme-text-lo)]"
                           >
-                            <div className="w-1.5 h-1.5 rounded-sm shrink-0 bg-[var(--theme-accent)]"></div>
+                            <div className="w-1.5 h-1.5 rounded-sm shrink-0 bg-[#FAFAFA]"></div>
                             {li}
                           </li>
                         ))}
@@ -523,7 +528,7 @@ export default function FinanceAppPage() {
                             key={li}
                             className="flex items-center gap-3 text-[16px] leading-none text-[var(--theme-text-lo)]"
                           >
-                            <div className="w-1.5 h-1.5 rounded-sm shrink-0 bg-[var(--theme-accent)]"></div>
+                            <div className="w-1.5 h-1.5 rounded-sm shrink-0 bg-[#FAFAFA]"></div>
                             {li}
                           </li>
                         ))}
@@ -561,7 +566,7 @@ export default function FinanceAppPage() {
                             key={li}
                             className="flex items-center gap-3 text-[16px] leading-none text-[var(--theme-text-lo)]"
                           >
-                            <div className="w-1.5 h-1.5 rounded-sm shrink-0 bg-[var(--theme-accent)]"></div>
+                            <div className="w-1.5 h-1.5 rounded-sm shrink-0 bg-[#FAFAFA]"></div>
                             {li}
                           </li>
                         ))}
@@ -599,7 +604,7 @@ export default function FinanceAppPage() {
                             key={li}
                             className="flex items-center gap-3 text-[16px] leading-none text-[var(--theme-text-lo)]"
                           >
-                            <div className="w-1.5 h-1.5 rounded-sm shrink-0 bg-[var(--theme-accent)]"></div>
+                            <div className="w-1.5 h-1.5 rounded-sm shrink-0 bg-[#FAFAFA]"></div>
                             {li}
                           </li>
                         ))}
@@ -652,21 +657,25 @@ export default function FinanceAppPage() {
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mt-4">
-                  <div className="w-full aspect-[4/3] rounded-[24px] overflow-hidden border border-[var(--theme-border)] relative p-3">
-                    <Image
-                      src="/images/Project 2 - Design Intelligence Case study Images/DI User Testing - 1.png"
-                      alt="Testing 1"
-                      fill
-                      className="object-contain rounded-[16px]"
-                    />
+                  <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
+                    <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
+                      <Image
+                        src="/images/Project 2 - Design Intelligence Case study Images/DI User Testing - 1.png"
+                        alt="Testing 1"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
                   </div>
-                  <div className="w-full aspect-[4/3] rounded-[24px] overflow-hidden border border-[var(--theme-border)] relative p-3">
-                    <Image
-                      src="/images/Project 2 - Design Intelligence Case study Images/DI User Testing - 2.png"
-                      alt="Testing 2"
-                      fill
-                      className="object-contain rounded-[16px]"
-                    />
+                  <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
+                    <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
+                      <Image
+                        src="/images/Project 2 - Design Intelligence Case study Images/DI User Testing - 2.png"
+                        alt="Testing 2"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -678,48 +687,54 @@ export default function FinanceAppPage() {
                 </h2>
                 <div className="w-[50px] h-[3px] rounded-full mb-12 bg-[var(--theme-accent)]"></div>
 
-                <h3 className="text-[18px] font-medium mb-6 tracking-wide text-[var(--theme-text-hi)]">
+                <h3 className="text-[20px] font-medium mb-6 tracking-wide text-[var(--theme-text-hi)]">
                   Before & After
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
                   <div className="flex flex-col gap-4">
-                    <div className="w-full aspect-[4/3] rounded-[24px] overflow-hidden border border-[var(--theme-border)] relative p-3">
-                      <Image
-                        src="/images/Project 2 - Design Intelligence Case study Images/DI Before.png"
-                        alt="Before"
-                        fill
-                        className="object-contain rounded-[16px]"
-                      />
+                    <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
+                      <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
+                        <Image
+                          src="/images/Project 2 - Design Intelligence Case study Images/DI Before.png"
+                          alt="Before"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
                     </div>
-                    <span className="text-[14px] text-[var(--theme-text-lo)]">
+                    <span className="text-[16px] text-[var(--theme-text-lo)]">
                       Before
                     </span>
                   </div>
                   <div className="flex flex-col gap-4">
-                    <div className="w-full aspect-[4/3] rounded-[24px] overflow-hidden border border-[var(--theme-border)] relative p-3">
-                      <Image
-                        src="/images/Project 2 - Design Intelligence Case study Images/DI After.png"
-                        alt="After"
-                        fill
-                        className="object-contain rounded-[16px]"
-                      />
+                    <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
+                      <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
+                        <Image
+                          src="/images/Project 2 - Design Intelligence Case study Images/DI After.png"
+                          alt="After"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
                     </div>
-                    <span className="text-[14px] text-[var(--theme-text-lo)]">
+                    <span className="text-[16px] text-[var(--theme-text-lo)]">
                       After
                     </span>
                   </div>
                 </div>
 
-                <h3 className="text-[18px] font-medium mb-6 tracking-wide text-[var(--theme-text-hi)]">
+                <h3 className="text-[20px] font-medium mb-6 tracking-wide text-[var(--theme-text-hi)]">
                   Designs and explorations
                 </h3>
-                <div className="w-full aspect-[16/9] md:aspect-[2/1] rounded-[24px] overflow-hidden border border-[var(--theme-border)] relative p-3">
-                  <Image
-                    src="/images/Project 2 - Design Intelligence Case study Images/DI Design Explorations.png"
-                    alt="Design Explorations"
-                    fill
-                    className="object-cover rounded-[16px]"
-                  />
+                <div className="w-full aspect-[16/9] md:aspect-[2/1] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
+                  <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
+                    <Image
+                      src="/images/Project 2 - Design Intelligence Case study Images/DI Design Explorations.png"
+                      alt="Design Explorations"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -728,7 +743,7 @@ export default function FinanceAppPage() {
                 id="impact"
                 className="scroll-mt-32 mt-24 mb-16 lg:ml-2 flex flex-col gap-8"
               >
-                <div className="w-full border rounded-[32px] p-10 lg:p-14 bg-[var(--theme-surface)] border-[var(--theme-border)]">
+                <div className="w-full border rounded-[32px] p-10 lg:p-14 bg-transparent border-[#FAFAFA]">
                   <h2 className="text-[32px] md:text-[32px] font-medium mb-3 tracking-tight text-[var(--theme-text-hi)]">
                     Design Impact
                   </h2>
@@ -747,7 +762,7 @@ export default function FinanceAppPage() {
                         <span className="text-[36px] md:text-[44px] font-medium mb-3 leading-none text-[var(--theme-text-hi)]">
                           {val}
                         </span>
-                        <span className="text-[13px] font-medium tracking-wide text-[var(--theme-text-lo)]">
+                        <span className="text-[14px] font-medium tracking-wide text-[var(--theme-text-lo)]">
                           {label}
                         </span>
                       </div>
@@ -755,7 +770,7 @@ export default function FinanceAppPage() {
                   </div>
                 </div>
 
-                <div className="w-full border rounded-[32px] p-10 lg:p-14 bg-[var(--theme-surface)] border-[var(--theme-border)]">
+                <div className="w-full border rounded-[32px] p-10 lg:p-14 bg-transparent border-[#FAFAFA]">
                   <h2 className="text-[32px] md:text-[32px] font-medium mb-3 tracking-tight text-[var(--theme-text-hi)]">
                     Learnings
                   </h2>
@@ -819,10 +834,10 @@ export default function FinanceAppPage() {
                       ],
                     ].map(([title, desc]) => (
                       <div key={title} className="flex flex-col">
-                        <h3 className="text-[18px] font-medium mb-3 text-[var(--theme-text-hi)]">
+                        <h3 className="text-[20px] font-medium mb-3 text-[var(--theme-text-hi)]">
                           {title}
                         </h3>
-                        <p className="text-[15px] leading-[1.7] text-[var(--theme-text-lo)]">
+                        <p className="text-[16px] leading-[1.7] text-[var(--theme-text-lo)]">
                           {desc}
                         </p>
                       </div>
@@ -831,7 +846,7 @@ export default function FinanceAppPage() {
                 </div>
 
                 <div className="flex justify-center mt-20 mb-10 w-full text-center">
-                  <span className="text-[14px] text-[var(--theme-text-lo)] opacity-70">
+                  <span className="text-[16px] text-[var(--theme-text-lo)] opacity-70">
                     Thanks for reading . More projects coming in
                   </span>
                 </div>
@@ -839,49 +854,7 @@ export default function FinanceAppPage() {
             </div>
           </div>
 
-          {/* Related Projects */}
-          <div className="w-full mt-32 border-t border-[var(--theme-border)] pt-20 pb-10">
-            <h2 className="text-[32px] font-medium mb-10 tracking-tight text-[var(--theme-text-hi)]">
-              Related Projects
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { name: "Project 1", href: "/projects/project-1", img: null },
-                {
-                  name: "Budgeting App",
-                  href: "/projects/budgeting-app",
-                  img: "/images/Project 3 - Finance app Case Study Images/Summary - PW.png",
-                },
-                {
-                  name: "Design experiments",
-                  href: "/projects/design-experiments",
-                  img: null,
-                },
-              ].map((proj) => (
-                <Link
-                  key={proj.name}
-                  href={proj.href}
-                  className="flex flex-col gap-4 group"
-                >
-                  <div className="w-full aspect-[4/3] rounded-[16px] overflow-hidden border border-[var(--theme-border)] bg-[var(--theme-surface)] relative flex items-center justify-center group-hover:border-[var(--theme-accent)] transition-colors">
-                    {proj.img ? (
-                      <Image
-                        src={proj.img}
-                        alt={proj.name}
-                        fill
-                        className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.03]"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 pattern-dots pattern-gray-400 pattern-bg-transparent pattern-size-4 pattern-opacity-10 scale-150 mix-blend-overlay"></div>
-                    )}
-                  </div>
-                  <span className="text-[16px] font-medium text-[var(--theme-text-hi)]">
-                    {proj.name}
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
+          <RelatedProjects currentProject="Design Intelligence" />
         </main>
 
         <Footer />
