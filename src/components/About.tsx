@@ -27,7 +27,7 @@ function AnimatedWord({
   return (
     <motion.span
       style={{ opacity }}
-      className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-[var(--text-primary)]"
+      className="text-2xl sm:text-4xl md:text-5xl lg:text-48px font-medium tracking-tight text-[var(--text-primary)]"
     >
       {word}
     </motion.span>

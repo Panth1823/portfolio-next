@@ -31,7 +31,7 @@ export default function Nav() {
         >
           <Link
             href="/"
-            className="flex items-center font-manrope font-extrabold tracking-tight text-2xl text-[var(--text-primary)]"
+            className="flex items-center font-manrope font-semibold tracking-tight text-base text-[var(--text-primary)]"
           >
             <span>S</span>
             <motion.span
@@ -64,10 +64,10 @@ export default function Nav() {
 
           <button
             onClick={() => window.dispatchEvent(new Event("toggle-ai-chat"))}
-            className="flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 bg-[var(--theme-surface)] border border-[var(--theme-border)] rounded-full text-[var(--theme-hi)] text-[14px] md:text-[16px] font-medium hover:bg-[var(--theme-border)] transition-all active:scale-95 group"
+            className="flex items-center gap-1.5 px-3 py-1.5 border border-[var(--border)] rounded-full text-[var(--text-muted)] text-sm font-medium hover:text-[var(--text-primary)] hover:border-[var(--text-secondary)] transition-all active:scale-95 group"
           >
             <span>Chat with My AI</span>
-            <span className="text-[14px] md:text-[16px] opacity-60 group-hover:opacity-100 transition-opacity">✨</span>
+            <span className="text-sm opacity-50 group-hover:opacity-100 transition-opacity">✨</span>
           </button>
 
           {/* Mobile: hamburger */}

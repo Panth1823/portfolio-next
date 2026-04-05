@@ -6,6 +6,9 @@ import { usePathname } from "next/navigation";
 export default function AIChatWrapper() {
   const pathname = usePathname();
   const isProjectPage = pathname?.startsWith("/projects/") && pathname !== "/projects";
+  const isHomePage = pathname === "/";
+  const isProjectsListPage = pathname === "/projects";
+  const hideFab = isHomePage || isProjectsListPage;
 
   const [chatOpen, setChatOpen] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
@@ -94,7 +97,7 @@ export default function AIChatWrapper() {
       </div>
 
       {/* ── FLOATING BUTTONS ── */}
-      {isProjectPage ? (
+      {!hideFab && (isProjectPage ? (
         /* Project Page: Quick Brief Button */
         <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[90] flex items-center">
           <div
@@ -174,7 +177,7 @@ export default function AIChatWrapper() {
             )}
           </button>
         </div>
-      )}
+      ))}
     </>
   );
 }

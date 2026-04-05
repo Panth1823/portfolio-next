@@ -17,7 +17,7 @@ const tools: Tool[] = [
     hoverFilter:
       "brightness(0) saturate(100%) invert(88%) sepia(76%) saturate(1998%) hue-rotate(355deg) brightness(103%) contrast(106%)",
   },
-  { name: "Figma", logo: "/images/logo-figma.png", active: true },
+  { name: "Figma", logo: "/images/logo-figma.png" },
   {
     name: "Claude",
     logo: "/images/logo-claude.png",
@@ -60,9 +60,9 @@ const ToolIcon: FC<{
       <div className="absolute -top-5 left-1/2 -translate-x-1/2">
         <div
           className={`w-2 h-2 rounded-full transition-all duration-300 ${
-            tool.active
+            isHovered
               ? "bg-[var(--accent)] shadow-[0_0_10px_rgba(200,255,0,0.55)]"
-              : "bg-[var(--border)] group-hover:bg-[var(--text-primary)]"
+              : "bg-[var(--border)]"
           }`}
         />
       </div>

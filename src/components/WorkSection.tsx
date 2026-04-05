@@ -103,19 +103,19 @@ function CardContent({ project }: { project: Project }) {
         </div>
 
         {/* Subtitle */}
-        <p className="text-[14px] sm:text-[15px] font-semibold text-[var(--text-primary)] leading-snug mb-2 sm:mb-3">
+        <p className="text-base font-semibold text-[var(--text-primary)] leading-snug mb-2 sm:mb-3">
           {project.subtitle}
         </p>
 
         {/* Description */}
-        <p className="text-[12px] sm:text-[13px] text-[var(--text-muted)] leading-relaxed mb-4 sm:mb-6">
+        <p className="text-base text-[var(--text-muted)] leading-relaxed mb-4 sm:mb-6">
           {project.description}
         </p>
 
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mt-auto">
           {project.tags.map((tag) => (
-            <span key={tag} className="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-medium border border-[var(--border)] text-[var(--text-secondary)] bg-[var(--bg-secondary)]/50 tracking-wide">
+            <span key={tag} className="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-base font-medium border border-[var(--border)] text-[var(--text-secondary)] bg-[var(--bg-secondary)]/50 tracking-wide">
               {tag}
             </span>
           ))}

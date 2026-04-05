@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { Inter as InterGoogle, Manrope } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import ThemeDock from "@/components/ThemeDock";
 import AIChatWrapper from "@/components/AIChatWrapper";
 
-const inter = InterGoogle({ subsets: ["latin"] });
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
 
 export const metadata: Metadata = {
@@ -43,7 +42,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
       </head>
       <body
-        className={`${inter.className} ${manrope.variable} antialiased selection:bg-[#c8ff00] selection:text-black`}
+        className={`${manrope.className} ${manrope.variable} antialiased selection:bg-[#c8ff00] selection:text-black`}
       >
         <ThemeDock />
         <AIChatWrapper />

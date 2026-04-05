@@ -20,15 +20,11 @@ export default function Journey() {
     >
       <div className="sticky top-0 w-full h-screen overflow-hidden">
         {/* Grid Overlay */}
-        <div className="absolute inset-0 flex justify-between px-6 sm:px-12 pointer-events-none z-[1]">
-          {[...Array(7)].map((_, i) => (
+        <div className="absolute inset-0 flex justify-between items-center px-6 sm:px-12 pointer-events-none z-[1]">
+          {[...Array(9)].map((_, i) => (
             <div
               key={i}
-              className={`w-[1px] h-full ${i % 2 !== 0 ? "max-sm:hidden" : ""}`}
-              style={{
-                background:
-                  "linear-gradient(to bottom, transparent 0%, var(--grid-line) 20%, var(--grid-line) 80%, transparent 100%)",
-              }}
+              className="grid-line w-[1px] h-[65%] bg-gradient-to-b from-transparent via-black/[0.06] dark:via-white/[0.06] to-transparent"
             />
           ))}
         </div>

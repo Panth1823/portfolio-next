@@ -254,7 +254,7 @@ export default function AIChatbox({ onClose }: AIChatboxProps) {
     );
 
   return (
-    <div className="w-full max-w-[380px] h-[580px] bg-[#0d0d0d] border border-white/10 rounded-[28px] shadow-2xl flex flex-col overflow-hidden font-[Inter,sans-serif]">
+    <div className="w-full max-w-[380px] h-[580px] bg-[#0d0d0d] border border-white/10 rounded-[28px] shadow-2xl flex flex-col overflow-hidden font-manrope">
       {/* Header */}
       <div className="p-6 border-b border-white/5 bg-white/[0.01] flex items-center justify-between backdrop-blur-xl">
         <div className="flex items-center gap-3">
