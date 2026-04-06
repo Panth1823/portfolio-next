@@ -8,14 +8,14 @@ interface Tool {
   logo: string;
   hoverFilter?: string;
   active?: boolean;
+  isColored?: boolean;
 }
 
 const tools: Tool[] = [
   {
     name: "Miro",
     logo: "/images/logo-miro.png",
-    hoverFilter:
-      "brightness(0) saturate(100%) invert(88%) sepia(76%) saturate(1998%) hue-rotate(355deg) brightness(103%) contrast(106%)",
+    isColored: true,
   },
   { name: "Figma", logo: "/images/logo-figma.png" },
   {
@@ -27,14 +27,12 @@ const tools: Tool[] = [
   {
     name: "Antigravity",
     logo: "/images/logo-antigravity.png",
-    hoverFilter:
-      "brightness(0) saturate(100%) invert(69%) sepia(20%) saturate(1165%) hue-rotate(209deg) brightness(94%) contrast(92%)",
+    isColored: true,
   },
   {
     name: "Framer",
     logo: "/images/logo-framer.png",
-    hoverFilter:
-      "brightness(0) saturate(100%) invert(53%) sepia(90%) saturate(1883%) hue-rotate(207deg) brightness(102%) contrast(101%)",
+    isColored: true,
   },
   {
     name: "Perplexity",
@@ -90,7 +88,7 @@ const ToolIcon: FC<{
               ? "opacity-100 scale-110"
               : "grayscale saturate-0 opacity-60"
           }`}
-          style={{ filter: isHovered ? tool.hoverFilter : undefined }}
+          style={{ filter: isHovered ? (tool.isColored ? "none" : tool.hoverFilter) : undefined }}
         />
       </button>
     </div>

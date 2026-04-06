@@ -15,6 +15,7 @@ export default function Journey() {
 
   return (
     <section
+      id="journey"
       ref={containerRef}
       className="relative w-full h-[400vh] bg-[var(--bg-primary)] max-md:h-[600vh]"
     >

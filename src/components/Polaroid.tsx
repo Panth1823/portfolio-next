@@ -203,7 +203,7 @@ export default function Polaroid() {
           ))}
         </div>
         {/* Desktop: original fanned layout */}
-        <div className="hidden md:flex items-center justify-center relative -gap-5 perspective-[1120px]">
+        <div className="hidden md:flex items-center justify-center relative perspective-[1120px]">
           {POLAROIDS.map((item, i) => (
             <motion.div
               layout
@@ -232,21 +232,21 @@ export default function Polaroid() {
                 },
               }}
               viewport={{ once: true, margin: "-50px" }}
-              style={{ zIndex: 10 - i }}
-              className={`polaroid-card w-[280px] bg-[var(--bg-card)]/60 backdrop-blur-xl p-[14px] pb-[30px] rounded-[20px] border border-[var(--border)] shadow-[0_15px_30px_-10px_rgba(0,0,0,0.5)] cursor-pointer relative ${
-                i > 0 ? "-ml-[30px]" : ""
+              style={{ zIndex: 10 - i, width: "clamp(140px, 14vw, 280px)" }}
+              className={`polaroid-card bg-[var(--bg-card)]/60 backdrop-blur-xl p-[clamp(8px,1vw,14px)] pb-[clamp(16px,2vw,30px)] rounded-[20px] border border-[var(--border)] shadow-[0_15px_30px_-10px_rgba(0,0,0,0.5)] cursor-pointer relative ${
+                i > 0 ? "-ml-[clamp(10px,2vw,30px)]" : ""
               } group shrink-0`}
             >
-              <div className="polaroid-img-container w-full aspect-square bg-[var(--bg-secondary)] overflow-hidden rounded-xl mb-5 relative">
+              <div className="polaroid-img-container w-full aspect-square bg-[var(--bg-secondary)] overflow-hidden rounded-xl mb-[clamp(8px,1vw,20px)] relative">
                 <Image
                   src={item.src}
                   alt={item.alt}
                   fill
-                  sizes="280px"
+                  sizes="(max-width: 1200px) 14vw, 280px"
                   className="object-cover opacity-80 transition-opacity duration-300 group-hover:opacity-100"
                 />
               </div>
-              <div className="polaroid-caption flex items-center justify-center gap-2.5 text-[15px] font-medium text-[var(--text-primary)] tracking-[-0.2px]">
+              <div className="polaroid-caption flex items-center justify-center gap-1.5 text-[clamp(10px,1vw,15px)] font-medium text-[var(--text-primary)] tracking-[-0.2px]">
                 {item.icon}
                 {item.caption}
               </div>

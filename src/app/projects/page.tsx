@@ -14,9 +14,9 @@ export default function ProjectsPage() {
         <main className="w-full max-w-[1440px] px-6 sm:px-12 md:px-[60px] pb-32">
           {/* Page Header */}
           <div className="pt-44 md:pt-56 pb-16 md:pb-20 mb-4">
-            <h1 className="text-[44px] sm:text-[56px] md:text-[76px] font-medium leading-[0.95] tracking-tight text-[var(--theme-text-hi)]">
-              Design Case <br />
-              Studies
+            <h1 className="text-[44px] sm:text-[56px] md:text-[76px] font-medium leading-[1.1] tracking-tight text-[var(--theme-text-hi)]">
+              Design <br />
+              Case Studies
             </h1>
           </div>
 

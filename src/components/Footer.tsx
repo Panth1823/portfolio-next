@@ -14,7 +14,7 @@ export default function Footer() {
   };
 
   return (
-    <section className="footer-section relative w-full min-h-[500px] sm:min-h-[600px] lg:min-h-[670px] flex flex-col items-center justify-between py-12 sm:py-[60px] pb-8 sm:pb-[40px] bg-[var(--bg-primary)] overflow-hidden font-manrope">
+    <section id="contact" className="footer-section relative w-full min-h-[500px] sm:min-h-[600px] lg:min-h-[670px] flex flex-col items-center justify-between py-12 sm:py-[60px] pb-8 sm:pb-[40px] bg-[var(--bg-primary)] overflow-hidden font-manrope">
       {/* Background Grid Lines */}
       <div className="grid-lines absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1440px] h-full pointer-events-none z-0">
         <div className="grid-line absolute w-[1px] h-full left-[10%] bg-gradient-to-b from-transparent via-black/15 dark:via-white/15 to-transparent" />

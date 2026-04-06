@@ -8,7 +8,7 @@ import AIChatWrapper from "@/components/AIChatWrapper";
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
 
 export const metadata: Metadata = {
-  title: "Portfolio — Journey",
+  title: "Shvetha's Portfolio",
   description:
     "A cinematic scroll-driven portfolio journey showcasing design experience.",
   icons: {

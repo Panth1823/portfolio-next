@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, MotionValue, useTransform } from "framer-motion";
+import Image from "next/image";
 
 interface CardProps {
   progress: MotionValue<number>;
@@ -90,13 +91,7 @@ export default function ExperienceCards({
         date="2022 – 2024"
         description="I've been commissioned to create custom websites, apps and identity systems."
         icon={
-          <svg
-            viewBox="0 0 24 24"
-            className="w-5 h-5 fill-none stroke-[var(--text-secondary)] stroke-[1.8] items-center"
-          >
-            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-            <circle cx="12" cy="12" r="3" />
-          </svg>
+          <Image src="/images/eye-logo.png" alt="Freelance" width={24} height={24} className="w-6 h-6 object-contain" />
         }
       />
 
@@ -110,13 +105,7 @@ export default function ExperienceCards({
         date="2024 · Uttar Pradesh"
         description="Co-created wireframes and prototypes, driving a 40% increase in user engagement."
         icon={
-          <svg
-            viewBox="0 0 24 24"
-            className="w-5 h-5 fill-none stroke-[var(--text-secondary)] stroke-[1.8]"
-          >
-            <polyline points="2,20 9,9 14,15 17,11 22,20" />
-            <line x1="2" y1="20" x2="22" y2="20" />
-          </svg>
+          <Image src="/images/Mentorsity-icon.png" alt="Mentorsity" width={24} height={24} className="w-6 h-6 object-contain" />
         }
       />
 
@@ -130,14 +119,7 @@ export default function ExperienceCards({
         date="2025 · Bangalore"
         description="As an early design hire, worked across brand and product design."
         icon={
-          <svg
-            viewBox="0 0 24 24"
-            className="w-5 h-5 fill-none stroke-[var(--text-secondary)] stroke-[1.8]"
-          >
-            <line x1="7" y1="4" x2="7" y2="20" />
-            <polyline points="7,12 17,4" />
-            <polyline points="7,12 17,20" />
-          </svg>
+          <Image src="/images/koios-logo.png" alt="Koiostudio" width={24} height={24} className="w-6 h-6 object-contain" />
         }
       />
     </div>

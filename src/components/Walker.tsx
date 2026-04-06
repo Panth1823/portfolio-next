@@ -92,7 +92,7 @@ export default function Walker({ progress }: WalkerProps) {
           className="w-full h-full"
           style={{
             background:
-              "linear-gradient(90deg, transparent 0%, rgba(200,255,0,0.01) 20%, rgba(200,255,0,0.05) 50%, rgba(200,255,0,0.18) 80%, rgba(200,255,0,0.55) 100%)",
+              "linear-gradient(90deg, transparent 0%, rgba(200,255,0,0.005) 20%, rgba(200,255,0,0.02) 50%, rgba(200,255,0,0.08) 80%, rgba(200,255,0,0.22) 100%)",
           }}
         />
         {/* Soft glow at the leading edge */}

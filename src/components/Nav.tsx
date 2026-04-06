@@ -9,7 +9,7 @@ export default function Nav() {
 
   const links = [
     { href: "/projects", label: "Projects" },
-    { href: "/#about", label: "About" },
+    { href: "/#journey", label: "About" },
     { href: "/#contact", label: "Contact" },
     { href: "/resume", label: "Resume" },
   ];
@@ -31,7 +31,7 @@ export default function Nav() {
         >
           <Link
             href="/"
-            className="flex items-center font-manrope font-semibold tracking-tight text-base text-[var(--text-primary)]"
+            className="flex items-center font-manrope font-semibold tracking-tight text-[var(--text-primary)]" style={{ fontSize: "24px" }}
           >
             <span>S</span>
             <motion.span
