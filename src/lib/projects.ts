@@ -28,9 +28,11 @@ export const PROJECT_LIST: Project[] = [
       "A product concept exploring how design review can be integrated directly into the design process instead of being treated as a separate step.",
     tags: ["2026", "Product Concept"],
     href: "/projects/design-intelligence",
-    image: "/images/Project 2 - Design Intelligence Case study Images/Summary - DI.png",
+    image:
+      "/images/Project 2 - Design Intelligence Case study Images/Summary - DI.png",
     iconColor: "#F24E1E",
-    iconImage: "/images/Project card icons/Project card icons/Design Intelligence.png",
+    iconImage:
+      "/images/Project card icons/Project card icons/Design Intelligence.png",
   },
   {
     title: "Budgeting App",
@@ -41,10 +43,11 @@ export const PROJECT_LIST: Project[] = [
     href: "/projects/budgeting-app",
     image: "/images/Project 3 - Finance app Case Study Images/Summary - PW.png",
     iconColor: "#14B8A6",
-    iconImage: "/images/Project card icons/Project card icons/Budgeting app.png",
+    iconImage:
+      "/images/Project card icons/Project card icons/Budgeting app.png",
   },
   {
-    title: "Design experiments",
+    title: "Design Experiments",
     subtitle:
       "A collection of explorations across web, app, interaction and branding.",
     description:
@@ -53,6 +56,7 @@ export const PROJECT_LIST: Project[] = [
     href: "/projects/design-experiments",
     image: "/images/Design Experiments Cover.png",
     iconColor: "#e5e7eb",
-    iconImage: "/images/Project card icons/Project card icons/Design Experiments.png",
+    iconImage:
+      "/images/Project card icons/Project card icons/Design Experiments.png",
   },
 ];

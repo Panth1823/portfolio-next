@@ -7,12 +7,13 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const links = [
+  const navLinks = [
     { href: "/projects", label: "Projects" },
     { href: "/#journey", label: "About" },
     { href: "/#contact", label: "Contact" },
-    { href: "/resume", label: "Resume" },
   ];
+
+  const resumeFile = "/Resume - Shvetha Senthilkumar.pdf";
 
   return (
     <>
@@ -51,7 +52,7 @@ export default function Nav() {
         <div className="flex items-center gap-6 md:gap-10">
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-8">
-            {links.map((l) => (
+            {navLinks.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
@@ -60,6 +61,13 @@ export default function Nav() {
                 {l.label}
               </Link>
             ))}
+            <a
+              href={resumeFile}
+              download
+              className="text-sm font-medium text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors tracking-wide"
+            >
+              Resume
+            </a>
           </div>
 
           <button
@@ -104,7 +112,7 @@ export default function Nav() {
             transition={{ duration: 0.2 }}
             className="fixed inset-x-0 top-[68px] z-40 md:hidden bg-[var(--bg-card)]/95 backdrop-blur-xl border-b border-[var(--border)] px-6 py-6 flex flex-col gap-5"
           >
-            {links.map((l, i) => (
+            {navLinks.map((l, i) => (
               <motion.div
                 key={l.href}
                 initial={{ opacity: 0, x: -10 }}
@@ -120,6 +128,20 @@ export default function Nav() {
                 </Link>
               </motion.div>
             ))}
+            <motion.div
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: navLinks.length * 0.06 }}
+            >
+              <a
+                href={resumeFile}
+                download
+                onClick={() => setMenuOpen(false)}
+                className="text-lg font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              >
+                Resume
+              </a>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

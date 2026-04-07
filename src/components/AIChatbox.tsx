@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback, forwardRef, useImperativeHandle } from 'react';
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -103,15 +103,29 @@ function getDynamicSuggestions(currentValue: string): Suggestion[] {
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
-interface AIChatboxProps {
-  onClose?: () => void;
+export interface AIChatboxHandle {
+  startVoice: () => void;
+  pauseVoice: () => void;
+  resumeVoice: () => void;
+  restartVoice: () => void;
+  voiceState: 'idle' | 'speaking' | 'paused';
 }
 
-export default function AIChatbox({ onClose }: AIChatboxProps) {
+interface AIChatboxProps {
+  onClose?: () => void;
+  onVoiceStateChange?: (state: 'idle' | 'speaking' | 'paused') => void;
+}
+
+const AIChatbox = forwardRef<AIChatboxHandle, AIChatboxProps>(function AIChatbox({ onClose, onVoiceStateChange }, ref) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [voiceState, setVoiceState] = useState<'idle' | 'speaking' | 'paused'>('idle');
+
+  const setAndNotifyVoiceState = useCallback((state: 'idle' | 'speaking' | 'paused') => {
+    setVoiceState(state);
+    onVoiceStateChange?.(state);
+  }, [onVoiceStateChange]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const msgIdRef = useRef(0);
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
@@ -144,8 +158,8 @@ export default function AIChatbox({ onClose }: AIChatboxProps) {
       utteranceRef.current.onerror = null;
     }
     window.speechSynthesis.cancel();
-    setVoiceState('idle');
-  }, []);
+    setAndNotifyVoiceState('idle');
+  }, [setAndNotifyVoiceState]);
 
   const startVoice = useCallback(() => {
     if (utteranceRef.current) {
@@ -160,26 +174,48 @@ export default function AIChatbox({ onClose }: AIChatboxProps) {
       utt.rate = 0.92;
       const voice = getFemaleVoice();
       if (voice) utt.voice = voice;
-      utt.onend = () => setVoiceState('idle');
-      utt.onerror = () => setVoiceState('idle');
+      utt.onend = () => setAndNotifyVoiceState('idle');
+      utt.onerror = () => setAndNotifyVoiceState('idle');
       utteranceRef.current = utt;
       window.speechSynthesis.speak(utt);
-      setVoiceState('speaking');
+      setAndNotifyVoiceState('speaking');
       addMessage('Narrating my project journey... 🎙️');
     }, 100);
-  }, [getFemaleVoice, addMessage]);
+  }, [getFemaleVoice, addMessage, setAndNotifyVoiceState]);
+
+  const pauseVoice = useCallback(() => {
+    window.speechSynthesis.pause();
+    setAndNotifyVoiceState('paused');
+  }, [setAndNotifyVoiceState]);
+
+  const resumeVoice = useCallback(() => {
+    window.speechSynthesis.resume();
+    setAndNotifyVoiceState('speaking');
+  }, [setAndNotifyVoiceState]);
+
+  const restartVoice = useCallback(() => {
+    startVoice();
+  }, [startVoice]);
 
   const toggleVoice = useCallback(() => {
     if (voiceState === 'idle') {
       startVoice();
     } else if (voiceState === 'speaking') {
-      window.speechSynthesis.pause();
-      setVoiceState('paused');
+      pauseVoice();
     } else {
-      window.speechSynthesis.resume();
-      setVoiceState('speaking');
+      resumeVoice();
     }
-  }, [voiceState, startVoice]);
+  }, [voiceState, startVoice, pauseVoice, resumeVoice]);
+
+  // ── Expose voice controls to parent via ref ─────────────────────────────────
+
+  useImperativeHandle(ref, () => ({
+    startVoice,
+    pauseVoice,
+    resumeVoice,
+    restartVoice,
+    voiceState,
+  }), [startVoice, pauseVoice, resumeVoice, restartVoice, voiceState]);
 
   // ── Message sending ─────────────────────────────────────────────────────────
 
@@ -353,4 +389,6 @@ export default function AIChatbox({ onClose }: AIChatboxProps) {
       </div>
     </div>
   );
-}
+});
+
+export default AIChatbox;

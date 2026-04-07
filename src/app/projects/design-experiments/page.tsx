@@ -17,7 +17,13 @@ interface BentoCardProps {
   objectPos?: string;
 }
 
-function BentoCard({ src, alt, videoSrc, className = "", objectPos = "center center" }: BentoCardProps) {
+function BentoCard({
+  src,
+  alt,
+  videoSrc,
+  className = "",
+  objectPos = "center center",
+}: BentoCardProps) {
   const [hovered, setHovered] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -72,7 +78,9 @@ function BentoCard({ src, alt, videoSrc, className = "", objectPos = "center cen
           <svg width="8" height="9" viewBox="0 0 8 9" fill="white">
             <polygon points="1,0.5 7.5,4.5 1,8.5" />
           </svg>
-          <span className="text-white text-[11px] font-medium">Hover to play</span>
+          <span className="text-white text-[11px] font-medium">
+            Hover to play
+          </span>
         </div>
       )}
     </div>
@@ -88,14 +96,23 @@ export default function DesignExperimentsPage() {
         <Nav />
 
         <main className="w-full max-w-[1440px] px-8 md:px-[60px] pt-28 md:pt-36 pb-24">
-
           {/* ── Section 1: Hero ── */}
           <Link
             href="/projects"
             className="inline-flex items-center gap-2.5 text-[14px] font-medium hover:opacity-80 transition-all mb-16 md:mb-20 text-[var(--theme-text-lo)]"
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="stroke-current stroke-[1.5]">
-              <path d="M19 12H5M5 12L12 19M5 12L12 5" strokeLinecap="round" strokeLinejoin="round" />
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="stroke-current stroke-[1.5]"
+            >
+              <path
+                d="M19 12H5M5 12L12 19M5 12L12 5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
             Go back
           </Link>
@@ -116,26 +133,27 @@ export default function DesignExperimentsPage() {
             <div className="col-span-2 hidden md:block"></div>
             <div className="col-span-2">
               <p className="text-base leading-[1.8] pr-4 lg:pr-12 max-w-[600px] text-[var(--theme-text-lo)]">
-                This is a collection of explorations across web, app, interaction
-                and branding projects driven by curiosity and a desire to go
-                beyond conventional design patterns. It captures my process of
-                learning, testing ideas, and discovering what truly works through
-                hands-on experimentation.
+                This is a collection of explorations across web, app,
+                interaction and branding projects driven by curiosity and a
+                desire to go beyond conventional design patterns. It captures my
+                process of learning, testing ideas, and discovering what truly
+                works through hands-on experimentation.
               </p>
             </div>
           </div>
 
           {/* ── Section 2: Bento Grid — matching the reference image ── */}
           <div className="w-full mb-24 lg:mb-32 flex flex-col gap-3">
-
             {/* Top row: narrow vertical label strip + left card + right card */}
             <div className="flex gap-3" style={{ height: "442px" }}>
-
               {/* Vertical "Micro Interactions" label strip */}
               <div className="flex-none w-[52px] rounded-[16px] bg-[#111] border border-[var(--theme-border)] flex flex-col items-center justify-between py-6 px-2">
                 <div
                   className="text-[var(--theme-text-hi)] font-medium text-[11px] tracking-widest uppercase opacity-60 select-none"
-                  style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+                  style={{
+                    writingMode: "vertical-rl",
+                    transform: "rotate(180deg)",
+                  }}
                 >
                   Micro Interactions
                 </div>
@@ -150,7 +168,7 @@ export default function DesignExperimentsPage() {
               <BentoCard
                 src="/images/Rectangle 20.png"
                 alt="Yummy - Meal Steal App"
-                videoSrc="/videos/bento-yummy.mp4"
+                videoSrc="/videos/Micro Interaction - 1.mp4"
                 objectPos="center center"
                 className="flex-1"
               />
@@ -167,7 +185,6 @@ export default function DesignExperimentsPage() {
 
             {/* Bottom row: Pizza Party + Furniture designer */}
             <div className="flex gap-3" style={{ height: "338px" }}>
-
               {/* Bottom-left: Pizza Party */}
               <BentoCard
                 src="/images/Rectangle 19.png"
@@ -201,8 +218,7 @@ export default function DesignExperimentsPage() {
           </div>
 
           {/* ── Section 4: Related Projects ── */}
-          <RelatedProjects currentProject="Design experiments" />
-
+          <RelatedProjects currentProject="Design Experiments" />
         </main>
 
         {/* ── Section 5: Footer ── */}

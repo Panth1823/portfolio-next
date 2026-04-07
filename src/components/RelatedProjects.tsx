@@ -2,10 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ALL_PROJECTS = [
-  { 
-    name: "Project 1", 
-    href: "/projects/project-1", 
-    img: null 
+  {
+    name: "Project 1",
+    href: "/projects/project-1",
+    img: null,
   },
   {
     name: "Design Intelligence",
@@ -18,7 +18,7 @@ const ALL_PROJECTS = [
     img: "/images/Project 3 - Finance app Case Study Images/Summary - PW.png",
   },
   {
-    name: "Design experiments",
+    name: "Design Experiments",
     href: "/projects/design-experiments",
     img: "/images/Design Experiments Cover.png",
   },
@@ -28,7 +28,9 @@ interface RelatedProjectsProps {
   currentProject: string;
 }
 
-export default function RelatedProjects({ currentProject }: RelatedProjectsProps) {
+export default function RelatedProjects({
+  currentProject,
+}: RelatedProjectsProps) {
   const relatedProjects = ALL_PROJECTS.filter((p) => p.name !== currentProject);
 
   return (
