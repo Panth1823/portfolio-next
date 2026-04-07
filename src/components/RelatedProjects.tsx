@@ -3,8 +3,8 @@ import Link from "next/link";
 
 const ALL_PROJECTS = [
   {
-    name: "Project 1",
-    href: "/projects/project-1",
+    name: "Portfolio Strategy",
+    href: "/projects/portfolio-strategy",
     img: null,
   },
   {

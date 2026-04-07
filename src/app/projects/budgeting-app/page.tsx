@@ -6,6 +6,24 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import RelatedProjects from "@/components/RelatedProjects";
+import QuickBriefButton from "@/components/QuickBriefButton";
+
+const BRIEF_DATA = {
+  title: "Budgeting App",
+  href: "#summary",
+  accentColor: "#14B8A6",
+  role: "Product Designer",
+  duration: "2 months",
+  tools: "Figma, FigJam",
+  category: "Fintech",
+  points: [
+    "Redesigned student budgeting: shifted from data tracking to decision-first guidance",
+    "Introduced AI-driven insights to replace static summaries and passive reports",
+    "Simplified hierarchy — surfaced only what matters for quick financial actions",
+    "Three core concepts: Guided Clarity, Decision-First UX, AI Assistance",
+    "Outcome: 50% lower drop-offs, 40% faster decision making, 25% more engagement",
+  ],
+};
 
 // ── Component ─────────────────────────────────────────────────────────────────
 

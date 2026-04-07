@@ -7,19 +7,38 @@ export interface Project {
   image: string | null;
   iconColor: string;
   iconImage?: string;
+  quickBrief?: {
+    role: string;
+    duration: string;
+    tools: string;
+    category: string;
+    points: string[];
+  };
 }
 
 export const PROJECT_LIST: Project[] = [
   {
-    title: "Project 1",
-    subtitle:
-      "Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.",
+    title: "Portfolio Strategy",
+    subtitle: "Designing My Portfolio as a Product",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.",
-    tags: ["2024", "Mobile Application"],
-    href: "/projects/project-1",
+      "A self-initiated project focused on transforming my portfolio from a visual showcase into a strategic product that communicates design thinking, decision-making, and impact clearly to recruiters within seconds.",
+    tags: ["2024", "Portfolio"],
+    href: "/projects/portfolio-strategy",
     image: null,
     iconColor: "#e5e7eb",
+    quickBrief: {
+      role: "Product Designer",
+      duration: "4 months",
+      tools: "Figma, Perplexity",
+      category: "Portfolio",
+      points: [
+        "Redesigned the portfolio as a product, not just a visual showcase",
+        "Prioritized clarity, storytelling and scannability for recruiters",
+        "Introduced AI Portfolio Assistant and Voice Brief as core concepts",
+        "Structured experience surfaces key insights within seconds",
+        "Outcome: 55% faster project understanding, 40% improved content clarity",
+      ],
+    },
   },
   {
     title: "Design Intelligence",
@@ -33,6 +52,19 @@ export const PROJECT_LIST: Project[] = [
     iconColor: "#F24E1E",
     iconImage:
       "/images/Project card icons/Project card icons/Design Intelligence.png",
+    quickBrief: {
+      role: "Product Designer",
+      duration: "3 months",
+      tools: "Figma, Perplexity",
+      category: "Product Concept",
+      points: [
+        "Embedded real-time design review directly into the Figma workflow",
+        "Detects spacing, contrast, accessibility and design-system deviations on the canvas",
+        "Flags orphan screens and broken navigation flows automatically",
+        "Eliminates the need to switch between design tools and review plugins",
+        "Outcome: 55% faster issue detection, 50% higher consistency, 35% less rework",
+      ],
+    },
   },
   {
     title: "Budgeting App",
@@ -45,6 +77,19 @@ export const PROJECT_LIST: Project[] = [
     iconColor: "#14B8A6",
     iconImage:
       "/images/Project card icons/Project card icons/Budgeting app.png",
+    quickBrief: {
+      role: "Product Designer",
+      duration: "2 months",
+      tools: "Figma, FigJam",
+      category: "Fintech",
+      points: [
+        "Redesigned student budgeting: shifted from data tracking to decision-first guidance",
+        "Introduced AI-driven insights to replace static summaries and passive reports",
+        "Simplified hierarchy — surfaced only what matters for quick financial actions",
+        "Designed three core concepts: Guided Clarity, Decision-First UX, AI Assistance",
+        "Outcome: 50% lower drop-offs, 40% faster decision making, 25% more engagement",
+      ],
+    },
   },
   {
     title: "Design Experiments",
@@ -58,5 +103,18 @@ export const PROJECT_LIST: Project[] = [
     iconColor: "#e5e7eb",
     iconImage:
       "/images/Project card icons/Project card icons/Design Experiments.png",
+    quickBrief: {
+      role: "Product Designer",
+      duration: "Ongoing",
+      tools: "Figma, After Effects",
+      category: "Branding · UI Exploration",
+      points: [
+        "A collection of micro-interaction and UI explorations across 4 app concepts",
+        "Yummy / Meal Steal — animated food ordering micro-interactions",
+        "Good Morning Coffee — calm, minimal morning routine app exploration",
+        "Pizza Party — playful interaction patterns for a food delivery concept",
+        "Foam Wood Furniture — configurator UI with dynamic, hands-on feel",
+      ],
+    },
   },
 ];

@@ -6,6 +6,24 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import RelatedProjects from "@/components/RelatedProjects";
 import { useState, useRef } from "react";
+import QuickBriefButton from "@/components/QuickBriefButton";
+
+const BRIEF_DATA = {
+  title: "Design Experiments",
+  href: "#",
+  accentColor: "#84CC16",
+  role: "Product Designer",
+  duration: "Ongoing",
+  tools: "Figma, After Effects",
+  category: "Branding · UI Exploration",
+  points: [
+    "A collection of micro-interaction and UI explorations across 4 app concepts",
+    "Yummy / Meal Steal — animated food ordering micro-interactions",
+    "Good Morning Coffee — calm, minimal morning routine app exploration",
+    "Pizza Party — playful interaction patterns for a food delivery concept",
+    "Foam Wood Furniture — configurator UI with dynamic, hands-on feel",
+  ],
+};
 
 // ── Bento Card ─────────────────────────────────────────────────────────────────
 
@@ -208,7 +226,7 @@ export default function DesignExperimentsPage() {
           {/* ── Section 3: Full project image collage ── */}
           <div className="w-full mb-24 lg:mb-32">
             <Image
-              src="/images/Project Images - Design Experiments.png"
+              src="/images/Design Experiments.png"
               alt="Design Experiments — full project collage"
               width={1400}
               height={1800}

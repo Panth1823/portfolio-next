@@ -5,6 +5,24 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import RelatedProjects from "@/components/RelatedProjects";
+import QuickBriefButton from "@/components/QuickBriefButton";
+
+const BRIEF_DATA = {
+  title: "Budgeting App — Student Finance",
+  href: "#summary",
+  accentColor: "#84CC16",
+  role: "Product Designer",
+  duration: "2 months",
+  tools: "Figma, FigJam",
+  category: "App Concept",
+  points: [
+    "Redesigned a student budgeting experience from the ground up",
+    "Shifted focus from passive expense tracking to guided decision-making",
+    "Removed excessive charts — prioritised key metrics like balance & budget status",
+    "Reduced cognitive load so users understand their finances faster",
+    "Validated through testing: 50% lower drop-offs, 40% faster decisions",
+  ],
+};
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
@@ -69,11 +87,11 @@ export default function FinanceAppPage() {
 
           <div className="flex flex-col lg:flex-row lg:justify-between items-start gap-10 mb-14">
             <h1 className="text-[64px] font-medium leading-[1.1] tracking-tight max-w-[900px] text-[var(--theme-text-hi)]">
-              Redefining How Students Make Financial Decisions
+              Designing My Portfolio as a Product
             </h1>
             <div className="flex flex-col items-center lg:mt-2 relative">
               <span className="text-[64px] lg:text-[80px] font-medium leading-[0.60] opacity-20 tracking-tight relative z-10 text-[var(--theme-text-lo)]">
-                02
+                01
               </span>
               <div className="w-[50px] h-[3px] mt-4 rounded-full relative z-10 bg-[var(--theme-accent)]"></div>
             </div>
@@ -83,10 +101,10 @@ export default function FinanceAppPage() {
             <div className="col-span-2 hidden md:block"></div>
             <div className="col-span-2">
               <p className="text-base leading-[1.8] pr-4 lg:pr-12 max-w-[600px] text-[var(--theme-text-lo)]">
-                In this project, I redesigned a student budgeting experience by
-                shifting focus from passive expense tracking to guided
-                decision-making ; helping users understand their spending,
-                reduce overwhelm, and take confident financial actions.
+                A self-initiated project focused on transforming my portfolio
+                from a visual showcase into a strategic product that
+                communicates design thinking, decision-making, and impact
+                clearly to recruiters within seconds.
               </p>
             </div>
           </div>
@@ -96,9 +114,9 @@ export default function FinanceAppPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-8 pb-12 border-b border-[var(--theme-border)]">
             {[
               ["Role", "Product Designer"],
-              ["Project Duration", "2 months"],
-              ["Tools", "Figma, FigJam"],
-              ["Category", "App Concept"],
+              ["Project Duration", "4 months"],
+              ["Tools", "Figma, Perplexity"],
+              ["Category", "Portfolio"],
             ].map(([label, value]) => (
               <div key={label} className="flex flex-col gap-4">
                 <span className="text-[14px] uppercase tracking-[0.14em] font-bold opacity-50 text-[var(--theme-text-lo)]">
@@ -160,29 +178,28 @@ export default function FinanceAppPage() {
                     </h2>
                     <div className="w-[45px] h-[3px] rounded-full mb-8 bg-[var(--theme-accent)]"></div>
                     <p className="text-[16px] leading-[1.65] w-[95%] lg:w-[85%] text-[var(--theme-text-mid)]">
-                      A quick overview of how student budgeting can be
-                      simplified into clear and easy financial decisions.
+                      Most portfolios focus on visuals, making it difficult for
+                      recruiters to quickly understand a designer&apos;s
+                      thinking, process, and real impact.
                     </p>
                   </div>
                   <div className="col-span-1 md:col-span-6 lg:col-span-7 flex flex-col gap-8 lg:pl-12">
                     <p className="text-[16px] leading-[1.7] md:w-[95%] text-[var(--theme-text-mid)]">
-                      Reimagined how student budgeting apps should work. Instead
-                      of overwhelming users with numbers, I focused on making
-                      money management simple and easy to understand.
+                      This project rethinks the portfolio as a product,
+                      prioritizing clarity, storytelling, and scannability over
+                      purely aesthetic presentation.
                     </p>
                     <p className="text-[16px] leading-[1.7] md:w-[95%] text-[var(--theme-text-mid)]">
-                      The experience is designed to guide students toward better
-                      spending habits, not just track expenses. By simplifying
-                      information and presenting it in a clear way, it helps
-                      users understand their finances faster and make confident
-                      decisions.
+                      The goal was to design a portfolio that communicates value
+                      within seconds while still allowing deeper exploration when
+                      needed.
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-10 gap-x-8 mt-10">
                       {[
-                        ["Faster Insights", "40%"],
-                        ["Smarter Spending", "35%"],
-                        ["Lower Drop-offs", "50%"],
-                        ["More Engagement", "25%"],
+                        ["Improved content clarity", "40%"],
+                        ["Lower Effort Evaluation", "38%"],
+                        ["Faster project understanding", "55%"],
+                        ["Better Scannability", "42%"],
                       ].map(([label, val]) => (
                         <div key={label}>
                           <p className="text-[14px] font-medium mb-3 tracking-wide uppercase opacity-80 text-[var(--theme-text-lo)]">
@@ -216,10 +233,9 @@ export default function FinanceAppPage() {
                 </h2>
                 <div className="w-[50px] h-[3px] rounded-full mb-10 bg-[var(--theme-accent)]"></div>
                 <p className="text-base leading-[1.65] text-left max-w-[820px] mb-24 lg:mb-32 text-[var(--theme-text-lo)]">
-                  Budgeting tools rely heavily on data presentation but fail to
-                  support decision-making.
-                  <br className="hidden md:block" /> Users are left to interpret
-                  complex charts and fragmented information on their own.
+                  Recruiters struggle to quickly evaluate portfolios as key
+                  insights, decisions, and impact are unclear or difficult to
+                  find.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-20">
@@ -237,69 +253,38 @@ export default function FinanceAppPage() {
                     </div>
                     <div className="px-2 pb-2">
                       <h3 className="text-[16px] font-medium mb-3 text-[var(--theme-text-hi)]">
-                        Information Overload
+                        Low signal-to-noise ratio
                       </h3>
                       <p className="text-[16px] leading-[1.65] text-[var(--theme-text-lo)]">
-                        Too many categories and charts make it difficult to
-                        identify what actually matters.
+                        Important insights are buried under visual-heavy content.
                       </p>
                     </div>
                   </div>
                   <div className="flex flex-col border rounded-[20px] p-2 bg-[var(--theme-surface)] border-[var(--theme-border)]">
-                    <div className="w-full aspect-[4/3] bg-white rounded-[12px] mb-4 flex flex-col items-start justify-center p-6 border border-gray-100">
-                      <div className="flex justify-between w-full items-baseline mb-4">
-                        <span className="text-[16px] font-semibold text-gray-700">
-                          Monthly Budget
-                        </span>
-                        <span className="text-[16px] font-medium text-[#14B8A6]">
-                          £560 left
-                        </span>
-                      </div>
-                      <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden mb-6">
-                        <div className="w-[30%] h-full bg-[#14B8A6] rounded-full"></div>
-                      </div>
-                      <span className="text-[16px] font-semibold text-gray-700">
-                        Spending Overview
-                      </span>
-                      <div className="w-full h-1 bg-gray-100 mt-4">
-                        <div className="w-1/2 h-full bg-gray-300"></div>
-                      </div>
+                    <div className="w-full aspect-[4/3] rounded-[12px] mb-4 border border-dashed border-[var(--theme-border)] flex items-center justify-center text-[var(--theme-text-lo)] opacity-40 text-sm">
+                      Image placeholder
                     </div>
                     <div className="px-2 pb-2">
                       <h3 className="text-[16px] font-medium mb-3 text-[var(--theme-text-hi)]">
-                        Lack of Direction
+                        Unstructured evaluation flow
                       </h3>
                       <p className="text-[16px] leading-[1.65] text-[var(--theme-text-lo)]">
-                        Users see data but don&apos;t know what actions to take.
+                        No clear path to review projects efficiently, increasing
+                        time and effort.
                       </p>
                     </div>
                   </div>
                   <div className="flex flex-col border rounded-[20px] p-2 bg-[var(--theme-surface)] border-[var(--theme-border)]">
-                    <div className="w-full aspect-[4/3] bg-white rounded-[12px] mb-4 flex flex-col justify-start p-6 border border-gray-100 gap-3">
-                      <div className="flex flex-col gap-1 w-full">
-                        <span className="text-[11px] text-gray-800 font-semibold tracking-tight">
-                          Add Expense
-                        </span>
-                        <div className="w-full border border-gray-100 rounded-md p-2 text-[12px] text-gray-400 bg-gray-50 uppercase tracking-widest">
-                          £40
-                        </div>
-                      </div>
-                      <div className="flex flex-col gap-1 w-full mt-2">
-                        <span className="text-[10px] text-gray-800 font-semibold tracking-tight">
-                          Date
-                        </span>
-                        <div className="w-full border border-gray-100 rounded-md p-2 text-[12px] text-gray-400 bg-gray-50">
-                          Today, 14 Oct
-                        </div>
-                      </div>
+                    <div className="w-full aspect-[4/3] rounded-[12px] mb-4 border border-dashed border-[var(--theme-border)] flex items-center justify-center text-[var(--theme-text-lo)] opacity-40 text-sm">
+                      Image placeholder
                     </div>
                     <div className="px-2 pb-2">
                       <h3 className="text-[16px] font-medium mb-3 text-[var(--theme-text-hi)]">
-                        High Cognitive Effort
+                        Hard to evaluate decisions
                       </h3>
                       <p className="text-[16px] leading-[1.65] text-[var(--theme-text-lo)]">
-                        Understanding finances requires time and mental effort,
-                        leading to drop-offs.
+                        Lack of clarity makes it difficult to assess the quality
+                        of thinking.
                       </p>
                     </div>
                   </div>
@@ -322,10 +307,9 @@ export default function FinanceAppPage() {
                       Why it Started ?
                     </h3>
                     <p className="text-[16px] leading-[1.7] text-[var(--theme-text-lo)]">
-                      Budgeting apps focus heavily on tracking but fail to
-                      support real decision-making. Users are exposed to
-                      fragmented data across charts and categories, creating
-                      confusion instead of clarity.
+                      Recruiters struggle to quickly evaluate portfolios when
+                      thinking and impact are unclear; while designers focus more
+                      on visuals than clearly communicating decisions.
                     </p>
                   </div>
                   <div className="flex flex-col gap-3">
@@ -333,10 +317,9 @@ export default function FinanceAppPage() {
                       Who are we solving for?
                     </h3>
                     <p className="text-[16px] leading-[1.7] text-[var(--theme-text-lo)]">
-                      Students and early professionals manage limited monthly
-                      budgets with frequent small expenses. They rely on quick
-                      decisions and need clear, easy-to-understand insights in
-                      seconds.
+                      Primary: Recruiters and hiring managers evaluating
+                      candidates quickly. Secondary: Designers presenting their
+                      work effectively through clear and structured storytelling.
                     </p>
                   </div>
                   <div className="flex flex-col gap-3">
@@ -344,10 +327,10 @@ export default function FinanceAppPage() {
                       How are we solving it?
                     </h3>
                     <p className="text-[16px] leading-[1.7] text-[var(--theme-text-lo)]">
-                      We shift the experience from tracking expenses to guiding
-                      decisions through structured insights. By reducing
-                      cognitive load and surfacing only relevant information,
-                      users can quickly understand and act.
+                      Design the portfolio as a structured experience that
+                      surfaces key insights for recruiters while helping
+                      designers communicate decisions, process, and impact
+                      clearly.
                     </p>
                   </div>
                 </div>
@@ -363,32 +346,43 @@ export default function FinanceAppPage() {
                 </h2>
                 <div className="w-[50px] h-[3px] rounded-full mb-10 bg-[var(--theme-accent)]"></div>
                 <p className="text-[16px] leading-[1.7] max-w-[700px] mb-20 text-[var(--theme-text-lo)]">
-                  Users struggled to interpret their financial data due to
-                  cluttered interfaces and lack of clear direction. Instead of
-                  enabling decisions, existing experiences required effort,
-                  leading to confusion, hesitation, and inconsistent usage.
+                  Recruiters don&apos;t struggle to evaluate portfolios because
+                  of lack of skill, but because key insights are not visible at
+                  the right time during evaluation.
                 </p>
 
-                <h3 className="text-[24px] font-medium mb-10 text-[var(--theme-text-hi)]">
-                  Pain points identified
+                <h3 className="text-[24px] font-medium mb-6 text-[var(--theme-text-hi)]">
+                  Pain points identified ( Recruiters )
                 </h3>
-
-                <div className="flex flex-wrap gap-3 w-[698px]">
+                <div className="flex flex-wrap gap-3 mb-12">
                   {[
-                    "Where is my money actually going?",
-                    "Am I overspending or doing okay?",
-                    "Can I afford this right now?",
-                    "Why did I run out of money early?",
-                    "What should I cut down on?",
-                    "How much can I safely spend today?",
-                    "Which expenses matter the most?",
-                    "How do I stay within my budget?",
-                    "What should I do next?",
-                    "Am I improving or getting worse?",
+                    "Where is the actual problem being solved?",
+                    "What impact did this design create?",
+                    "Why were these decisions made?",
+                    "How quickly can I understand this project?",
                   ].map((p) => (
                     <div
                       key={p}
-                      className="px-4 py-2.5 rounded-[100px] border text-[16px] font-medium cursor-default select-none whitespace-nowrap border-[var(--theme-border)] text-[var(--theme-text-lo)]"
+                      className="px-4 py-2.5 rounded-[100px] border text-[16px] font-medium cursor-default select-none border-[var(--theme-border)] text-[var(--theme-text-lo)]"
+                    >
+                      {p}
+                    </div>
+                  ))}
+                </div>
+
+                <h3 className="text-[24px] font-medium mb-6 text-[var(--theme-text-hi)]">
+                  Pain points identified ( Designers )
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    "Am I clearly communicating my thinking?",
+                    "Are key decisions visible at a glance?",
+                    "Is my story structured or scattered?",
+                    "What important context am I missing?",
+                  ].map((p) => (
+                    <div
+                      key={p}
+                      className="px-4 py-2.5 rounded-[100px] border text-[16px] font-medium cursor-default select-none border-[var(--theme-border)] text-[var(--theme-text-lo)]"
                     >
                       {p}
                     </div>
@@ -407,20 +401,20 @@ export default function FinanceAppPage() {
                   <div className="col-span-1 lg:col-span-11 xl:col-span-5 flex flex-col pt-1 h-auto xl:h-[260px] justify-between">
                     <div>
                       <h3 className="text-[22px] font-medium mb-6 tracking-tight text-[var(--theme-text-hi)]">
-                        Guided Financial Decisions
+                        AI Portfolio Assistant
                       </h3>
                       <p className="text-[16px] leading-[1.6] mb-6 text-[var(--theme-text-lo)]">
-                        Simplified the interface to highlight only what truly
-                        matters for quick understanding.
+                        An AI-powered assistant that answers questions about the
+                        portfolio, helping recruiters explore projects, decisions,
+                        and outcomes without manual navigation.
                       </p>
                       <ul className="flex flex-col gap-3.5 pl-1">
                         {[
-                          "Removed excessive charts and unnecessary categories",
-                          "Prioritized key metrics like balance and budget status",
-                          "Simplified hierarchy for faster visual scanning",
-                          "Reduced secondary data that didn't support decisions",
-                          "Structured content for clarity and readability",
-                          "Focused on showing only relevant information",
+                          "Answers project-specific questions",
+                          "Explains decisions and process",
+                          "Enables deeper exploration",
+                          "Provides contextual responses",
+                          "Reduces navigation effort",
                         ].map((li) => (
                           <li
                             key={li}
@@ -467,20 +461,24 @@ export default function FinanceAppPage() {
                     </h2>
                     <div className="w-[50px] h-[3px] rounded-full mb-10 bg-[var(--theme-accent)]"></div>
                     <p className="text-[16px] leading-[1.7] max-w-[400px] text-[var(--theme-text-lo)]">
-                      This phase focused on validating how users understand
-                      insights and make financial decisions using the redesigned
-                      experience.
+                      Evaluation focused on simulating how recruiters scan and
+                      assess portfolios, analysing clarity, navigation flow, and
+                      how quickly key information could be understood.
                     </p>
                   </div>
                   <div className="flex flex-col gap-6">
                     <h3 className="text-[18px] font-medium text-[var(--theme-text-hi)]">
-                      The wins that made me happy
+                      What stood out during evaluation
                     </h3>
                     <p className="text-[16px] leading-[1.7] text-[var(--theme-text-lo)]">
-                      Tested the experience with students to evaluate how
-                      effectively it supports real financial decisions. Users
-                      were able to quickly understand their financial state
-                      without interpreting complex charts or fragmented data.
+                      Surfacing key information early improved how quickly the
+                      portfolio could be understood, reducing the effort required
+                      to identify problems, decisions, and outcomes.
+                    </p>
+                    <p className="text-[16px] leading-[1.7] text-[var(--theme-text-lo)]">
+                      Structured storytelling and features like Quick Brief and
+                      AI support enabled smoother navigation, helping users move
+                      from overview to details without losing context.
                     </p>
                   </div>
                 </div>
@@ -514,10 +512,10 @@ export default function FinanceAppPage() {
                   <div className="w-[50px] h-[3px] rounded-full mb-16 bg-[var(--theme-accent)]"></div>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-10">
                     {[
-                      ["50%", "Lower Drop-offs"],
-                      ["40%", "Faster Decision Making"],
-                      ["25%", "More Engagement"],
-                      ["35%", "Smarter Spending"],
+                      ["55%", "Faster Project Understanding"],
+                      ["40%", "Improved Content Clarity"],
+                      ["42%", "Better Scannability"],
+                      ["38%", "Lower Effort Evaluation"],
                     ].map(([val, label]) => (
                       <div key={label} className="flex flex-col items-start">
                         <span className="text-[36px] md:text-[44px] font-medium mb-3 leading-none text-[var(--theme-text-hi)]">
@@ -542,16 +540,16 @@ export default function FinanceAppPage() {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 relative z-10">
                     {[
                       [
-                        "Smarter Personalization",
-                        "Adapting the experience based on user behaviour to deliver more relevant insights. This helps users feel understood and improves financial decision-making.",
+                        "More Guided Journeys",
+                        "Improve storytelling for clarity and engagement.",
                       ],
                       [
-                        "Predictive Insights",
-                        "Helping users anticipate future spending patterns and make proactive financial decisions. This reduces uncertainty and enables better planning before financial issues occur.",
+                        "Smarter Content Presentation",
+                        "Present information based on relevance and user focus.",
                       ],
                       [
-                        "Habit Building",
-                        "Encouraging consistent financial habits through nudges, reminders, and progress tracking. This supports users in building stronger financial discipline over time.",
+                        "Continuous Refinement",
+                        "Iterate based on feedback to improve usability and clarity.",
                       ],
                     ].map(([title, desc]) => (
                       <div key={title} className="flex flex-col">
@@ -564,9 +562,12 @@ export default function FinanceAppPage() {
                       </div>
                     ))}
                   </div>
+                  <p className="text-center text-[14px] mt-16 opacity-50 text-[var(--theme-text-lo)]">
+                    Thanks for reading. More projects coming in
+                  </p>
                 </div>
               </div>
-              <RelatedProjects currentProject="Project 1" />
+              <RelatedProjects currentProject="Portfolio Strategy" />
             </div>
           </div>
         </main>

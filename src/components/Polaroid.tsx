@@ -5,23 +5,6 @@ import Image from "next/image";
 
 const POLAROIDS = [
   {
-    src: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=400&q=80",
-    alt: "Pia(ar)no",
-    caption: "Pia(ar)no",
-    rot: -10,
-    y: 0,
-    icon: (
-      <svg
-        className="w-[18px] h-[18px] fill-none stroke-current stroke-[1.5] opacity-90"
-        viewBox="0 0 24 24"
-      >
-        <path d="M9 18V5l12-2v13" />
-        <circle cx="6" cy="18" r="3" />
-        <circle cx="18" cy="16" r="3" />
-      </svg>
-    ),
-  },
-  {
     src: "/images/Workshop-Npr.jpeg",
     alt: "Workshop",
     caption: "Workshop @ NPR",
@@ -84,22 +67,6 @@ const POLAROIDS = [
         <circle cx="7" cy="11" r="2" />
         <circle cx="14" cy="16" r="2" />
         <path d="M12 22c-3.3 0-6-2.7-6-6 0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2 0 3.3-2.7 6-6 6Z" />
-      </svg>
-    ),
-  },
-  {
-    src: "https://images.unsplash.com/photo-1524230572899-a752b3835840?auto=format&fit=crop&w=400&q=80",
-    alt: "Hooked",
-    caption: "Hooked",
-    rot: 5,
-    y: -5,
-    icon: (
-      <svg
-        className="w-[18px] h-[18px] fill-none stroke-current stroke-[1.5] opacity-90"
-        viewBox="0 0 24 24"
-      >
-        <path d="m12 19-7-7 7-7" />
-        <path d="M19 12H5" />
       </svg>
     ),
   },

@@ -4,16 +4,95 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
+// ── Resume Download Confirmation Modal ───────────────────────────────────────
+
+function ResumeModal({ onClose }: { onClose: () => void }) {
+  const resumeFile = "/Resume - Shvetha Senthilkumar.pdf";
+
+  const handleDownload = () => {
+    const a = document.createElement("a");
+    a.href = resumeFile;
+    a.download = "Resume - Shvetha Senthilkumar.pdf";
+    a.click();
+    onClose();
+  };
+
+  // Close on Escape
+  const handleKey = (e: React.KeyboardEvent) => {
+    if (e.key === "Escape") onClose();
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-6"
+      style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(8px)" }}
+      onClick={onClose}
+      onKeyDown={handleKey}
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95, y: 12 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 12 }}
+        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+        className="relative w-full max-w-[420px] rounded-[24px] border border-[var(--border)] bg-[var(--bg-primary)] font-manrope overflow-hidden shadow-[0_32px_80px_rgba(0,0,0,0.5)]"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Icon */}
+        <div className="flex justify-center pt-10 pb-5">
+          <div className="w-14 h-14 rounded-2xl bg-[var(--bg-secondary)] border border-[var(--border)] flex items-center justify-center">
+            <svg viewBox="0 0 24 24" className="w-7 h-7 fill-none stroke-[var(--text-primary)] stroke-[1.5]">
+              <path d="M12 3v13M7 11l5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M4 20h16" strokeLinecap="round" />
+            </svg>
+          </div>
+        </div>
+
+        {/* Text */}
+        <div className="text-center px-8 pb-8">
+          <h3 className="text-[20px] font-semibold text-[var(--text-primary)] mb-2 tracking-tight">
+            Download Resume
+          </h3>
+          <p className="text-[14px] leading-[1.65] text-[var(--text-muted)] mb-8">
+            You&apos;re about to download my latest resume as a PDF.
+            <br />Want to go ahead?
+          </p>
+
+          {/* Actions */}
+          <div className="flex flex-col sm:flex-row gap-3">
+            <button
+              onClick={onClose}
+              className="flex-1 py-3 rounded-xl text-[14px] font-medium border border-[var(--border)] text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:border-[var(--text-muted)] transition-all"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={handleDownload}
+              className="flex-1 py-3 rounded-xl text-[14px] font-semibold bg-[var(--text-primary)] text-[var(--bg-primary)] hover:opacity-90 transition-all flex items-center justify-center gap-2"
+            >
+              <svg viewBox="0 0 16 16" className="w-4 h-4 fill-none stroke-current stroke-[1.5]">
+                <path d="M8 2v9M4 8l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M2 14h12" strokeLinecap="round" />
+              </svg>
+              Yes, Download
+            </button>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+// ── Nav ───────────────────────────────────────────────────────────────────────
+
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [resumeModalOpen, setResumeModalOpen] = useState(false);
 
   const navLinks = [
     { href: "/projects", label: "Projects" },
     { href: "/#journey", label: "About" },
     { href: "/#contact", label: "Contact" },
   ];
-
-  const resumeFile = "/Resume - Shvetha Senthilkumar.pdf";
 
   return (
     <>
@@ -61,13 +140,13 @@ export default function Nav() {
                 {l.label}
               </Link>
             ))}
-            <a
-              href={resumeFile}
-              download
+            {/* Desktop Resume button */}
+            <button
+              onClick={() => setResumeModalOpen(true)}
               className="text-sm font-medium text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors tracking-wide"
             >
               Resume
-            </a>
+            </button>
           </div>
 
           <button
@@ -128,21 +207,30 @@ export default function Nav() {
                 </Link>
               </motion.div>
             ))}
+            {/* Mobile Resume button */}
             <motion.div
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: navLinks.length * 0.06 }}
             >
-              <a
-                href={resumeFile}
-                download
-                onClick={() => setMenuOpen(false)}
+              <button
+                onClick={() => {
+                  setMenuOpen(false);
+                  setResumeModalOpen(true);
+                }}
                 className="text-lg font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
               >
                 Resume
-              </a>
+              </button>
             </motion.div>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Resume download confirmation modal */}
+      <AnimatePresence>
+        {resumeModalOpen && (
+          <ResumeModal onClose={() => setResumeModalOpen(false)} />
         )}
       </AnimatePresence>
     </>
