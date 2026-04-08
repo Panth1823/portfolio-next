@@ -5,7 +5,7 @@ const ALL_PROJECTS = [
   {
     name: "Portfolio Strategy",
     href: "/projects/portfolio-strategy",
-    img: null,
+    img: "/images/portfolio-strategy.png",
   },
   {
     name: "Design Intelligence",

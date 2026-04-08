@@ -2,27 +2,17 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import RelatedProjects from "@/components/RelatedProjects";
-import QuickBriefButton from "@/components/QuickBriefButton";
-
-const BRIEF_DATA = {
-  title: "Budgeting App — Student Finance",
-  href: "#summary",
-  accentColor: "#84CC16",
-  role: "Product Designer",
-  duration: "2 months",
-  tools: "Figma, FigJam",
-  category: "App Concept",
-  points: [
-    "Redesigned a student budgeting experience from the ground up",
-    "Shifted focus from passive expense tracking to guided decision-making",
-    "Removed excessive charts — prioritised key metrics like balance & budget status",
-    "Reduced cognitive load so users understand their finances faster",
-    "Validated through testing: 50% lower drop-offs, 40% faster decisions",
-  ],
-};
+import {
+  CheckerboardFrame,
+  ConceptBlock,
+  MetricGrid,
+  SectionHeading,
+  TwoColumnBulletList,
+} from "@/components/ProjectCaseStudyBlocks";
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
@@ -213,13 +203,15 @@ export default function FinanceAppPage() {
                     </div>
                   </div>
                 </div>
-                <div className="w-full h-auto aspect-[1.1] md:aspect-[1.3] lg:aspect-[1.5] rounded-[24px] md:rounded-[40px] relative overflow-hidden flex items-center justify-center p-8 lg:p-12 lg:ml-2 mb-16">
-                  <div className="absolute inset-0 bg-[#f4f5f7]"></div>
-                  <div className="relative z-10 w-full h-full border border-gray-200/50 rounded-[16px] md:rounded-[24px] flex items-center justify-center text-[#888] bg-white/70 backdrop-blur-md">
-                    <span className="text-[16px] md:text-[16px] font-medium tracking-wide border border-dashed border-[#ccc] px-10 py-5 rounded-xl bg-white/50">
-                      Mockup UI Placeholder
-                    </span>
-                  </div>
+                <div className="w-full flex justify-center mb-16">
+                  <Image
+                    src="/images/portfolio-strategy.png"
+                    alt="Portfolio Strategy Summary"
+                    width={1000}
+                    height={700}
+                    className="w-auto max-h-[700px] object-contain rounded-[24px]"
+                    priority
+                  />
                 </div>
               </div>
 
@@ -240,18 +232,15 @@ export default function FinanceAppPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-20">
                   <div className="flex flex-col border rounded-[20px] p-2 bg-[var(--theme-surface)] border-[var(--theme-border)]">
-                    <div className="w-full aspect-[4/3] bg-white rounded-[12px] mb-4 flex flex-col items-start justify-start p-6 border border-gray-100 relative overflow-hidden">
-                      <span className="text-[28px] font-bold text-[#222] leading-none mb-2">
-                        £840
-                        <span className="text-sm font-normal text-gray-400 ml-1">
-                          left
-                        </span>
-                      </span>
-                      <span className="text-[14px] text-[#84CC16] tracking-wide font-medium">
-                        from £2400 this month
-                      </span>
+                    <div className="w-full aspect-[4/3] rounded-[8px] mb-4 relative overflow-hidden">
+                      <Image
+                        src="/images/portfolio-strategy.png"
+                        alt="Low signal to noise ratio"
+                        fill
+                        className="object-cover"
+                      />
                     </div>
-                    <div className="px-2 pb-2">
+                    <div className="px-2 pb-2 flex flex-col">
                       <h3 className="text-[16px] font-medium mb-3 text-[var(--theme-text-hi)]">
                         Low signal-to-noise ratio
                       </h3>
@@ -262,10 +251,15 @@ export default function FinanceAppPage() {
                     </div>
                   </div>
                   <div className="flex flex-col border rounded-[20px] p-2 bg-[var(--theme-surface)] border-[var(--theme-border)]">
-                    <div className="w-full aspect-[4/3] rounded-[12px] mb-4 border border-dashed border-[var(--theme-border)] flex items-center justify-center text-[var(--theme-text-lo)] opacity-40 text-sm">
-                      Image placeholder
+                    <div className="w-full aspect-[4/3] rounded-[8px] mb-4 relative overflow-hidden">
+                      <Image
+                        src="/images/portfolio-strategy.png"
+                        alt="Unstructured evaluation flow"
+                        fill
+                        className="object-cover"
+                      />
                     </div>
-                    <div className="px-2 pb-2">
+                    <div className="px-2 pb-2 flex flex-col">
                       <h3 className="text-[16px] font-medium mb-3 text-[var(--theme-text-hi)]">
                         Unstructured evaluation flow
                       </h3>
@@ -276,10 +270,15 @@ export default function FinanceAppPage() {
                     </div>
                   </div>
                   <div className="flex flex-col border rounded-[20px] p-2 bg-[var(--theme-surface)] border-[var(--theme-border)]">
-                    <div className="w-full aspect-[4/3] rounded-[12px] mb-4 border border-dashed border-[var(--theme-border)] flex items-center justify-center text-[var(--theme-text-lo)] opacity-40 text-sm">
-                      Image placeholder
+                    <div className="w-full aspect-[4/3] rounded-[8px] mb-4 relative overflow-hidden">
+                      <Image
+                        src="/images/portfolio-strategy.png"
+                        alt="Hard to evaluate decisions"
+                        fill
+                        className="object-cover"
+                      />
                     </div>
-                    <div className="px-2 pb-2">
+                    <div className="px-2 pb-2 flex flex-col">
                       <h3 className="text-[16px] font-medium mb-3 text-[var(--theme-text-hi)]">
                         Hard to evaluate decisions
                       </h3>
@@ -295,7 +294,7 @@ export default function FinanceAppPage() {
               {/* 03: Users */}
               <div
                 id="users"
-                className="scroll-mt-32 w-full border rounded-[32px] p-10 lg:p-14 mb-16 lg:ml-2 bg-[var(--theme-surface)] border-[var(--theme-border)]"
+                className="scroll-mt-32 w-full border rounded-[32px] p-10 lg:p-14 mb-16 bg-[var(--theme-surface)] border-[var(--theme-border)]"
               >
                 <h2 className="text-[32px] font-medium mb-3 tracking-tight text-[var(--theme-text-hi)]">
                   Users and Research
@@ -334,6 +333,49 @@ export default function FinanceAppPage() {
                       designers communicate decisions, process, and impact
                       clearly.
                     </p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 w-full">
+                  <div className="flex flex-col gap-6">
+                    <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
+                      <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
+                        <Image
+                          src="/images/portfolio-strategy.png"
+                          alt="Research approach"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-2 px-1">
+                      <h4 className="text-[16px] font-medium text-[var(--theme-text-hi)]">
+                        Research Approach
+                      </h4>
+                      <p className="text-[14px] leading-[1.65] text-[var(--theme-text-lo)]">
+                        Studied how recruiters scan portfolios and what signals they rely on, along with how designers present work and where communication gaps reduce clarity.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-6">
+                    <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
+                      <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
+                        <Image
+                          src="/images/portfolio-strategy.png"
+                          alt="Evaluation Signals"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-2 px-1">
+                      <h4 className="text-[16px] font-medium text-[var(--theme-text-hi)]">
+                        Evaluation Signals
+                      </h4>
+                      <p className="text-[14px] leading-[1.65] text-[var(--theme-text-lo)]">
+                        Identified key signals recruiters rely on to evaluate portfolios quickly, including clarity of problem, visible decision-making, and structured storytelling.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -393,61 +435,69 @@ export default function FinanceAppPage() {
               </div>
 
               {/* 05: Design Concept */}
-              <div id="design" className="scroll-mt-32 w-full mb-32 pt-10">
-                <h2 className="text-[32px] md:text-[32px] font-medium mb-3 tracking-tight text-[var(--theme-text-hi)]">
-                  Design Concept
-                </h2>
-                <div className="w-[50px] h-[3px] rounded-full mb-20 bg-[var(--theme-accent)]"></div>
+              <div id="design" className="scroll-mt-32 w-full mb-32 pt-10 lg:ml-2">
+                <SectionHeading title="Design Concept" lineClassName="mb-20" />
 
-                <div className="grid grid-cols-1 lg:grid-cols-11 gap-10 lg:gap-16 mb-24 lg:mb-32 items-start">
-                  <div className="col-span-1 lg:col-span-11 xl:col-span-5 flex flex-col pt-1 h-auto xl:h-[260px] justify-between">
-                    <div>
-                      <h3 className="text-[22px] font-medium mb-6 tracking-tight text-[var(--theme-text-hi)]">
-                        AI Portfolio Assistant
-                      </h3>
-                      <p className="text-[16px] leading-[1.6] mb-6 text-[var(--theme-text-lo)]">
-                        An AI-powered assistant that answers questions about the
-                        portfolio, helping recruiters explore projects,
-                        decisions, and outcomes without manual navigation.
-                      </p>
-                      <ul className="flex flex-col gap-3.5 pl-1">
-                        {[
-                          "Answers project-specific questions",
-                          "Explains decisions and process",
-                          "Enables deeper exploration",
-                          "Provides contextual responses",
-                          "Reduces navigation effort",
-                        ].map((li) => (
-                          <li
-                            key={li}
-                            className="flex items-center gap-3 text-[16px] leading-none text-[var(--theme-text-lo)]"
-                          >
-                            <div className="w-1.5 h-1.5 rounded-sm shrink-0 bg-[var(--theme-accent)]"></div>
-                            {li}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="col-span-1 lg:col-span-11 xl:col-span-6 xl:pl-10 flex items-start justify-end">
-                    <div className="w-[408px] h-[260px] border rounded-[24px] p-8 md:p-9 flex flex-col gap-6 overflow-hidden bg-[var(--theme-surface)] border-[var(--theme-border)]">
-                      {/* Placeholder for Mockup 1 */}
-                      <div className="flex justify-between items-center mb-1">
-                        <span className="text-[18px] font-bold text-[var(--theme-text-hi)]">
-                          Monthly Budget
-                        </span>
-                        <div className="px-3.5 py-2 rounded-lg text-[15px] font-bold bg-[rgba(132,204,22,0.1)] text-[var(--theme-accent)]">
-                          £560 left
-                        </div>
-                      </div>
-                      <div className="relative w-full h-[14px] rounded-full overflow-hidden flex items-center bg-[var(--theme-border)]">
-                        <div className="w-[65%] h-full rounded-full relative z-10 bg-[var(--theme-accent)]"></div>
-                        <span className="absolute right-3 text-[10px] font-bold z-20 tracking-wider text-[var(--theme-text-lo)]">
-                          35% used
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                <div className="flex flex-col gap-24 lg:gap-32">
+                  {[
+                    {
+                      title: "AI Portfolio Assistant",
+                      description:
+                        "An AI-powered assistant that answers questions about the portfolio, helping recruiters explore projects, decisions, and outcomes without manual navigation.",
+                      bullets: [
+                        "Answers project-specific questions",
+                        "Explains decisions and process",
+                        "Guides deeper exploration",
+                        "Provides contextual responses",
+                        "Reduces navigation effort",
+                      ],
+                    },
+                    {
+                      title: "Voice Brief",
+                      description:
+                        "A voice-driven summary that narrates the project, helping recruiters quickly understand the problem, approach, and outcome without reading everything.",
+                      bullets: [
+                        "Converts project into quick audio summary",
+                        "Communicates key points instantly",
+                        "Supports passive consumption",
+                        "Reduces reading effort",
+                        "Improves quick understanding",
+                      ],
+                    },
+                    {
+                      title: "Adaptive Contrast",
+                      description:
+                        "A dynamic theme system that adapts visual contrast across multiple modes, improving accessibility and allowing users to view content comfortably in different conditions.",
+                      bullets: [
+                        "Supports multiple contrast themes",
+                        "Transitions from dark to light modes",
+                        "Improves readability and accessibility",
+                        "Reduces visual strain",
+                        "Enhances viewing flexibility",
+                      ],
+                    },
+                    {
+                      title: "Signature Journey",
+                      description:
+                        "A guided storytelling experience where a walking character leads users through my journey, making the portfolio more engaging and memorable.",
+                      bullets: [
+                        "Guides users through a structured journey",
+                        "Uses a walking character as a visual anchor",
+                        "Connects sections with smooth transitions",
+                        "Improves engagement through motion",
+                        "Makes the portfolio more memorable",
+                      ],
+                    },
+                  ].map((concept) => (
+                    <ConceptBlock
+                      key={concept.title}
+                      title={concept.title}
+                      description={concept.description}
+                      bullets={concept.bullets}
+                      imageSrc="/images/portfolio-strategy.png"
+                      imageAlt={concept.title}
+                    />
+                  ))}
                 </div>
               </div>
 
@@ -458,14 +508,11 @@ export default function FinanceAppPage() {
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
                   <div className="flex flex-col">
-                    <h2 className="text-[32px] md:text-[32px] font-medium mb-3 tracking-tight text-[var(--theme-text-hi)]">
-                      User Testing
-                    </h2>
-                    <div className="w-[50px] h-[3px] rounded-full mb-10 bg-[var(--theme-accent)]"></div>
+                    <SectionHeading title="User Testing" lineClassName="mb-10" />
                     <p className="text-[16px] leading-[1.7] max-w-[400px] text-[var(--theme-text-lo)]">
                       Evaluation focused on simulating how recruiters scan and
-                      assess portfolios, analysing clarity, navigation flow, and
-                      how quickly key information could be understood.
+                      assess portfolios, analysing clarity, navigation flow,
+                      and how quickly key information could be understood.
                     </p>
                   </div>
                   <div className="flex flex-col gap-6">
@@ -479,10 +526,15 @@ export default function FinanceAppPage() {
                     </p>
                     <p className="text-[16px] leading-[1.7] text-[var(--theme-text-lo)]">
                       Structured storytelling and features like Quick Brief and
-                      AI support enabled smoother navigation, helping users move
-                      from overview to details without losing context.
+                      AI support enabled smoother navigation, helping users
+                      move from overview to details without losing context.
                     </p>
                   </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mt-4">
+                  <CheckerboardFrame label="Portfolio testing one" />
+                  <CheckerboardFrame label="Portfolio testing two" />
                 </div>
               </div>
 
@@ -491,13 +543,54 @@ export default function FinanceAppPage() {
                 <h2 className="text-[32px] md:text-[32px] font-medium mb-3 tracking-tight text-[var(--theme-text-hi)]">
                   Snippets
                 </h2>
-                <div className="w-[50px] h-[3px] rounded-full mb-16 bg-[var(--theme-accent)]"></div>
-                <h3 className="text-[17px] font-medium mb-8 tracking-wide uppercase opacity-80 text-[var(--theme-text-hi)]">
-                  Before & After
+                <div className="w-[50px] h-[3px] rounded-full mb-12 bg-[var(--theme-accent)]"></div>
+                <h3 className="text-[20px] font-medium mb-6 tracking-wide text-[var(--theme-text-hi)]">
+                  Before &amp; After
                 </h3>
-                <div className="w-full aspect-[2.2/1] border rounded-[32px] flex items-center justify-center overflow-hidden relative mb-24 p-8 md:p-12 bg-[var(--theme-bg)] border-[var(--theme-border)]">
-                  <div className="text-sm opacity-50 text-[var(--theme-text-lo)]">
-                    Dashboard concepts
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+                  <div className="flex flex-col gap-4">
+                    <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
+                      <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
+                        <Image
+                          src="/images/portfolio-strategy.png"
+                          alt="Before"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    </div>
+                    <span className="text-[16px] text-[var(--theme-text-lo)]">
+                      Before
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-4">
+                    <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
+                      <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
+                        <Image
+                          src="/images/portfolio-strategy.png"
+                          alt="After"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    </div>
+                    <span className="text-[16px] text-[var(--theme-text-lo)]">
+                      After
+                    </span>
+                  </div>
+                </div>
+
+                <h3 className="text-[20px] font-medium mb-6 tracking-wide text-[var(--theme-text-hi)]">
+                  Designs and explorations
+                </h3>
+                <div className="w-full aspect-[16/9] md:aspect-[2/1] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
+                  <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
+                    <Image
+                      src="/images/portfolio-strategy.png"
+                      alt="Design explorations"
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                 </div>
               </div>
@@ -508,27 +601,31 @@ export default function FinanceAppPage() {
                 className="scroll-mt-32 mt-24 mb-16 lg:ml-2 flex flex-col gap-8"
               >
                 <div className="w-full border rounded-[32px] p-10 lg:p-14 bg-transparent border-[#1f1f1f]">
-                  <h2 className="text-[32px] md:text-[32px] font-medium mb-3 tracking-tight text-[var(--theme-text-hi)]">
-                    Design Impact
-                  </h2>
-                  <div className="w-[50px] h-[3px] rounded-full mb-16 bg-[var(--theme-accent)]"></div>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-10">
-                    {[
+                  <SectionHeading title="Design Impact" lineClassName="mb-16" />
+                  <MetricGrid
+                    items={[
                       ["55%", "Faster Project Understanding"],
                       ["40%", "Improved Content Clarity"],
                       ["42%", "Better Scannability"],
                       ["38%", "Lower Effort Evaluation"],
-                    ].map(([val, label]) => (
-                      <div key={label} className="flex flex-col items-start">
-                        <span className="text-[36px] md:text-[44px] font-medium mb-3 leading-none text-[var(--theme-text-hi)]">
-                          {val}
-                        </span>
-                        <span className="text-[14px] font-medium tracking-wide uppercase opacity-80 text-[var(--theme-text-lo)]">
-                          {label}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+                    ]}
+                  />
+                </div>
+
+                <div className="w-full border rounded-[32px] p-10 lg:p-14 bg-transparent border-[#1f1f1f]">
+                  <SectionHeading title="Learnings" lineClassName="mb-12" />
+                  <TwoColumnBulletList
+                    leftItems={[
+                      "Clear structure improves how quickly work is understood",
+                      "Highlighting key insights reduces evaluation effort",
+                      "Less content can communicate more effectively",
+                    ]}
+                    rightItems={[
+                      "Portfolios should support decision-making, not just display",
+                      "Guiding users improves engagement and comprehension",
+                      "Strong storytelling increases memorability",
+                    ]}
+                  />
                 </div>
               </div>
 
@@ -564,9 +661,12 @@ export default function FinanceAppPage() {
                       </div>
                     ))}
                   </div>
-                  <p className="text-center text-[14px] mt-16 opacity-50 text-[var(--theme-text-lo)]">
-                    Thanks for reading. More projects coming in
-                  </p>
+                </div>
+
+                <div className="flex justify-center mt-20 mb-10 w-full text-center">
+                  <span className="text-[16px] text-[var(--theme-text-lo)] opacity-70">
+                    Thanks for reading . More projects coming in
+                  </span>
                 </div>
               </div>
               <RelatedProjects currentProject="Portfolio Strategy" />

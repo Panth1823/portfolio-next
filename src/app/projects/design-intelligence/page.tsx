@@ -244,7 +244,7 @@ export default function FinanceAppPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-20">
                   <div className="flex flex-col border rounded-[20px] p-2 bg-[var(--theme-surface)] border-[var(--theme-border)]">
-                    <div className="w-full aspect-[4/3] rounded-[12px] mb-4 relative overflow-hidden">
+                    <div className="w-full aspect-[4/3] rounded-[8px] mb-4 relative overflow-hidden">
                       <Image
                         src="/images/Project 2 - Design Intelligence Case study Images/DI Problem - 1.png"
                         alt="Missed Design Issues"
@@ -264,7 +264,7 @@ export default function FinanceAppPage() {
                     </div>
                   </div>
                   <div className="flex flex-col border rounded-[20px] p-2 bg-[var(--theme-surface)] border-[var(--theme-border)]">
-                    <div className="w-full aspect-[4/3] rounded-[12px] mb-4 relative overflow-hidden">
+                    <div className="w-full aspect-[4/3] rounded-[8px] mb-4 relative overflow-hidden">
                       <Image
                         src="/images/Project 2 - Design Intelligence Case study Images/DI Problem - 2.png"
                         alt="Fragmented Workflow"
@@ -283,7 +283,7 @@ export default function FinanceAppPage() {
                     </div>
                   </div>
                   <div className="flex flex-col border rounded-[20px] p-2 bg-[var(--theme-surface)] border-[var(--theme-border)]">
-                    <div className="w-full aspect-[4/3] rounded-[12px] mb-4 relative overflow-hidden">
+                    <div className="w-full aspect-[4/3] rounded-[8px] mb-4 relative overflow-hidden">
                       <Image
                         src="/images/Project 2 - Design Intelligence Case study Images/DI Problem - 3.png"
                         alt="Delayed Feedback"
@@ -307,7 +307,7 @@ export default function FinanceAppPage() {
               {/* 03: Users */}
               <div
                 id="users"
-                className="scroll-mt-32 w-full border rounded-[32px] p-10 lg:p-14 mb-16 lg:ml-2 bg-[var(--theme-surface)] border-[var(--theme-border)]"
+                className="scroll-mt-32 w-full border rounded-[32px] p-10 lg:p-14 mb-16 bg-[var(--theme-surface)] border-[var(--theme-border)] lg:pl-10"
               >
                 <h2 className="text-[32px] font-medium mb-3 tracking-tight text-[var(--theme-text-hi)]">
                   Users and Research
