@@ -191,8 +191,8 @@ export default function FinanceAppPage() {
                     </p>
                     <p className="text-[16px] leading-[1.7] md:w-[95%] text-[var(--theme-text-mid)]">
                       The goal was to design a portfolio that communicates value
-                      within seconds while still allowing deeper exploration when
-                      needed.
+                      within seconds while still allowing deeper exploration
+                      when needed.
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-10 gap-x-8 mt-10">
                       {[
@@ -256,7 +256,8 @@ export default function FinanceAppPage() {
                         Low signal-to-noise ratio
                       </h3>
                       <p className="text-[16px] leading-[1.65] text-[var(--theme-text-lo)]">
-                        Important insights are buried under visual-heavy content.
+                        Important insights are buried under visual-heavy
+                        content.
                       </p>
                     </div>
                   </div>
@@ -308,8 +309,8 @@ export default function FinanceAppPage() {
                     </h3>
                     <p className="text-[16px] leading-[1.7] text-[var(--theme-text-lo)]">
                       Recruiters struggle to quickly evaluate portfolios when
-                      thinking and impact are unclear; while designers focus more
-                      on visuals than clearly communicating decisions.
+                      thinking and impact are unclear; while designers focus
+                      more on visuals than clearly communicating decisions.
                     </p>
                   </div>
                   <div className="flex flex-col gap-3">
@@ -319,7 +320,8 @@ export default function FinanceAppPage() {
                     <p className="text-[16px] leading-[1.7] text-[var(--theme-text-lo)]">
                       Primary: Recruiters and hiring managers evaluating
                       candidates quickly. Secondary: Designers presenting their
-                      work effectively through clear and structured storytelling.
+                      work effectively through clear and structured
+                      storytelling.
                     </p>
                   </div>
                   <div className="flex flex-col gap-3">
@@ -405,8 +407,8 @@ export default function FinanceAppPage() {
                       </h3>
                       <p className="text-[16px] leading-[1.6] mb-6 text-[var(--theme-text-lo)]">
                         An AI-powered assistant that answers questions about the
-                        portfolio, helping recruiters explore projects, decisions,
-                        and outcomes without manual navigation.
+                        portfolio, helping recruiters explore projects,
+                        decisions, and outcomes without manual navigation.
                       </p>
                       <ul className="flex flex-col gap-3.5 pl-1">
                         {[
@@ -472,8 +474,8 @@ export default function FinanceAppPage() {
                     </h3>
                     <p className="text-[16px] leading-[1.7] text-[var(--theme-text-lo)]">
                       Surfacing key information early improved how quickly the
-                      portfolio could be understood, reducing the effort required
-                      to identify problems, decisions, and outcomes.
+                      portfolio could be understood, reducing the effort
+                      required to identify problems, decisions, and outcomes.
                     </p>
                     <p className="text-[16px] leading-[1.7] text-[var(--theme-text-lo)]">
                       Structured storytelling and features like Quick Brief and
@@ -505,7 +507,7 @@ export default function FinanceAppPage() {
                 id="impact"
                 className="scroll-mt-32 mt-24 mb-16 lg:ml-2 flex flex-col gap-8"
               >
-                <div className="w-full border rounded-[32px] p-10 lg:p-14 bg-transparent border-[#FAFAFA]">
+                <div className="w-full border rounded-[32px] p-10 lg:p-14 bg-transparent border-[#1f1f1f]">
                   <h2 className="text-[32px] md:text-[32px] font-medium mb-3 tracking-tight text-[var(--theme-text-hi)]">
                     Design Impact
                   </h2>

@@ -761,7 +761,7 @@ export default function FinanceAppPage() {
                 id="impact"
                 className="scroll-mt-32 mt-24 mb-16 lg:ml-2 flex flex-col gap-8"
               >
-                <div className="w-full border rounded-[32px] p-10 lg:p-14 bg-transparent border-[#FAFAFA]">
+                <div className="w-full border rounded-[32px] p-10 lg:p-14 bg-transparent border-[#1f1f1f]">
                   <h2 className="text-[32px] md:text-[32px] font-medium mb-3 tracking-tight text-[var(--theme-text-hi)]">
                     Design Impact
                   </h2>
@@ -788,7 +788,7 @@ export default function FinanceAppPage() {
                   </div>
                 </div>
 
-                <div className="w-full border rounded-[32px] p-10 lg:p-14 bg-transparent border-[#FAFAFA]">
+                <div className="w-full border rounded-[32px] p-10 lg:p-14 bg-transparent border-[#1f1f1f]">
                   <h2 className="text-[32px] md:text-[32px] font-medium mb-3 tracking-tight text-[var(--theme-text-hi)]">
                     Learnings
                   </h2>
