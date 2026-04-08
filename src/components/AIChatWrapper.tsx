@@ -70,6 +70,7 @@ export default function AIChatWrapper() {
       {/* ── FLOATING BUTTONS ── */}
       {!hideFab &&
         (isProjectPage ? (
+          !chatOpen &&
           /* Project Page: Quick Brief Button */
           <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[90] flex items-center">
             <div

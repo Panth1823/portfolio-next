@@ -21,6 +21,15 @@
     --scrollbar-track: #f5f5f0;
     --scrollbar-thumb: #ccc;
 
+    /* Project theme token fallbacks */
+    --theme-bg: #f5f5f0;
+    --theme-surface: #ffffff;
+    --theme-text-hi: #0a0a0a;
+    --theme-text-mid: #111111;
+    --theme-text-lo: #6b7280;
+    --theme-border: #e5e7eb;
+    --theme-accent: #84cc16;
+
     --background: 0 0% 96%;
     --foreground: 0 0% 4%;
     --card: 0 0% 100%;
@@ -60,6 +69,15 @@
     --grid-line: rgba(255, 255, 255, 0.06);
     --scrollbar-track: #0a0a0a;
     --scrollbar-thumb: #333;
+
+    /* Project theme token fallbacks */
+    --theme-bg: #0a0a0a;
+    --theme-surface: #141414;
+    --theme-text-hi: #ffffff;
+    --theme-text-mid: #ebebeb;
+    --theme-text-lo: #888888;
+    --theme-border: #1f1f1f;
+    --theme-accent: #84cc16;
 
     --background: 0 0% 4%;
     --foreground: 0 0% 98%;

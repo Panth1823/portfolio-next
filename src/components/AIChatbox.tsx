@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, useCallback, forwardRef, useImperativeHandle } from 'react';
-import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -352,8 +352,16 @@ const suggestionPool: Suggestion[] = [
             { label: '📍 Location', value: 'Where is she based?' },
         ];;
 
-const narrativeText =
-  "Hi! I'm Shvetha... For this project, I really wanted to solve a problem I've faced myself. Most budgeting apps are just numbers and charts, which can feel really overwhelming for students... So, I reimagined the experience to be what I call 'Decision-First'... Instead of just tracking where your money went, I designed it to guide you toward clear financial choices, like whether you can actually afford that next coffee today... The result? A 40% boost in user engagement. It's not just an app; it's a proactive financial guide that I'm truly proud of.";
+const PROJECT_NARRATIVES: Record<string, string> = {
+  '/projects/portfolio-strategy':
+    "Hi, I'm Shvetha's AI assistant. I'll walk you through this project. This project explores a simple idea. What if a portfolio could guide you, instead of just showing content? Most portfolios are static. You scroll, read, and try to figure things out on your own. So this experience was designed to feel more interactive and supportive, almost like the portfolio is having a conversation with you. One of the key features is the AI chatbot. Instead of searching through pages, you can simply ask questions like Who is Shvetha? or How many years of experience does she have? and get instant answers. You can either type or speak, whichever feels more natural in the moment. There's also a quick voice brief, which gives you a short, conversational overview of a project, so you don't have to read everything to understand it. Another feature is adaptive contrast. You can switch between different color themes designed for better accessibility and comfort, so you can choose what works best for your eyes. There's also a signature journey section, which highlights key moments and decisions in a more memorable way, so instead of just seeing the work, you actually remember the story behind it. All of this is designed to reduce effort. You don't have to search, guess, or spend too much time figuring things out, the portfolio gently guides you as you explore. The goal is simple, to make the experience easy to navigate, easy to understand, and memorable. Or simply put, from just viewing a portfolio to actually experiencing it. I'll let the interface take it from here, explore the screens below and try it out yourself.",
+  '/projects/design-intelligence':
+    "Hi, I'm Shvetha's AI assistant. I'll walk you through this project. This project explores a simple but powerful idea. What if design tools could actually think alongside designers? Today, most tools are reactive. You design first and only later notice issues through plugins or reviews. That pause breaks your flow. So Design Intelligence was designed to work with you in real-time, almost like a second pair of eyes while you design. As you're working, the system continuously scans your design. For example, if you pick a text color with low contrast, instead of waiting for an accessibility check later, it instantly highlights it and says something like, This text may be hard to read, try increasing contrast, and even suggests a better color you can apply in one click. Or if your spacing is slightly off between elements, it gently points it out and offers to auto-align it, so you don't have to manually fix every small inconsistency. It also understands context. If you're designing a button, it can suggest improving padding, hierarchy, or even label clarity based on common UX patterns. The key here is that it doesn't interrupt you. There are no disruptive pop-ups, just subtle, inline suggestions that feel like a quiet nudge when you need it. Some of the core features include real-time issue detection as you design, context-aware suggestions based on the component you're working on, one-click fixes for things like contrast, spacing, and alignment, and adaptive feedback that improves as your design evolves. So instead of stopping to check your work later, you're improving it while you create. The goal is simple, to help you stay in flow, make better decisions faster, and feel more confident in what you're designing. At its core, this shifts design tools from something you use to something that actually supports you. Or simply put, from designing alone to designing with a smart partner. I'll let the visuals take it from here, explore the screens below to see how this works in action.",
+  '/projects/budgeting-app':
+    "Hi, I'm Shvetha's AI assistant. I'll walk you through this project. This project started with a simple thought. What if budgeting didn't just show numbers, but actually guided you? Most budgeting apps today feel passive. You add expenses, you see charts, but you're still left wondering, Okay, what should I do now? So this app was designed to act more like a smart companion, one that actively helps you make better financial decisions. As you use the app, AI suggestions are integrated throughout the experience, not as a separate feature, but as something that quietly supports you at every step. For example, if your food spending suddenly increases, the app doesn't just show a spike. It tells you something like, You've spent 30% more on food this week compared to last week. Want to set a limit? If you're close to exceeding your budget, it nudges you with a simple suggestion like, You're nearing your monthly limit, consider reducing non-essential spending. Even while adding an expense, the app can auto-categorise it and suggest smarter labels, saving time and effort. The idea is to remove the need for users to constantly analyse their own data. Instead, the app does the thinking and gives clear, actionable insights. Some of the key features include AI-powered suggestions across the entire app, smart alerts based on real spending behaviour, automatic categorisation of expenses, visual dashboards that highlight what actually matters, and timely nudges that help users adjust before it's too late. The focus is on making budgeting feel less like a responsibility and more like a guided experience. The goal is not just to track money, but to help users make smarter decisions without overthinking. At its core, this project shifts budgeting from a passive tracking tool to an active, intelligent guide. Or simply put, from What did I spend? to What should I do next? I'll let the visuals take it from here, explore the screens below to see how these suggestions come to life.",
+  '/projects/design-experiments':
+    "Hi, I'm Shvetha's AI assistant. I'll walk you through this project. This one's a little different. It's not a single project, but a collection of design explorations. You'll see a mix of business cards, logos, micro interactions, websites, apps, posters, and more. Each of these started as a simple idea or curiosity, just trying things out, exploring styles, and seeing what works. There's no fixed goal here, just a space to experiment, learn, and grow through design. Over time, these small explorations come together and help build a stronger design perspective. Or simply put, designing freely and learning along the way. I'll let the visuals take it from here, take a look below and explore the work.",
+};
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -447,6 +455,10 @@ interface AIChatboxProps {
 }
 
 const AIChatbox = forwardRef<AIChatboxHandle, AIChatboxProps>(function AIChatbox({ onClose, onVoiceStateChange }, ref) {
+  const pathname = usePathname();
+  const normalizedPathname = pathname?.replace(/\/$/, '') ?? '';
+  const projectNarrative = PROJECT_NARRATIVES[normalizedPathname] ?? '';
+
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -496,6 +508,11 @@ const AIChatbox = forwardRef<AIChatboxHandle, AIChatboxProps>(function AIChatbox
   }, [setAndNotifyVoiceState]);
 
   const startVoice = useCallback(() => {
+    if (!projectNarrative) {
+      addMessage('Quick Brief is available on individual project pages only.');
+      return;
+    }
+
     if (utteranceRef.current) {
       utteranceRef.current.onend = null;
       utteranceRef.current.onerror = null;
@@ -503,7 +520,7 @@ const AIChatbox = forwardRef<AIChatboxHandle, AIChatboxProps>(function AIChatbox
     window.speechSynthesis.cancel();
 
     setTimeout(() => {
-      const utt = new SpeechSynthesisUtterance(narrativeText);
+      const utt = new SpeechSynthesisUtterance(projectNarrative);
       utt.pitch = 1.0;
       utt.rate = 0.92;
       const voice = getFemaleVoice();
@@ -515,7 +532,7 @@ const AIChatbox = forwardRef<AIChatboxHandle, AIChatboxProps>(function AIChatbox
       setAndNotifyVoiceState('speaking');
       addMessage('Narrating my project journey... 🎙️');
     }, 100);
-  }, [getFemaleVoice, addMessage, setAndNotifyVoiceState]);
+  }, [projectNarrative, getFemaleVoice, addMessage, setAndNotifyVoiceState]);
 
   const pauseVoice = useCallback(() => {
     window.speechSynthesis.pause();
@@ -683,30 +700,8 @@ const AIChatbox = forwardRef<AIChatboxHandle, AIChatboxProps>(function AIChatbox
 
   // ── Render ──────────────────────────────────────────────────────────────────
 
-  const voiceIcon =
-    voiceState === 'speaking' ? (
-      /* Pause icon */
-      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-      </svg>
-    ) : voiceState === 'paused' ? (
-      /* Play icon */
-      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M5 3.868v16.264c0 .88 1.05 1.34 1.706.746l8.846-8.132a1 1 0 0 0 0-1.492L6.706 3.122C6.05 2.528 5 2.988 5 3.868z" />
-      </svg>
-    ) : (
-      /* Mic icon text for narrative -> We replaced it with image */
-      <Image
-        src="/images/weui_voice-outlined.png"
-        alt="Volume"
-        width={20}
-        height={20}
-        className="w-5 h-5 opacity-70 invert"
-      />
-    );
-
   return (
-    <div className="w-full max-w-[380px] h-[580px] bg-[#0d0d0d] border border-white/10 rounded-[28px] shadow-2xl flex flex-col overflow-hidden font-manrope">
+    <div className="w-full max-w-[380px] h-[580px] bg-[var(--theme-bg)] border border-[var(--theme-border)] rounded-[28px] shadow-2xl flex flex-col overflow-hidden font-manrope">
       <style>{`
         @keyframes micPulse {
             0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
@@ -728,29 +723,22 @@ const AIChatbox = forwardRef<AIChatboxHandle, AIChatboxProps>(function AIChatbox
         }
       `}</style>
       {/* Header */}
-      <div className="p-6 border-b border-white/5 bg-white/[0.01] flex items-center justify-between backdrop-blur-xl">
+      <div className="p-6 border-b border-[var(--theme-border)] bg-[var(--theme-surface)] flex items-center justify-between backdrop-blur-xl">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-white/[0.05] border border-white/10 flex items-center justify-center text-white/50 font-bold text-lg">
+          <div className="w-10 h-10 rounded-full bg-[var(--theme-bg)] border border-[var(--theme-border)] flex items-center justify-center text-[var(--theme-text-lo)] font-bold text-lg">
             S
           </div>
           <div className="flex flex-col">
-            <span className="text-white/90 font-bold text-[15px]">Shvetha&apos;s AI</span>
-            <span className="text-[10px] text-gray-500 font-medium tracking-wide uppercase opacity-80">
+            <span className="text-[var(--theme-text-hi)] font-bold text-[15px]">Shvetha&apos;s AI</span>
+            <span className="text-[10px] text-[var(--theme-text-lo)] font-medium tracking-wide uppercase opacity-90">
               Portfolio Assistant
             </span>
           </div>
         </div>
         <div className="flex items-center gap-2">
           <button
-            onClick={toggleVoice}
-            className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/5 text-gray-500 hover:text-[#84CC16] transition-all"
-            title="Narrate Project"
-          >
-            {voiceIcon}
-          </button>
-          <button
             onClick={onClose}
-            className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/5 text-gray-500 hover:text-white transition-colors"
+            className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-[var(--theme-bg)] text-[var(--theme-text-lo)] hover:text-[var(--theme-text-hi)] transition-colors"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path d="M6 18L18 6M6 6l12 12" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -760,7 +748,7 @@ const AIChatbox = forwardRef<AIChatboxHandle, AIChatboxProps>(function AIChatbox
       </div>
 
       {/* Messages */}
-      <div className="flex-grow p-6 overflow-y-auto flex flex-col gap-5 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+      <div className="flex-grow p-6 overflow-y-auto flex flex-col gap-5 scrollbar-thin scrollbar-thumb-[var(--theme-border)] scrollbar-track-transparent">
         {messages.map((msg) => (
           <div
             key={msg.id}
@@ -769,8 +757,8 @@ const AIChatbox = forwardRef<AIChatboxHandle, AIChatboxProps>(function AIChatbox
             <div
               className={`p-3.5 rounded-[18px] text-[13px] leading-[1.6] shadow-md ${
                 msg.isUser
-                  ? 'bg-white/10 text-white rounded-tr-none'
-                  : 'bg-white/[0.03] border border-white/5 text-gray-300 rounded-tl-none'
+                  ? 'bg-[var(--theme-surface)] border border-[var(--theme-accent)] text-[var(--theme-text-hi)] rounded-tr-none'
+                  : 'bg-[var(--theme-surface)] border border-[var(--theme-border)] text-[var(--theme-text-mid)] rounded-tl-none'
               }`}
               dangerouslySetInnerHTML={{ __html: msg.text.replace(/\n/g, '<br>') }}
             >
@@ -781,21 +769,21 @@ const AIChatbox = forwardRef<AIChatboxHandle, AIChatboxProps>(function AIChatbox
                   <button
                     key={s.value}
                     onClick={() => sendMessage(s.value)}
-                    className="px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[11px] text-gray-400 hover:border-white/30 hover:text-white transition-all text-left"
+                    className="px-3 py-1.5 rounded-full border border-[var(--theme-border)] bg-[var(--theme-bg)] text-[11px] text-[var(--theme-text-lo)] hover:border-[var(--theme-accent)] hover:text-[var(--theme-text-hi)] transition-all text-left"
                   >
                     {s.label}
                   </button>
                 ))}
               </div>
             )}
-            <span className="text-[9px] text-gray-700 font-medium px-1 mt-1">
+            <span className="text-[9px] text-[var(--theme-text-lo)] font-medium px-1 mt-1 opacity-80">
               {msg.isUser ? 'You · Just now' : 'AI · Just now'}
             </span>
           </div>
         ))}
 
         {isTyping && (
-          <div className="flex self-start p-3 bg-white/[0.02] rounded-full px-5 text-gray-600 text-[11px] animate-pulse">
+          <div className="flex self-start p-3 bg-[var(--theme-surface)] border border-[var(--theme-border)] rounded-full px-5 text-[var(--theme-text-lo)] text-[11px] animate-pulse">
             thinking...
           </div>
         )}
@@ -803,24 +791,24 @@ const AIChatbox = forwardRef<AIChatboxHandle, AIChatboxProps>(function AIChatbox
       </div>
 
       {/* Input */}
-      <div className="p-5 bg-white/[0.01] border-t border-white/5">
+      <div className="p-5 bg-[var(--theme-surface)] border-t border-[var(--theme-border)]">
         <div className="flex gap-2 relative">
           <input
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
-            placeholder="Type your question..."
-            className="w-full bg-white/5 border border-white/5 rounded-full py-3 px-5 pr-24 text-[13px] text-white focus:outline-none focus:border-white/20 placeholder:text-gray-700 transition-all"
+            placeholder="Type or Tap to speak..."
+            className="w-full bg-[var(--theme-bg)] border border-[var(--theme-border)] rounded-full py-3 px-5 pr-24 text-[13px] text-[var(--theme-text-hi)] focus:outline-none focus:border-[var(--theme-accent)] placeholder:text-[var(--theme-text-lo)] transition-all"
           />
 
           {/* Mic Button */}
           <button
             onClick={toggleMicInput}
-            className={`absolute right-12 top-1 w-10 h-10 flex items-center justify-center rounded-full transition-all border border-transparent ${
+            className={`absolute right-12 inset-y-0 my-auto w-10 h-10 flex items-center justify-center rounded-full transition-all border border-transparent ${
               isListening
                 ? 'mic-recording'
-                : 'text-gray-500 hover:bg-white/5 hover:text-white'
+                : 'text-[var(--theme-text-lo)] hover:bg-[var(--theme-bg)] hover:text-[var(--theme-text-hi)]'
             }`}
             title="Speak your question"
           >
@@ -834,7 +822,7 @@ const AIChatbox = forwardRef<AIChatboxHandle, AIChatboxProps>(function AIChatbox
 
           <button
             onClick={() => sendMessage()}
-            className="absolute right-1 top-1 w-10 h-10 flex items-center justify-center bg-white/[0.05] rounded-full text-white/50 hover:bg-white/10 hover:text-white transition-all"
+            className="absolute right-1 inset-y-0 my-auto w-10 h-10 flex items-center justify-center bg-[var(--theme-bg)] border border-[var(--theme-border)] rounded-full text-[var(--theme-text-lo)] hover:border-[var(--theme-accent)] hover:text-[var(--theme-text-hi)] transition-all"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path d="M5 12h14M12 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -845,7 +833,7 @@ const AIChatbox = forwardRef<AIChatboxHandle, AIChatboxProps>(function AIChatbox
         {/* Mic status text */}
         <div 
           className="text-[10px] text-center mt-2 h-4 transition-all"
-          style={{ color: micStatus.color || '#6b7280' }}
+          style={{ color: micStatus.color || 'var(--theme-text-lo)' }}
         >
           {micStatus.text}
         </div>

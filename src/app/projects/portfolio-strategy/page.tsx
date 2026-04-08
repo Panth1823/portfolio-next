@@ -224,10 +224,11 @@ export default function FinanceAppPage() {
                   The Problem
                 </h2>
                 <div className="w-[50px] h-[3px] rounded-full mb-10 bg-[var(--theme-accent)]"></div>
-                <p className="text-base leading-[1.65] text-left max-w-[820px] mb-24 lg:mb-32 text-[var(--theme-text-lo)]">
+                <p className="text-base leading-[1.65] text-left max-w-[700px] mb-24 lg:mb-32 text-[var(--theme-text-lo)]">
                   Recruiters struggle to quickly evaluate portfolios as key
-                  insights, decisions, and impact are unclear or difficult to
-                  find.
+                  insights, decisions,
+                  <br className="hidden md:block" /> and impact are unclear or
+                  difficult to find.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-20">
@@ -442,6 +443,8 @@ export default function FinanceAppPage() {
                   {[
                     {
                       title: "AI Portfolio Assistant",
+                      imageSrc:
+                        "/images/portfolio-breakdown/design-concept-ai-portfolio-assistant.png",
                       description:
                         "An AI-powered assistant that answers questions about the portfolio, helping recruiters explore projects, decisions, and outcomes without manual navigation.",
                       bullets: [
@@ -454,6 +457,8 @@ export default function FinanceAppPage() {
                     },
                     {
                       title: "Voice Brief",
+                      imageSrc:
+                        "/images/portfolio-breakdown/design-concept-voice-brief.png",
                       description:
                         "A voice-driven summary that narrates the project, helping recruiters quickly understand the problem, approach, and outcome without reading everything.",
                       bullets: [
@@ -466,6 +471,8 @@ export default function FinanceAppPage() {
                     },
                     {
                       title: "Adaptive Contrast",
+                      imageSrc:
+                        "/images/portfolio-breakdown/design-concept-adaptive-contrast.png",
                       description:
                         "A dynamic theme system that adapts visual contrast across multiple modes, improving accessibility and allowing users to view content comfortably in different conditions.",
                       bullets: [
@@ -478,6 +485,8 @@ export default function FinanceAppPage() {
                     },
                     {
                       title: "Signature Journey",
+                      imageSrc:
+                        "/images/portfolio-breakdown/design-concept-signature-journey.png",
                       description:
                         "A guided storytelling experience where a walking character leads users through my journey, making the portfolio more engaging and memorable.",
                       bullets: [
@@ -494,7 +503,7 @@ export default function FinanceAppPage() {
                       title={concept.title}
                       description={concept.description}
                       bullets={concept.bullets}
-                      imageSrc="/images/portfolio-strategy.png"
+                      imageSrc={concept.imageSrc}
                       imageAlt={concept.title}
                     />
                   ))}
