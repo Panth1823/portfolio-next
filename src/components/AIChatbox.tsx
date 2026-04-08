@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, useCallback, forwardRef, useImperativeHandle } from 'react';
+import Image from 'next/image';
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -14,6 +15,44 @@ interface Message {
   text: string;
   isUser: boolean;
   suggestions?: Suggestion[];
+}
+
+interface SpeechRecognitionAlternativeLike {
+  transcript: string;
+}
+
+interface SpeechRecognitionResultLike {
+  isFinal: boolean;
+  [index: number]: SpeechRecognitionAlternativeLike;
+}
+
+interface SpeechRecognitionEventLike {
+  resultIndex: number;
+  results: ArrayLike<SpeechRecognitionResultLike>;
+}
+
+interface SpeechRecognitionErrorEventLike {
+  error: string;
+}
+
+interface SpeechRecognitionLike {
+  lang: string;
+  interimResults: boolean;
+  continuous: boolean;
+  maxAlternatives: number;
+  onstart: (() => void) | null;
+  onresult: ((event: SpeechRecognitionEventLike) => void) | null;
+  onerror: ((event: SpeechRecognitionErrorEventLike) => void) | null;
+  onend: (() => void) | null;
+  start: () => void;
+  stop: () => void;
+}
+
+type SpeechRecognitionConstructor = new () => SpeechRecognitionLike;
+
+interface WindowWithSpeechRecognition extends Window {
+  SpeechRecognition?: SpeechRecognitionConstructor;
+  webkitSpeechRecognition?: SpeechRecognitionConstructor;
 }
 
 // ── Data ─────────────────────────────────────────────────────────────────────
@@ -423,7 +462,7 @@ const AIChatbox = forwardRef<AIChatboxHandle, AIChatboxProps>(function AIChatbox
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const msgIdRef = useRef(0);
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
-  const recognitionRef = useRef<any>(null);
+  const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
 
   // ── Voice helpers ───────────────────────────────────────────────────────────
 
@@ -540,13 +579,15 @@ const AIChatbox = forwardRef<AIChatboxHandle, AIChatboxProps>(function AIChatbox
   }, []);
 
   const initSpeechRecognition = useCallback(() => {
-    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-    if (!SpeechRecognition) {
+    const speechWindow = window as WindowWithSpeechRecognition;
+    const SpeechRecognitionCtor =
+      speechWindow.SpeechRecognition ?? speechWindow.webkitSpeechRecognition;
+    if (!SpeechRecognitionCtor) {
       console.warn('Speech Recognition not supported in this browser.');
       return false;
     }
 
-    const recognition = new SpeechRecognition();
+    const recognition = new SpeechRecognitionCtor();
     recognition.lang = 'en-US';
     recognition.interimResults = true;
     recognition.continuous = false;
@@ -557,7 +598,7 @@ const AIChatbox = forwardRef<AIChatboxHandle, AIChatboxProps>(function AIChatbox
       setMicStatus({ text: '🎤 Listening... speak now', color: '#ef4444' });
     };
 
-    recognition.onresult = (event: any) => {
+    recognition.onresult = (event: SpeechRecognitionEventLike) => {
       let transcript = '';
       for (let i = event.resultIndex; i < event.results.length; i++) {
         transcript += event.results[i][0].transcript;
@@ -571,7 +612,7 @@ const AIChatbox = forwardRef<AIChatboxHandle, AIChatboxProps>(function AIChatbox
       }
     };
 
-    recognition.onerror = (event: any) => {
+    recognition.onerror = (event: SpeechRecognitionErrorEventLike) => {
       console.error('Speech recognition error:', event.error);
       stopMicInput();
       if (event.error === 'not-allowed') {
@@ -655,7 +696,13 @@ const AIChatbox = forwardRef<AIChatboxHandle, AIChatboxProps>(function AIChatbox
       </svg>
     ) : (
       /* Mic icon text for narrative -> We replaced it with image */
-      <img src="/images/weui_voice-outlined.png" alt="Volume" className="w-5 h-5 opacity-70 invert" />
+      <Image
+        src="/images/weui_voice-outlined.png"
+        alt="Volume"
+        width={20}
+        height={20}
+        className="w-5 h-5 opacity-70 invert"
+      />
     );
 
   return (

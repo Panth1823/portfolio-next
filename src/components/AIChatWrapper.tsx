@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import AIChatbox, { type AIChatboxHandle } from "./AIChatbox";
 
@@ -118,9 +119,11 @@ export default function AIChatWrapper() {
 
                   {/* Mic icon (idle) */}
                   {!isSpeaking && (
-                    <img
+                    <Image
                       src="/images/weui_voice-outlined.png"
                       alt="Volume"
+                      width={20}
+                      height={20}
                       className="w-5 h-5 opacity-70 invert transition-opacity group-hover:opacity-100"
                     />
                   )}

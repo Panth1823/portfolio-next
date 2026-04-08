@@ -6,24 +6,6 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import RelatedProjects from "@/components/RelatedProjects";
-import QuickBriefButton from "@/components/QuickBriefButton";
-
-const BRIEF_DATA = {
-  title: "Design Intelligence",
-  href: "#summary",
-  accentColor: "#F24E1E",
-  role: "Product Designer",
-  duration: "3 months",
-  tools: "Figma, Perplexity",
-  category: "Product Concept",
-  points: [
-    "Embedded real-time design review directly into the Figma workflow",
-    "Detects spacing, contrast, accessibility & design-system deviations on the canvas",
-    "Flags orphan screens and broken navigation flows automatically",
-    "Eliminates context-switching between tools and review plugins",
-    "Outcome: 55% faster issue detection, 50% higher consistency, 35% less rework",
-  ],
-};
 
 // ── Component ─────────────────────────────────────────────────────────────────
 

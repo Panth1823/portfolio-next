@@ -53,7 +53,7 @@ export function ConceptBlock({
             {description}
           </p>
           <ul className="flex flex-col gap-3.5 pl-1">
-            {bullets.map((item, index) => (
+            {bullets.map((item) => (
               <li
                 key={item}
                 className="flex items-center gap-3 text-[16px] leading-none text-[var(--theme-text-lo)]"
