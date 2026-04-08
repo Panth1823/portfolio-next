@@ -548,16 +548,6 @@ const AIChatbox = forwardRef<AIChatboxHandle, AIChatboxProps>(function AIChatbox
     startVoice();
   }, [startVoice]);
 
-  const toggleVoice = useCallback(() => {
-    if (voiceState === 'idle') {
-      startVoice();
-    } else if (voiceState === 'speaking') {
-      pauseVoice();
-    } else {
-      resumeVoice();
-    }
-  }, [voiceState, startVoice, pauseVoice, resumeVoice]);
-
   // ── Expose voice controls to parent via ref ─────────────────────────────────
 
   useImperativeHandle(ref, () => ({
