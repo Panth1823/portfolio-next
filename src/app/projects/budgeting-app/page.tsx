@@ -227,16 +227,13 @@ export default function FinanceAppPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-20">
                   <div className="flex flex-col border rounded-[20px] p-2 bg-[var(--theme-surface)] border-[var(--theme-border)]">
-                    <div className="w-full aspect-[4/3] bg-white rounded-[12px] mb-4 flex flex-col items-start justify-start p-6 border border-gray-100 relative overflow-hidden">
-                      <span className="text-[28px] font-bold text-[#222] leading-none mb-2">
-                        £840
-                        <span className="text-sm font-normal text-gray-400 ml-1">
-                          left
-                        </span>
-                      </span>
-                      <span className="text-[14px] text-[#84CC16] tracking-wide font-medium">
-                        from £2400 this month
-                      </span>
+                    <div className="w-full aspect-[4/3] bg-white rounded-[12px] mb-4 relative overflow-hidden border border-gray-100">
+                      <Image
+                        src="/images/Project 3 - Finance app Case Study Images/PW Problem - 1.png"
+                        alt="Information Overload"
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                     <div className="px-2 pb-2">
                       <h3 className="text-[16px] font-medium mb-3 text-[var(--theme-text-hi)]">
@@ -249,24 +246,13 @@ export default function FinanceAppPage() {
                     </div>
                   </div>
                   <div className="flex flex-col border rounded-[20px] p-2 bg-[var(--theme-surface)] border-[var(--theme-border)]">
-                    <div className="w-full aspect-[4/3] bg-white rounded-[12px] mb-4 flex flex-col items-start justify-center p-6 border border-gray-100">
-                      <div className="flex justify-between w-full items-baseline mb-4">
-                        <span className="text-[16px] font-semibold text-gray-700">
-                          Monthly Budget
-                        </span>
-                        <span className="text-[16px] font-medium text-[#14B8A6]">
-                          £560 left
-                        </span>
-                      </div>
-                      <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden mb-6">
-                        <div className="w-[30%] h-full bg-[#14B8A6] rounded-full"></div>
-                      </div>
-                      <span className="text-[16px] font-semibold text-gray-700">
-                        Spending Overview
-                      </span>
-                      <div className="w-full h-1 bg-gray-100 mt-4">
-                        <div className="w-1/2 h-full bg-gray-300"></div>
-                      </div>
+                    <div className="w-full aspect-[4/3] bg-white rounded-[12px] mb-4 relative overflow-hidden border border-gray-100">
+                      <Image
+                        src="/images/Project 3 - Finance app Case Study Images/PW Problem - 2.png"
+                        alt="Lack of Direction"
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                     <div className="px-2 pb-2">
                       <h3 className="text-[16px] font-medium mb-3 text-[var(--theme-text-hi)]">
@@ -278,23 +264,13 @@ export default function FinanceAppPage() {
                     </div>
                   </div>
                   <div className="flex flex-col border rounded-[20px] p-2 bg-[var(--theme-surface)] border-[var(--theme-border)]">
-                    <div className="w-full aspect-[4/3] bg-white rounded-[12px] mb-4 flex flex-col justify-start p-6 border border-gray-100 gap-3">
-                      <div className="flex flex-col gap-1 w-full">
-                        <span className="text-[11px] text-gray-800 font-semibold tracking-tight">
-                          Add Expense
-                        </span>
-                        <div className="w-full border border-gray-100 rounded-md p-2 text-[12px] text-gray-400 bg-gray-50 uppercase tracking-widest">
-                          £40
-                        </div>
-                      </div>
-                      <div className="flex flex-col gap-1 w-full mt-2">
-                        <span className="text-[10px] text-gray-800 font-semibold tracking-tight">
-                          Date
-                        </span>
-                        <div className="w-full border border-gray-100 rounded-md p-2 text-[12px] text-gray-400 bg-gray-50">
-                          Today, 14 Oct
-                        </div>
-                      </div>
+                    <div className="w-full aspect-[4/3] bg-white rounded-[12px] mb-4 relative overflow-hidden border border-gray-100">
+                      <Image
+                        src="/images/Project 3 - Finance app Case Study Images/PW Problem - 3.png"
+                        alt="High Cognitive Effort"
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                     <div className="px-2 pb-2">
                       <h3 className="text-[16px] font-medium mb-3 text-[var(--theme-text-hi)]">

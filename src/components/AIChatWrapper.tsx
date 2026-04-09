@@ -120,13 +120,22 @@ export default function AIChatWrapper() {
 
                   {/* Mic icon (idle) */}
                   {!isSpeaking && (
-                    <Image
-                      src="/images/weui_voice-outlined.png"
-                      alt="Volume"
-                      width={20}
-                      height={20}
-                      className="w-5 h-5 opacity-70 invert transition-opacity group-hover:opacity-100"
-                    />
+                    <>
+                      <Image
+                        src="/images/speaker white.png"
+                        alt="Volume"
+                        width={20}
+                        height={20}
+                        className="w-5 h-5 opacity-70 transition-opacity group-hover:opacity-100 hidden dark:block"
+                      />
+                      <Image
+                        src="/images/speaker dark.png"
+                        alt="Volume"
+                        width={20}
+                        height={20}
+                        className="w-5 h-5 opacity-70 transition-opacity group-hover:opacity-100 block dark:hidden"
+                      />
+                    </>
                   )}
 
                   {/* Play icon (paused) */}

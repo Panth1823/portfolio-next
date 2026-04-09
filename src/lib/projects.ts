@@ -18,11 +18,11 @@ export interface Project {
 
 export const PROJECT_LIST: Project[] = [
   {
-    title: "Portfolio Strategy",
+    title: "Portfolio strategy - portfolio Breakdown",
     subtitle: "Designing My Portfolio as a Product",
     description:
       "A self-initiated project focused on transforming my portfolio from a visual showcase into a strategic product that communicates design thinking, decision-making, and impact clearly to recruiters within seconds.",
-    tags: ["2024", "Portfolio"],
+    tags: ["2026", "Portfolio"],
     href: "/projects/portfolio-strategy",
     image: "/images/portfolio-strategy.png",
     iconColor: "#e5e7eb",

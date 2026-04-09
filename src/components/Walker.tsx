@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import {
   motion,
   MotionValue,
@@ -12,20 +12,77 @@ interface WalkerProps {
   progress: MotionValue<number>;
 }
 
-const WALK_FRAMES = 42;
-const STAND_FRAME = 42;
-const FRAMES_DIR = "/frames/";
+// Frame set configurations per color variant
+const FRAME_SETS: Record<string, { dir: string; walkFrames: number; standFrame: number; ext: (i: number) => string }> = {
+  green: {
+    dir: "/frames/",
+    walkFrames: 42,
+    standFrame: 42,
+    ext: () => "png",
+  },
+  blue: {
+    dir: "/frames/blue/",
+    walkFrames: 41,
+    standFrame: 41,
+    ext: (i: number) => (i === 0 ? "svg" : "png"),
+  },
+};
+
+// Map theme index → frame set key
+// 0=white(green), 1=mint(green), 2=orange(green), 3=indigo(blue), 4=blue-slate(blue), 5=dark(green)
+const THEME_TO_FRAMESET: Record<number, string> = {
+  0: "green",
+  1: "green",
+  2: "green",
+  3: "blue",
+  4: "blue",
+  5: "green",
+};
+
+// Trail color per frame set
+const TRAIL_COLORS: Record<string, { gradient: string; glow: string }> = {
+  green: {
+    gradient:
+      "linear-gradient(90deg, transparent 0%, rgba(200,255,0,0.005) 20%, rgba(200,255,0,0.02) 50%, rgba(200,255,0,0.08) 80%, rgba(200,255,0,0.22) 100%)",
+    glow: "radial-gradient(ellipse at right center, rgba(200,255,0,0.1) 0%, transparent 70%)",
+  },
+  blue: {
+    gradient:
+      "linear-gradient(90deg, transparent 0%, rgba(56,189,248,0.005) 20%, rgba(56,189,248,0.02) 50%, rgba(56,189,248,0.08) 80%, rgba(56,189,248,0.22) 100%)",
+    glow: "radial-gradient(ellipse at right center, rgba(56,189,248,0.1) 0%, transparent 70%)",
+  },
+};
+
+function getThemeIndex(): number {
+  if (typeof window === "undefined") return 5;
+  const saved = localStorage.getItem("projectThemeIndex");
+  if (saved !== null && !isNaN(parseInt(saved))) return parseInt(saved);
+  return 5;
+}
 
 export default function Walker({ progress }: WalkerProps) {
   const [frameIndex, setFrameIndex] = useState(0);
-  const [windowWidth, setWindowWidth] = useState(1000); // Decent default
+  const [windowWidth, setWindowWidth] = useState(1000);
+  const [frameSetKey, setFrameSetKey] = useState<string>("green");
+
+  const frameSet = FRAME_SETS[frameSetKey];
+
+  // Sync frame set with theme index
+  const syncTheme = useCallback(() => {
+    const idx = getThemeIndex();
+    setFrameSetKey(THEME_TO_FRAMESET[idx] ?? "green");
+  }, []);
 
   useEffect(() => {
-    // Preload frames
-    for (let i = 0; i <= STAND_FRAME; i++) {
-      const img = new Image();
-      img.src = `${FRAMES_DIR}${i}.png`;
-    }
+    syncTheme();
+
+    // Preload both frame sets
+    Object.values(FRAME_SETS).forEach(({ dir, standFrame, ext }) => {
+      for (let i = 0; i <= standFrame; i++) {
+        const img = new Image();
+        img.src = `${dir}${i}.${ext(i)}`;
+      }
+    });
 
     setWindowWidth(window.innerWidth);
 
@@ -37,32 +94,37 @@ export default function Walker({ progress }: WalkerProps) {
       }, 200);
     };
 
+    // Listen for theme changes from ThemeDock
+    const handleThemeChange = () => syncTheme();
+    document.addEventListener("themeIndexChanged", handleThemeChange);
+    window.addEventListener("storage", handleThemeChange);
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+
+    return () => {
+      document.removeEventListener("themeIndexChanged", handleThemeChange);
+      window.removeEventListener("storage", handleThemeChange);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [syncTheme]);
 
   // Frame selection logic based on scroll progress
   useMotionValueEvent(progress, "change", (latest) => {
     if (latest >= 0.93) {
-      setFrameIndex(STAND_FRAME);
+      setFrameIndex(frameSet.standFrame);
     } else {
       const frame = Math.min(
-        Math.floor((latest / 0.93) * WALK_FRAMES),
-        WALK_FRAMES - 1,
+        Math.floor((latest / 0.93) * frameSet.walkFrames),
+        frameSet.walkFrames - 1,
       );
       setFrameIndex(frame);
     }
   });
 
   // X position mapped across progress [0, 1]
-  // Originally: x = () => endX() + 180 = window.innerWidth - 160 + 180 = window.innerWidth + 20
-  // Starts left -180px so it enters the screen.
-  const endXValue = windowWidth - 10; // stop with character fully in frame
-
+  const endXValue = windowWidth - 10;
   const x = useTransform(progress, [0, 0.93, 1], [0, endXValue, endXValue]);
 
   // Subtle scale bounces at 0.18, 0.5, 0.78
-  // Each sequence is: base(1) -> arrive(1.06) -> leave(1)
   const scaleX = useTransform(
     progress,
     [0, 0.17, 0.18, 0.24, 0.49, 0.5, 0.56, 0.77, 0.78, 0.84, 1],
@@ -74,12 +136,15 @@ export default function Walker({ progress }: WalkerProps) {
     [1, 1, 0.96, 1, 1, 0.96, 1, 1, 0.96, 1, 1],
   );
 
-  // Trail width follows the walker's x position — freezes when character stops at 0.93
+  // Trail width follows the walker
   const trailWidth = useTransform(
     progress,
     [0, 0.93, 1],
     [0, endXValue + 80, endXValue + 80],
   );
+
+  const trailColors = TRAIL_COLORS[frameSetKey] ?? TRAIL_COLORS.green;
+  const frameSrc = `${frameSet.dir}${frameIndex}.${frameSet.ext(frameIndex)}`;
 
   return (
     <>
@@ -89,19 +154,13 @@ export default function Walker({ progress }: WalkerProps) {
         className="absolute bottom-[30px] left-0 h-[1px] z-[5] max-sm:bottom-[20px]"
       >
         <div
-          className="w-full h-full"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent 0%, rgba(200,255,0,0.005) 20%, rgba(200,255,0,0.02) 50%, rgba(200,255,0,0.08) 80%, rgba(200,255,0,0.22) 100%)",
-          }}
+          className="w-full h-full transition-all duration-700"
+          style={{ background: trailColors.gradient }}
         />
         {/* Soft glow at the leading edge */}
         <div
-          className="absolute right-0 top-1/2 -translate-y-1/2 w-[80px] h-[10px] max-sm:w-[40px] max-sm:h-[6px]"
-          style={{
-            background:
-              "radial-gradient(ellipse at right center, rgba(200,255,0,0.1) 0%, transparent 70%)",
-          }}
+          className="absolute right-0 top-1/2 -translate-y-1/2 w-[80px] h-[10px] max-sm:w-[40px] max-sm:h-[6px] transition-all duration-700"
+          style={{ background: trailColors.glow }}
         />
       </motion.div>
 
@@ -112,7 +171,7 @@ export default function Walker({ progress }: WalkerProps) {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={`${FRAMES_DIR}${frameIndex}.png`}
+          src={frameSrc}
           alt="Walking character"
           className="w-full h-full object-contain object-bottom mix-blend-screen"
         />

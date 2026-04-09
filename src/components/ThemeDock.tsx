@@ -16,6 +16,7 @@ const themeVars: Record<
     border: string;
     accent: string;
     navBg: string;
+    heroBg: string;
   }
 > = {
   "0": {
@@ -27,6 +28,7 @@ const themeVars: Record<
     border: "#E5E7EB",
     accent: "#84CC16",
     navBg: "rgba(250,250,250,0.82)",
+    heroBg: "rgba(243, 244, 246, 0.25)",
   },
   "1": {
     bg: "#F0FAF4",
@@ -37,6 +39,7 @@ const themeVars: Record<
     border: "#BBF7D0",
     accent: "#10B981",
     navBg: "rgba(240,250,244,0.82)",
+    heroBg: "rgba(220, 252, 231, 0.25)",
   },
   "2": {
     bg: "#FFF7ED",
@@ -47,6 +50,7 @@ const themeVars: Record<
     border: "#FED7AA",
     accent: "#FF8C00",
     navBg: "rgba(255,247,237,0.82)",
+    heroBg: "rgba(255, 237, 213, 0.25)",
   },
   "3": {
     bg: "#1e1b4b",
@@ -57,6 +61,7 @@ const themeVars: Record<
     border: "#4338ca",
     accent: "#818cf8",
     navBg: "rgba(30,27,75,0.82)",
+    heroBg: "rgba(38, 35, 97, 0.6)",
   },
   "4": {
     bg: "#0f172a",
@@ -67,6 +72,7 @@ const themeVars: Record<
     border: "#334155",
     accent: "#38bdf8",
     navBg: "rgba(15,23,42,0.82)",
+    heroBg: "rgba(30, 41, 59, 0.6)",
   },
   "5": {
     bg: "#0a0a0a",
@@ -77,6 +83,7 @@ const themeVars: Record<
     border: "#1f1f1f",
     accent: "#84CC16",
     navBg: "rgba(1,1,1,0.82)",
+    heroBg: "rgba(17, 17, 17, 0.6)",
   },
 };
 
@@ -114,9 +121,9 @@ export default function ThemeDock() {
     root.style.setProperty("--text-secondary", t.mid);
     root.style.setProperty("--text-muted", t.lo);
     root.style.setProperty("--border", t.border);
-    // don't map accent directly yet strictly, but it's safe
     root.style.setProperty("--accent", t.accent);
     root.style.setProperty("--ground-line", t.accent);
+    root.style.setProperty("--hero-bg", t.heroBg);
   }, [themeIndex]);
 
   if (!mounted) return null;
@@ -167,6 +174,7 @@ export default function ThemeDock() {
                 const newIndex = parseInt(e.target.value) as ThemeIndex;
                 setThemeIndex(newIndex);
                 localStorage.setItem("projectThemeIndex", newIndex.toString());
+                document.dispatchEvent(new CustomEvent("themeIndexChanged"));
               }}
               className="absolute inset-0 w-full h-[40px] opacity-0 cursor-pointer z-50 appearance-none"
             />

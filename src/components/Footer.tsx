@@ -58,9 +58,9 @@ export default function Footer() {
         </div>
 
         <div className="social-group flex gap-6 items-center flex-wrap justify-center animate-fadeInUp delay-400">
-          <SocialLink href="#" label="LinkedIn" iconClass="linkedin-icon" />
-          <SocialLink href="#" label="Instagram" iconClass="instagram-icon" />
-          <SocialLink href="#" label="Behance" iconClass="behance-icon" />
+          <SocialLink href="https://www.linkedin.com/in/shvetha-s-/" label="LinkedIn" iconClass="linkedin-icon" />
+          <SocialLink href="https://www.instagram.com/uxdesigners.in?igsh=OWg0ZDMwbTNicWt3&utm_source=qr" label="Instagram" iconClass="instagram-icon" />
+          <SocialLink href="https://www.behance.net/Shvetha" label="Behance" iconClass="behance-icon" />
         </div>
       </div>
 
@@ -92,6 +92,8 @@ function SocialLink({
   return (
     <a
       href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className="social-link w-[52px] h-[52px] rounded-xl flex items-center justify-center transition-all duration-500 text-[var(--text-secondary)] hover:scale-105 hover:text-[var(--accent)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.08)]"
       aria-label={label}
     >

@@ -227,11 +227,11 @@ const knowledgeBase: Record<string, { keywords: string[], weight?: number, respo
             // ══════════════════════════════════════════════════════════
 
             other_projects: {
-                keywords: ['other project', 'design system', 'restaurant', 'booking', '3d scroll', 'analytics', 'all projects', 'portfolio projects', 'list projects', 'what projects'],
+                keywords: ['other project', 'restaurant', 'booking', 'analytics', 'all projects', 'portfolio projects', 'list projects', 'what projects'],
                 weight: 1,
                 responses: [
-                    "Projects include: Budgeting App, Design Intelligence, Design Experiments, Koiostudio Design System, 3D Portfolio, Restaurant Booking App, and SaaS Dashboard.",
-                    "Her portfolio spans fintech, branding, design systems, and more — from the flagship Budgeting App to creative packaging experiments.",
+                    "Projects include: Budgeting App, Design Intelligence, Design Experiments, Restaurant Booking App, and SaaS Dashboard.",
+                    "Her portfolio spans fintech, branding, and more — from the flagship Budgeting App to creative packaging experiments.",
                 ]
             },
 
@@ -309,15 +309,7 @@ const knowledgeBase: Record<string, { keywords: string[], weight?: number, respo
                 ]
             },
 
-            // ── DESIGN SYSTEMS ────────────────────────────────────────
-            design_system: {
-                keywords: ['design system', 'component', 'token', 'library', 'scalable', 'consistency', 'koiostudio system'],
-                weight: 1,
-                responses: [
-                    "She built the Koiostudio Design System (2025) — a component library with design tokens ensuring consistency across all their products.",
-                    "The Koiostudio Design System is a comprehensive component library and token system. It shows her ability to think in systems, not just screens.",
-                ]
-            },
+
 
             // ── DEFAULT / CATCH-ALL ───────────────────────────────────
             default: {
@@ -347,7 +339,6 @@ const suggestionPool: Suggestion[] = [
             { label: '🏢 Koiostudio', value: 'What does she do at Koiostudio?' },
             { label: '📋 Mentorsity', value: 'Tell me about Mentorsity' },
             { label: '🎯 Design Intelligence', value: 'What is Design Intelligence?' },
-            { label: '🎨 Design System', value: 'Tell me about the Design System' },
             { label: '💡 Freelance Work', value: 'Tell me about her freelance work' },
             { label: '📍 Location', value: 'Where is she based?' },
         ];;

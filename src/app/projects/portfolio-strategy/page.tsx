@@ -354,7 +354,9 @@ export default function FinanceAppPage() {
                         Research Approach
                       </h4>
                       <p className="text-[14px] leading-[1.65] text-[var(--theme-text-lo)]">
-                        Studied how recruiters scan portfolios and what signals they rely on, along with how designers present work and where communication gaps reduce clarity.
+                        Studied how recruiters scan portfolios and what signals
+                        they rely on, along with how designers present work and
+                        where communication gaps reduce clarity.
                       </p>
                     </div>
                   </div>
@@ -374,7 +376,9 @@ export default function FinanceAppPage() {
                         Evaluation Signals
                       </h4>
                       <p className="text-[14px] leading-[1.65] text-[var(--theme-text-lo)]">
-                        Identified key signals recruiters rely on to evaluate portfolios quickly, including clarity of problem, visible decision-making, and structured storytelling.
+                        Identified key signals recruiters rely on to evaluate
+                        portfolios quickly, including clarity of problem,
+                        visible decision-making, and structured storytelling.
                       </p>
                     </div>
                   </div>
@@ -436,7 +440,10 @@ export default function FinanceAppPage() {
               </div>
 
               {/* 05: Design Concept */}
-              <div id="design" className="scroll-mt-32 w-full mb-32 pt-10 lg:ml-2">
+              <div
+                id="design"
+                className="scroll-mt-32 w-full mb-32 pt-10 lg:ml-2"
+              >
                 <SectionHeading title="Design Concept" lineClassName="mb-20" />
 
                 <div className="flex flex-col gap-24 lg:gap-32">
@@ -517,11 +524,14 @@ export default function FinanceAppPage() {
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
                   <div className="flex flex-col">
-                    <SectionHeading title="User Testing" lineClassName="mb-10" />
+                    <SectionHeading
+                      title="User Testing"
+                      lineClassName="mb-10"
+                    />
                     <p className="text-[16px] leading-[1.7] max-w-[400px] text-[var(--theme-text-lo)]">
                       Evaluation focused on simulating how recruiters scan and
-                      assess portfolios, analysing clarity, navigation flow,
-                      and how quickly key information could be understood.
+                      assess portfolios, analysing clarity, navigation flow, and
+                      how quickly key information could be understood.
                     </p>
                   </div>
                   <div className="flex flex-col gap-6">
@@ -535,8 +545,8 @@ export default function FinanceAppPage() {
                     </p>
                     <p className="text-[16px] leading-[1.7] text-[var(--theme-text-lo)]">
                       Structured storytelling and features like Quick Brief and
-                      AI support enabled smoother navigation, helping users
-                      move from overview to details without losing context.
+                      AI support enabled smoother navigation, helping users move
+                      from overview to details without losing context.
                     </p>
                   </div>
                 </div>
@@ -678,7 +688,7 @@ export default function FinanceAppPage() {
                   </span>
                 </div>
               </div>
-              <RelatedProjects currentProject="Portfolio Strategy" />
+              <RelatedProjects currentProject="Portfolio strategy - portfolio Breakdown" />
             </div>
           </div>
         </main>

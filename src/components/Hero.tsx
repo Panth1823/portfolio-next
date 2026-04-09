@@ -294,7 +294,7 @@ export default function Hero() {
 
       {/* Central Content */}
       <div className="relative z-10 w-[calc(100%-2rem)] sm:w-[90vw] md:w-[737px] max-w-[737px] min-h-[200px] sm:h-[268px] flex items-center justify-center pointer-events-none px-2 sm:px-0">
-        <div className="hero-content-inner bg-[var(--bg-card)]/60 backdrop-blur-xl border border-[var(--border)] w-full h-full rounded-[24px] sm:rounded-[40px] flex flex-col items-center justify-center px-5 sm:px-12 py-8 sm:py-0 shadow-2xl">
+        <div className="hero-content-inner bg-[var(--hero-bg)] backdrop-blur-xl border border-[var(--border)] w-full h-full rounded-[24px] sm:rounded-[40px] flex flex-col items-center justify-center px-5 sm:px-12 py-8 sm:py-0 shadow-2xl">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--accent)]/40 bg-[var(--accent)]/5 mb-4 sm:mb-6">
             <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
             <span className="text-[var(--text-primary)] text-xs font-medium tracking-wide">

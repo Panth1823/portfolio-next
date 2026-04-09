@@ -24,7 +24,7 @@ function ResumeModal({ onClose }: { onClose: () => void }) {
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center p-6"
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6"
       style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(8px)" }}
       onClick={onClose}
       onKeyDown={handleKey}
@@ -34,48 +34,44 @@ function ResumeModal({ onClose }: { onClose: () => void }) {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 12 }}
         transition={{ type: "spring", stiffness: 380, damping: 30 }}
-        className="relative w-full max-w-[420px] rounded-[24px] border border-[var(--border)] bg-[var(--bg-primary)] font-manrope overflow-hidden shadow-[0_32px_80px_rgba(0,0,0,0.5)]"
+        className="relative w-full max-w-[900px] h-[85vh] flex flex-col rounded-[24px] border border-[var(--border)] bg-[var(--bg-primary)] font-manrope overflow-hidden shadow-[0_32px_80px_rgba(0,0,0,0.5)]"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Icon */}
-        <div className="flex justify-center pt-10 pb-5">
-          <div className="w-14 h-14 rounded-2xl bg-[var(--bg-secondary)] border border-[var(--border)] flex items-center justify-center">
-            <svg viewBox="0 0 24 24" className="w-7 h-7 fill-none stroke-[var(--text-primary)] stroke-[1.5]">
-              <path d="M12 3v13M7 11l5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M4 20h16" strokeLinecap="round" />
-            </svg>
-          </div>
-        </div>
-
-        {/* Text */}
-        <div className="text-center px-8 pb-8">
-          <h3 className="text-[20px] font-semibold text-[var(--text-primary)] mb-2 tracking-tight">
-            Download Resume
+        {/* Header with Title and Download Button */}
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border)] bg-[var(--bg-secondary)] shrink-0">
+          <h3 className="text-[18px] font-semibold text-[var(--text-primary)] tracking-tight">
+            Resume
           </h3>
-          <p className="text-[14px] leading-[1.65] text-[var(--text-muted)] mb-8">
-            You&apos;re about to download my latest resume as a PDF.
-            <br />Want to go ahead?
-          </p>
-
-          {/* Actions */}
-          <div className="flex flex-col sm:flex-row gap-3">
-            <button
-              onClick={onClose}
-              className="flex-1 py-3 rounded-xl text-[14px] font-medium border border-[var(--border)] text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:border-[var(--text-muted)] transition-all"
-            >
-              Cancel
-            </button>
+          <div className="flex items-center gap-3">
             <button
               onClick={handleDownload}
-              className="flex-1 py-3 rounded-xl text-[14px] font-semibold bg-[var(--text-primary)] text-[var(--bg-primary)] hover:opacity-90 transition-all flex items-center justify-center gap-2"
+              className="px-4 py-2 rounded-xl text-[13px] font-semibold bg-[var(--text-primary)] text-[var(--bg-primary)] hover:opacity-90 transition-all flex items-center justify-center gap-2"
             >
               <svg viewBox="0 0 16 16" className="w-4 h-4 fill-none stroke-current stroke-[1.5]">
                 <path d="M8 2v9M4 8l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M2 14h12" strokeLinecap="round" />
               </svg>
-              Yes, Download
+              Download
+            </button>
+            <button
+              onClick={onClose}
+              className="w-9 h-9 flex items-center justify-center rounded-full bg-[var(--bg-primary)] border border-[var(--border)] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all"
+              aria-label="Close"
+            >
+              <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current stroke-[2]">
+                <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </button>
           </div>
+        </div>
+
+        {/* PDF Preview container */}
+        <div className="flex-1 w-full bg-[#f1f1f1] relative">
+          <iframe 
+            src={`${resumeFile}#toolbar=0`} 
+            className="w-full h-full border-none"
+            title="Resume Preview"
+          />
         </div>
       </motion.div>
     </div>

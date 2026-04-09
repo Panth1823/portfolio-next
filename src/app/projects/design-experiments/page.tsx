@@ -15,6 +15,8 @@ interface BentoCardProps {
   videoSrc?: string;
   className?: string;
   objectPos?: string;
+  w: number;
+  h: number;
 }
 
 function BentoCard({
@@ -23,6 +25,8 @@ function BentoCard({
   videoSrc,
   className = "",
   objectPos = "center center",
+  w,
+  h,
 }: BentoCardProps) {
   const [hovered, setHovered] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -66,23 +70,13 @@ function BentoCard({
           loop
           playsInline
           preload="auto"
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${hovered ? "opacity-100" : "opacity-0"}`}
+          width={w}
+          height={h}
+          className={`absolute inset-0 block transition-opacity duration-500 w-full h-full object-cover ${hovered ? "opacity-100" : "opacity-0"}`}
+          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: objectPos }}
         />
       )}
 
-      {/* Play hint badge — shown when video exists and not hovered */}
-      {videoSrc && (
-        <div
-          className={`absolute bottom-3 right-3 flex items-center gap-1.5 bg-black/50 backdrop-blur-sm rounded-full px-3 py-1.5 pointer-events-none transition-all duration-300 ${hovered ? "opacity-0 translate-y-1" : "opacity-80"}`}
-        >
-          <svg width="8" height="9" viewBox="0 0 8 9" fill="white">
-            <polygon points="1,0.5 7.5,4.5 1,8.5" />
-          </svg>
-          <span className="text-white text-[11px] font-medium">
-            Hover to play
-          </span>
-        </div>
-      )}
     </div>
   );
 }
@@ -168,18 +162,22 @@ export default function DesignExperimentsPage() {
               <BentoCard
                 src="/images/Rectangle 20.png"
                 alt="Yummy - Meal Steal App"
-                videoSrc="/videos/Micro Interaction - 1.mp4"
+                videoSrc="/videos/1 - Design Experiments -  Micro Interaction section - Row 1 - 1st video.mp4"
                 objectPos="center center"
                 className="flex-1"
+                w={653}
+                h={422}
               />
 
               {/* Top-right: Good Morning Coffee */}
               <BentoCard
                 src="/images/Rectangle 18.png"
                 alt="Good Morning Coffee App"
-                videoSrc="/videos/bento-coffee.mp4"
+                videoSrc="/videos/2 - Design Experiments -  Micro Interaction section - Row 1 - 2nd video.mp4"
                 objectPos="center top"
                 className="flex-none w-[38%]"
+                w={316}
+                h={422}
               />
             </div>
 
@@ -189,37 +187,45 @@ export default function DesignExperimentsPage() {
               <BentoCard
                 src="/images/Rectangle 19.png"
                 alt="Pizza Party App"
-                videoSrc="/videos/bento-pizza.mp4"
+                videoSrc="/videos/3 - Design Experiments -  Micro Interaction section - Row 2 - 1st video.mp4"
                 objectPos="center center"
                 className="flex-1"
+                w={515}
+                h={338}
               />
 
               {/* Bottom-right: Foam Wood Furniture */}
               <BentoCard
                 src="/images/Rectangle 21.png"
                 alt="Foam Wood - Design Your Own Furniture"
-                videoSrc="/videos/bento-furniture.mp4"
+                videoSrc="/videos/4 - Design Experiments -  Micro Interaction section - Row 2 - 2nd video.mp4"
                 objectPos="center center"
                 className="flex-1"
+                w={540}
+                h={338}
               />
             </div>
           </div>
 
-          {/* ── Section 3: Full project image collage ── */}
-          <div className="w-full mb-24 lg:mb-32">
-            <Image
-              src="/images/Design Experiments.png"
-              alt="Design Experiments — full project collage"
-              width={1400}
-              height={1800}
-              className="w-full h-auto"
-              priority
-            />
-          </div>
+        </main>
 
+        {/* ── Section 3: Full project image collage ── */}
+        <div className="w-full mb-24 lg:mb-32">
+          <Image
+            src="/images/Design Experiments.png"
+            alt="Design Experiments — full project collage"
+            width={1920}
+            height={2400}
+            sizes="100vw"
+            className="w-full h-auto"
+            priority
+          />
+        </div>
+
+        <div className="w-full max-w-[1440px] px-8 md:px-[60px] pb-24">
           {/* ── Section 4: Related Projects ── */}
           <RelatedProjects currentProject="Design Experiments" />
-        </main>
+        </div>
 
         {/* ── Section 5: Footer ── */}
         <Footer />
