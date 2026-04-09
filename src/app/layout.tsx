@@ -8,9 +8,30 @@ import AIChatWrapper from "@/components/AIChatWrapper";
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
 
 export const metadata: Metadata = {
-  title: "Shvetha's Portfolio",
+  metadataBase: new URL("https://shvetha.com"),
+  title: {
+    default: "Shvetha's Portfolio",
+    template: "%s | Shvetha's Portfolio",
+  },
   description:
     "A cinematic scroll-driven portfolio journey showcasing design experience.",
+  applicationName: "Shvetha's Portfolio",
+  authors: [{ name: "Shvetha" }],
+  generator: "Next.js",
+  keywords: ["Shvetha", "Portfolio", "Product Design", "UX Design"],
+  openGraph: {
+    title: "Shvetha's Portfolio",
+    description: "A cinematic scroll-driven portfolio journey showcasing design experience.",
+    url: "https://shvetha.com",
+    siteName: "Shvetha's Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Shvetha's Portfolio",
+    description: "A cinematic scroll-driven portfolio journey showcasing design experience.",
+  },
   icons: {
     icon: "/icon.png",
     shortcut: "/icon.png",
