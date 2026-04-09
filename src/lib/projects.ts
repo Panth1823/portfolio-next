@@ -18,7 +18,7 @@ export interface Project {
 
 export const PROJECT_LIST: Project[] = [
   {
-    title: "Portfolio strategy - portfolio Breakdown",
+    title: "Portfolio Breakdown",
     subtitle: "Designing My Portfolio as a Product",
     description:
       "A self-initiated project focused on transforming my portfolio from a visual showcase into a strategic product that communicates design thinking, decision-making, and impact clearly to recruiters within seconds.",
@@ -26,6 +26,7 @@ export const PROJECT_LIST: Project[] = [
     href: "/projects/portfolio-strategy",
     image: "/images/portfolio-strategy.png",
     iconColor: "#e5e7eb",
+    iconImage: "/images/Fav Icon/Fav Icon/Fav Icon 2.png",
     quickBrief: {
       role: "Product Designer",
       duration: "4 months",

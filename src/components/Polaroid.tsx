@@ -21,9 +21,9 @@ const POLAROIDS = [
     ),
   },
   {
-    src: "https://images.unsplash.com/photo-1554080353-a576cf803bda?auto=format&fit=crop&w=400&q=80",
-    alt: "Photography",
-    caption: "Photography",
+    src: "/images/IMG_6994.PNG",
+    alt: "Piano",
+    caption: "Piano",
     rot: -4,
     y: 5,
     icon: (
@@ -31,8 +31,8 @@ const POLAROIDS = [
         className="w-[18px] h-[18px] fill-none stroke-current stroke-[1.5] opacity-90"
         viewBox="0 0 24 24"
       >
-        <rect x="2" y="7" width="20" height="13" rx="2" ry="2" />
-        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+        <path d="M12 20h9" />
+        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
       </svg>
     ),
   },
@@ -52,9 +52,9 @@ const POLAROIDS = [
     ),
   },
   {
-    src: "/images/Pawful.jpeg",
-    alt: "Paw-ful",
-    caption: "Paw-ful",
+    src: "/images/IMG_6995.PNG",
+    alt: "Crochetology",
+    caption: "Crochetology",
     rot: -8,
     y: 15,
     icon: (
@@ -62,11 +62,11 @@ const POLAROIDS = [
         className="w-[18px] h-[18px] fill-none stroke-current stroke-[1.5] opacity-90"
         viewBox="0 0 24 24"
       >
-        <circle cx="11" cy="4" r="2" />
-        <circle cx="18" cy="8" r="2" />
-        <circle cx="7" cy="11" r="2" />
-        <circle cx="14" cy="16" r="2" />
-        <path d="M12 22c-3.3 0-6-2.7-6-6 0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2 0 3.3-2.7 6-6 6Z" />
+        <path d="M9 3C9 3 8 9 12 12C16 15 22 15 22 15" />
+        <path d="M9 3C9 3 10 9 7 12C4 15 2 15 2 15" />
+        <path d="M2 15C2 15 6 17 9 21" />
+        <path d="M22 15C22 15 18 17 15 21" />
+        <path d="M12 12C12 12 12 17 12 21" />
       </svg>
     ),
   },

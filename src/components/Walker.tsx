@@ -13,43 +13,95 @@ interface WalkerProps {
 }
 
 // Frame set configurations per color variant
-const FRAME_SETS: Record<string, { dir: string; walkFrames: number; standFrame: number; ext: (i: number) => string }> = {
-  green: {
-    dir: "/frames/",
+const FRAME_SETS: Record<
+  string,
+  {
+    dir: string;
+    walkFrames: number;
+    standFrame: number;
+    ext: (i: number) => string;
+  }
+> = {
+  white: {
+    dir: "/frames/Girl Animation/1 White/",
     walkFrames: 42,
-    standFrame: 42,
+    standFrame: 41,
+    ext: () => "png",
+  },
+  mint: {
+    dir: "/frames/Girl Animation/2 Mint Green/",
+    walkFrames: 42,
+    standFrame: 41,
+    ext: () => "png",
+  },
+  brown: {
+    dir: "/frames/Girl Animation/3 Brown/",
+    walkFrames: 42,
+    standFrame: 41,
     ext: () => "png",
   },
   blue: {
-    dir: "/frames/blue/",
-    walkFrames: 41,
+    dir: "/frames/Girl Animation/5 Indigo/",
+    walkFrames: 42,
     standFrame: 41,
-    ext: (i: number) => (i === 0 ? "svg" : "png"),
+    ext: () => "png",
+  },
+  indigo: {
+    dir: "/frames/Girl Animation/4 Blue/",
+    walkFrames: 42,
+    standFrame: 41,
+    ext: () => "png",
+  },
+  dark: {
+    dir: "/frames/Girl Animation/6 Dark/",
+    walkFrames: 42,
+    standFrame: 41,
+    ext: () => "png",
   },
 };
 
 // Map theme index → frame set key
-// 0=white(green), 1=mint(green), 2=orange(green), 3=indigo(blue), 4=blue-slate(blue), 5=dark(green)
+// 0=white, 1=mint, 2=brown, 3=indigo, 4=blue, 5=dark
 const THEME_TO_FRAMESET: Record<number, string> = {
-  0: "green",
-  1: "green",
-  2: "green",
-  3: "blue",
+  0: "white",
+  1: "mint",
+  2: "brown",
+  3: "indigo",
   4: "blue",
-  5: "green",
+  5: "dark",
 };
 
 // Trail color per frame set
 const TRAIL_COLORS: Record<string, { gradient: string; glow: string }> = {
-  green: {
+  white: {
     gradient:
-      "linear-gradient(90deg, transparent 0%, rgba(200,255,0,0.005) 20%, rgba(200,255,0,0.02) 50%, rgba(200,255,0,0.08) 80%, rgba(200,255,0,0.22) 100%)",
-    glow: "radial-gradient(ellipse at right center, rgba(200,255,0,0.1) 0%, transparent 70%)",
+      "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.005) 20%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.08) 80%, rgba(255,255,255,0.22) 100%)",
+    glow: "radial-gradient(ellipse at right center, rgba(255,255,255,0.12) 0%, transparent 70%)",
+  },
+  mint: {
+    gradient:
+      "linear-gradient(90deg, transparent 0%, rgba(52,211,153,0.005) 20%, rgba(52,211,153,0.02) 50%, rgba(52,211,153,0.08) 80%, rgba(52,211,153,0.22) 100%)",
+    glow: "radial-gradient(ellipse at right center, rgba(52,211,153,0.12) 0%, transparent 70%)",
+  },
+  brown: {
+    gradient:
+      "linear-gradient(90deg, transparent 0%, rgba(217,119,6,0.005) 20%, rgba(217,119,6,0.02) 50%, rgba(217,119,6,0.08) 80%, rgba(217,119,6,0.22) 100%)",
+    glow: "radial-gradient(ellipse at right center, rgba(217,119,6,0.12) 0%, transparent 70%)",
   },
   blue: {
     gradient:
       "linear-gradient(90deg, transparent 0%, rgba(56,189,248,0.005) 20%, rgba(56,189,248,0.02) 50%, rgba(56,189,248,0.08) 80%, rgba(56,189,248,0.22) 100%)",
-    glow: "radial-gradient(ellipse at right center, rgba(56,189,248,0.1) 0%, transparent 70%)",
+    glow: "radial-gradient(ellipse at right center, rgba(56,189,248,0.12) 0%, transparent 70%)",
+  },
+  indigo: {
+    gradient:
+      "linear-gradient(90deg, transparent 0%, rgba(99,102,241,0.005) 20%, rgba(99,102,241,0.02) 50%, rgba(99,102,241,0.08) 80%, rgba(99,102,241,0.22) 100%)",
+    glow: "radial-gradient(ellipse at right center, rgba(99,102,241,0.12) 0%, transparent 70%)",
+  },
+  dark: {
+    gradient:
+      "linear-gradient(90deg, transparent 0%, rgba(200,255,0,0.005) 20%, rgba(200,255,0,0.02) 50%, rgba(200,255,0,0.08) 80%, rgba(200,255,0,0.22) 100%)",
+    glow: "radial-gradient(ellipse at right center, rgba(200,255,0,0.1) 0%, transparent 70%)",
   },
 };
 
@@ -63,7 +115,7 @@ function getThemeIndex(): number {
 export default function Walker({ progress }: WalkerProps) {
   const [frameIndex, setFrameIndex] = useState(0);
   const [windowWidth, setWindowWidth] = useState(1000);
-  const [frameSetKey, setFrameSetKey] = useState<string>("green");
+  const [frameSetKey, setFrameSetKey] = useState<string>("dark");
 
   const frameSet = FRAME_SETS[frameSetKey];
 

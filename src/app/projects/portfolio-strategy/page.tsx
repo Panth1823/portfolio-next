@@ -688,7 +688,7 @@ export default function FinanceAppPage() {
                   </span>
                 </div>
               </div>
-              <RelatedProjects currentProject="Portfolio strategy - portfolio Breakdown" />
+              <RelatedProjects currentProject="Portfolio Breakdown" />
             </div>
           </div>
         </main>

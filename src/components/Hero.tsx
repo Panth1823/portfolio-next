@@ -6,43 +6,32 @@ import gsap from "gsap";
 
 const TILES = [
   {
-    poster:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=400&q=70",
-    video:
-      "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    poster: "/images/Hero Images & Videos/1 Image.png",
+    video: "/images/Hero Images & Videos/1 Video.mp4",
   },
   {
-    poster:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400&q=70",
-    video: "https://vjs.zencdn.net/v/oceans.mp4",
+    poster: "/images/Hero Images & Videos/2 Image.png",
+    video: "/images/Hero Images & Videos/2 Video.mp4",
   },
   {
-    poster:
-      "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=400&q=70",
-    video: "https://vjs.zencdn.net/v/oceans.mp4",
+    poster: "/images/Hero Images & Videos/3 Image.png",
+    video: "/images/Hero Images & Videos/3 Video.mp4",
   },
   {
-    poster:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=400&q=70",
-    video:
-      "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    poster: "/images/Hero Images & Videos/4 Image.png",
+    video: "/images/Hero Images & Videos/4 Video.mp4",
   },
   {
-    poster:
-      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=400&q=70",
-    video:
-      "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    poster: "/images/Hero Images & Videos/5 Image.png",
+    video: "/images/Hero Images & Videos/5 Video.mp4",
   },
   {
-    poster:
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=70",
-    video: "https://vjs.zencdn.net/v/oceans.mp4",
+    poster: "/images/Hero Images & Videos/6 Image.png",
+    video: "/images/Hero Images & Videos/6 Video.mp4",
   },
   {
-    poster:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=70",
-    video:
-      "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    poster: "/images/Hero Images & Videos/7 Image.png",
+    video: "/images/Hero Images & Videos/7 Video.mp4",
   },
 ];
 
@@ -375,6 +364,37 @@ export default function Hero() {
           >
             <path d="M9 18l6-6-6-6" />
           </svg>
+        </button>
+      </div>
+      {/* Scroll Down Indicator — bottom center */}
+      <style>{`
+        @keyframes bounce2x {
+          0%, 100% { transform: translateY(0); }
+          40% { transform: translateY(-8px); }
+          60% { transform: translateY(-4px); }
+        }
+        .bounce-twice {
+          animation: bounce2x 0.7s ease-in-out 2;
+        }
+      `}</style>
+      <div
+        className="absolute bottom-7 left-1/2 -translate-x-1/2 z-20 pointer-events-auto"
+        onMouseDown={(e) => e.stopPropagation()}
+        onTouchStart={(e) => e.stopPropagation()}
+      >
+        <button
+          aria-label="Scroll down"
+          onClick={() =>
+            window.scrollBy({ top: window.innerHeight, behavior: "smooth" })
+          }
+          className="bounce-twice flex items-center justify-center w-10 h-10 rounded-full border border-[var(--border)] bg-[var(--bg-card)]/60 backdrop-blur-sm hover:bg-[var(--bg-card)] transition-colors duration-300"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/ic_round-keyboard-double-arrow-up.png"
+            alt="Scroll down"
+            className="w-5 h-5 opacity-70"
+          />
         </button>
       </div>
     </section>

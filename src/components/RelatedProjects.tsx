@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const ALL_PROJECTS = [
   {
-    name: "Portfolio strategy - portfolio Breakdown",
+    name: "Portfolio Breakdown",
     href: "/projects/portfolio-strategy",
     img: "/images/portfolio-strategy.png",
   },

@@ -73,10 +73,14 @@ function BentoCard({
           width={w}
           height={h}
           className={`absolute inset-0 block transition-opacity duration-500 w-full h-full object-cover ${hovered ? "opacity-100" : "opacity-0"}`}
-          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: objectPos }}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: objectPos,
+          }}
         />
       )}
-
     </div>
   );
 }
@@ -143,7 +147,7 @@ export default function DesignExperimentsPage() {
               {/* Vertical "Micro Interactions" label strip */}
               <div className="flex-none w-[52px] rounded-[16px] bg-[#111] border border-[var(--theme-border)] flex flex-col items-center justify-between py-6 px-2">
                 <div
-                  className="text-[var(--theme-text-hi)] font-medium text-[11px] tracking-widest uppercase opacity-60 select-none"
+                  className="text-[var(--theme-text-hi)] font-medium text-[16px] tracking-widest uppercase opacity-60 select-none"
                   style={{
                     writingMode: "vertical-rl",
                     transform: "rotate(180deg)",
@@ -160,9 +164,9 @@ export default function DesignExperimentsPage() {
 
               {/* Top-left: Yummy / Meal Steal */}
               <BentoCard
-                src="/images/Rectangle 20.png"
+                src="/frames/Design Experiments section 1 Images/Portfolio Build/1.png"
                 alt="Yummy - Meal Steal App"
-                videoSrc="/videos/1 - Design Experiments -  Micro Interaction section - Row 1 - 1st video.mp4"
+                videoSrc="/videos/1 - Design Experiments - Micro Interaction section - Row 1 - 1st video.mp4"
                 objectPos="center center"
                 className="flex-1"
                 w={653}
@@ -171,9 +175,9 @@ export default function DesignExperimentsPage() {
 
               {/* Top-right: Good Morning Coffee */}
               <BentoCard
-                src="/images/Rectangle 18.png"
+                src="/frames/Design Experiments section 1 Images/Portfolio Build/2.png"
                 alt="Good Morning Coffee App"
-                videoSrc="/videos/2 - Design Experiments -  Micro Interaction section - Row 1 - 2nd video.mp4"
+                videoSrc="/videos/2 - Design Experiments - Micro Interaction section - Row 1 - 2nd video.mp4"
                 objectPos="center top"
                 className="flex-none w-[38%]"
                 w={316}
@@ -185,9 +189,9 @@ export default function DesignExperimentsPage() {
             <div className="flex gap-3" style={{ height: "338px" }}>
               {/* Bottom-left: Pizza Party */}
               <BentoCard
-                src="/images/Rectangle 19.png"
+                src="/frames/Design Experiments section 1 Images/Portfolio Build/3.png"
                 alt="Pizza Party App"
-                videoSrc="/videos/3 - Design Experiments -  Micro Interaction section - Row 2 - 1st video.mp4"
+                videoSrc="/videos/3 - Design Experiments - Micro Interaction section - Row 2 - 1st video.mp4"
                 objectPos="center center"
                 className="flex-1"
                 w={515}
@@ -196,9 +200,9 @@ export default function DesignExperimentsPage() {
 
               {/* Bottom-right: Foam Wood Furniture */}
               <BentoCard
-                src="/images/Rectangle 21.png"
+                src="/frames/Design Experiments section 1 Images/Portfolio Build/4.png"
                 alt="Foam Wood - Design Your Own Furniture"
-                videoSrc="/videos/4 - Design Experiments -  Micro Interaction section - Row 2 - 2nd video.mp4"
+                videoSrc="/videos/4 - Design Experiments - Micro Interaction section - Row 2 - 2nd video.mp4"
                 objectPos="center center"
                 className="flex-1"
                 w={540}
@@ -206,13 +210,12 @@ export default function DesignExperimentsPage() {
               />
             </div>
           </div>
-
         </main>
 
         {/* ── Section 3: Full project image collage ── */}
         <div className="w-full mb-24 lg:mb-32">
           <Image
-            src="/images/Design Experiments.png"
+            src="/images/Project Images.png"
             alt="Design Experiments — full project collage"
             width={1920}
             height={2400}
