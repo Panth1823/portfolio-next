@@ -5,7 +5,7 @@ const ALL_PROJECTS = [
   {
     name: "Portfolio Breakdown",
     href: "/projects/portfolio-strategy",
-    img: "/images/portfolio-strategy.png",
+    img: "/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png",
   },
   {
     name: "Design Intelligence",
@@ -20,7 +20,7 @@ const ALL_PROJECTS = [
   {
     name: "Design Experiments",
     href: "/projects/design-experiments",
-    img: "/images/Design Experiments Cover.png",
+    img: "/images/Design Experiments.png",
   },
 ];
 

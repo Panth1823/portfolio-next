@@ -24,7 +24,7 @@ export const PROJECT_LIST: Project[] = [
       "A self-initiated project focused on transforming my portfolio from a visual showcase into a strategic product that communicates design thinking, decision-making, and impact clearly to recruiters within seconds.",
     tags: ["2026", "Portfolio"],
     href: "/projects/portfolio-strategy",
-    image: "/images/portfolio-strategy.png",
+    image: "/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png",
     iconColor: "#e5e7eb",
     iconImage: "/images/Fav Icon/Fav Icon/Fav Icon 2.png",
     quickBrief: {
@@ -100,7 +100,7 @@ export const PROJECT_LIST: Project[] = [
       "Driven by curiosity and a desire to go beyond conventional design patterns. It captures my process of learning, testing ideas, and discovering what truly works.",
     tags: ["2024", "Branding", "UI Exploration"],
     href: "/projects/design-experiments",
-    image: "/images/Design Experiments Cover.png",
+    image: "/images/Design Experiments.png",
     iconColor: "#e5e7eb",
     iconImage:
       "/images/Project card icons/Project card icons/Design Experiments.png",

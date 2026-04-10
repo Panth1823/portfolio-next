@@ -213,7 +213,7 @@ export default function DesignExperimentsPage() {
         </main>
 
         {/* ── Section 3: Full project image collage ── */}
-        <div className="w-full mb-24 lg:mb-32">
+        <div className="w-full">
           <Image
             src="/images/Project Images.png"
             alt="Design Experiments — full project collage"

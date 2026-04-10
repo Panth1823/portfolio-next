@@ -205,7 +205,7 @@ export default function FinanceAppPage() {
                 </div>
                 <div className="w-full flex justify-center mb-16">
                   <Image
-                    src="/images/portfolio-strategy.png"
+                    src="/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png"
                     alt="Portfolio Strategy Summary"
                     width={1000}
                     height={700}
@@ -235,7 +235,7 @@ export default function FinanceAppPage() {
                   <div className="flex flex-col border rounded-[20px] p-2 bg-[var(--theme-surface)] border-[var(--theme-border)]">
                     <div className="w-full aspect-[4/3] rounded-[8px] mb-4 relative overflow-hidden">
                       <Image
-                        src="/images/portfolio-strategy.png"
+                        src="/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png"
                         alt="Low signal to noise ratio"
                         fill
                         className="object-cover"
@@ -254,7 +254,7 @@ export default function FinanceAppPage() {
                   <div className="flex flex-col border rounded-[20px] p-2 bg-[var(--theme-surface)] border-[var(--theme-border)]">
                     <div className="w-full aspect-[4/3] rounded-[8px] mb-4 relative overflow-hidden">
                       <Image
-                        src="/images/portfolio-strategy.png"
+                        src="/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png"
                         alt="Unstructured evaluation flow"
                         fill
                         className="object-cover"
@@ -273,7 +273,7 @@ export default function FinanceAppPage() {
                   <div className="flex flex-col border rounded-[20px] p-2 bg-[var(--theme-surface)] border-[var(--theme-border)]">
                     <div className="w-full aspect-[4/3] rounded-[8px] mb-4 relative overflow-hidden">
                       <Image
-                        src="/images/portfolio-strategy.png"
+                        src="/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png"
                         alt="Hard to evaluate decisions"
                         fill
                         className="object-cover"
@@ -342,7 +342,7 @@ export default function FinanceAppPage() {
                     <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
                       <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
                         <Image
-                          src="/images/portfolio-strategy.png"
+                          src="/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png"
                           alt="Research approach"
                           fill
                           className="object-cover"
@@ -364,7 +364,7 @@ export default function FinanceAppPage() {
                     <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
                       <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
                         <Image
-                          src="/images/portfolio-strategy.png"
+                          src="/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png"
                           alt="Evaluation Signals"
                           fill
                           className="object-cover"
@@ -451,7 +451,7 @@ export default function FinanceAppPage() {
                     {
                       title: "AI Portfolio Assistant",
                       imageSrc:
-                        "/images/portfolio-breakdown/design-concept-ai-portfolio-assistant.png",
+                        "/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/Design Concept - 1 - AI Portfolio Assistant.png",
                       description:
                         "An AI-powered assistant that answers questions about the portfolio, helping recruiters explore projects, decisions, and outcomes without manual navigation.",
                       bullets: [
@@ -465,7 +465,7 @@ export default function FinanceAppPage() {
                     {
                       title: "Voice Brief",
                       imageSrc:
-                        "/images/portfolio-breakdown/design-concept-voice-brief.png",
+                        "/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/Design Concept - 2 - Voice Brief.png",
                       description:
                         "A voice-driven summary that narrates the project, helping recruiters quickly understand the problem, approach, and outcome without reading everything.",
                       bullets: [
@@ -479,7 +479,7 @@ export default function FinanceAppPage() {
                     {
                       title: "Adaptive Contrast",
                       imageSrc:
-                        "/images/portfolio-breakdown/design-concept-adaptive-contrast.png",
+                        "/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/Design Concept - 3 - Adaptive Contrast.png",
                       description:
                         "A dynamic theme system that adapts visual contrast across multiple modes, improving accessibility and allowing users to view content comfortably in different conditions.",
                       bullets: [
@@ -493,7 +493,7 @@ export default function FinanceAppPage() {
                     {
                       title: "Signature Journey",
                       imageSrc:
-                        "/images/portfolio-breakdown/design-concept-signature-journey.png",
+                        "/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/Design Concept - 4- Signature Journey.png",
                       description:
                         "A guided storytelling experience where a walking character leads users through my journey, making the portfolio more engaging and memorable.",
                       bullets: [
@@ -571,7 +571,7 @@ export default function FinanceAppPage() {
                     <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
                       <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
                         <Image
-                          src="/images/portfolio-strategy.png"
+                          src="/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png"
                           alt="Before"
                           fill
                           className="object-contain"
@@ -586,7 +586,7 @@ export default function FinanceAppPage() {
                     <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
                       <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
                         <Image
-                          src="/images/portfolio-strategy.png"
+                          src="/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png"
                           alt="After"
                           fill
                           className="object-contain"
@@ -605,7 +605,7 @@ export default function FinanceAppPage() {
                 <div className="w-full aspect-[16/9] md:aspect-[2/1] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
                   <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
                     <Image
-                      src="/images/portfolio-strategy.png"
+                      src="/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png"
                       alt="Design explorations"
                       fill
                       className="object-cover"
