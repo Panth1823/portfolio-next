@@ -91,7 +91,7 @@ export default function ExperienceCards({
         date="2022 – 2024"
         description="I've been commissioned to create custom websites, apps and identity systems."
         icon={
-          <Image src="/images/eye-logo.png" alt="Freelance" width={24} height={24} className="w-6 h-6 object-contain" />
+          <Image src="/images/1 - Freelance logo.png" alt="Freelance" width={24} height={24} className="w-6 h-6 object-contain" />
         }
       />
 
@@ -105,7 +105,7 @@ export default function ExperienceCards({
         date="2024 · Uttar Pradesh"
         description="Co-created wireframes and prototypes, driving a 40% increase in user engagement."
         icon={
-          <Image src="/images/Mentorsity-icon.png" alt="Mentorsity" width={24} height={24} className="w-6 h-6 object-contain" />
+          <Image src="/images/2 - Mentorsity Icon.png" alt="Mentorsity" width={24} height={24} className="w-6 h-6 object-contain" />
         }
       />
 
@@ -119,7 +119,7 @@ export default function ExperienceCards({
         date="2025 · Bangalore"
         description="As an early design hire, worked across brand and product design."
         icon={
-          <Image src="/images/koios-logo.png" alt="Koiostudio" width={24} height={24} className="w-6 h-6 object-contain" />
+          <Image src="/images/3 - Koios Logo.png" alt="Koiostudio" width={24} height={24} className="w-6 h-6 object-contain" />
         }
       />
     </div>
