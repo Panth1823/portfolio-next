@@ -51,6 +51,7 @@ function BentoCard({
       className={`relative overflow-hidden rounded-[16px] border border-[var(--theme-border)] bg-[var(--theme-surface)] ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      style={{ aspectRatio: `${w} / ${h}` }}
     >
       {/* Static image — fades out on hover when video is present */}
       <Image
@@ -72,11 +73,11 @@ function BentoCard({
           preload="auto"
           width={w}
           height={h}
-          className={`absolute inset-0 block transition-opacity duration-500 w-full h-full object-cover ${hovered ? "opacity-100" : "opacity-0"}`}
+          className={`absolute inset-0 block transition-opacity duration-500 w-full h-full ${hovered ? "opacity-100" : "opacity-0"}`}
           style={{
             width: "100%",
             height: "100%",
-            objectFit: "cover",
+            objectFit: "fill",
             objectPosition: objectPos,
           }}
         />
@@ -143,9 +144,9 @@ export default function DesignExperimentsPage() {
           {/* ── Section 2: Bento Grid — matching the reference image ── */}
           <div className="w-full mb-24 lg:mb-32 flex flex-col gap-3">
             {/* Top row: narrow vertical label strip + left card + right card */}
-            <div className="flex gap-3" style={{ height: "442px" }}>
+            <div className="flex w-full gap-3 items-stretch">
               {/* Vertical "Micro Interactions" label strip */}
-              <div className="flex-none w-[52px] rounded-[16px] bg-[#111] border border-[var(--theme-border)] flex flex-col items-center justify-between py-6 px-2">
+              <div className="self-stretch flex-none w-[52px] rounded-[16px] bg-[#111] border border-[var(--theme-border)] flex flex-col items-center justify-between py-6 px-2">
                 <div
                   className="text-[var(--theme-text-hi)] font-medium text-[16px] tracking-widest uppercase opacity-60 select-none"
                   style={{
@@ -168,7 +169,7 @@ export default function DesignExperimentsPage() {
                 alt="Yummy - Meal Steal App"
                 videoSrc="/videos/1 - Design Experiments - Micro Interaction section - Row 1 - 1st video.mp4"
                 objectPos="center center"
-                className="flex-1"
+                className="min-w-0 basis-0 grow-[653]"
                 w={653}
                 h={422}
               />
@@ -178,22 +179,22 @@ export default function DesignExperimentsPage() {
                 src="/frames/Design Experiments section 1 Images/Portfolio Build/2.png"
                 alt="Good Morning Coffee App"
                 videoSrc="/videos/2 - Design Experiments - Micro Interaction section - Row 1 - 2nd video.mp4"
-                objectPos="center top"
-                className="flex-none w-[38%]"
+                objectPos="center center"
+                className="min-w-0 basis-0 grow-[316]"
                 w={316}
                 h={422}
               />
             </div>
 
             {/* Bottom row: Pizza Party + Furniture designer */}
-            <div className="flex gap-3" style={{ height: "338px" }}>
+            <div className="flex w-full gap-3 items-stretch">
               {/* Bottom-left: Pizza Party */}
               <BentoCard
                 src="/frames/Design Experiments section 1 Images/Portfolio Build/3.png"
                 alt="Pizza Party App"
                 videoSrc="/videos/3 - Design Experiments - Micro Interaction section - Row 2 - 1st video.mp4"
                 objectPos="center center"
-                className="flex-1"
+                className="min-w-0 basis-0 grow-[515]"
                 w={515}
                 h={338}
               />
@@ -204,7 +205,7 @@ export default function DesignExperimentsPage() {
                 alt="Foam Wood - Design Your Own Furniture"
                 videoSrc="/videos/4 - Design Experiments - Micro Interaction section - Row 2 - 2nd video.mp4"
                 objectPos="center center"
-                className="flex-1"
+                className="min-w-0 basis-0 grow-[540]"
                 w={540}
                 h={338}
               />

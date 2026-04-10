@@ -23,39 +23,39 @@ const FRAME_SETS: Record<
   }
 > = {
   white: {
-    dir: "/frames/Girl Animation/1 White/",
+    dir: "/images/Girl Animation/1 White/",
     walkFrames: 42,
-    standFrame: 41,
+    standFrame: 42,
     ext: () => "png",
   },
   mint: {
-    dir: "/frames/Girl Animation/2 Mint Green/",
+    dir: "/images/Girl Animation/2 Mint Green/",
     walkFrames: 42,
-    standFrame: 41,
+    standFrame: 42,
     ext: () => "png",
   },
   brown: {
-    dir: "/frames/Girl Animation/3 Brown/",
+    dir: "/images/Girl Animation/3 Brown/",
     walkFrames: 42,
-    standFrame: 41,
+    standFrame: 42,
     ext: () => "png",
   },
   blue: {
-    dir: "/frames/Girl Animation/5 Indigo/",
+    dir: "/images/Girl Animation/5 Indigo/",
     walkFrames: 42,
-    standFrame: 41,
+    standFrame: 42,
     ext: () => "png",
   },
   indigo: {
-    dir: "/frames/Girl Animation/4 Blue/",
+    dir: "/images/Girl Animation/4 Blue/",
     walkFrames: 42,
-    standFrame: 41,
+    standFrame: 42,
     ext: () => "png",
   },
   dark: {
-    dir: "/frames/Girl Animation/6 Dark/",
+    dir: "/images/Girl Animation/6 Dark/",
     walkFrames: 42,
-    standFrame: 41,
+    standFrame: 42,
     ext: () => "png",
   },
 };
@@ -197,6 +197,7 @@ export default function Walker({ progress }: WalkerProps) {
 
   const trailColors = TRAIL_COLORS[frameSetKey] ?? TRAIL_COLORS.green;
   const frameSrc = `${frameSet.dir}${frameIndex}.${frameSet.ext(frameIndex)}`;
+  const isStandFrame = frameIndex === frameSet.standFrame;
 
   return (
     <>
@@ -226,6 +227,10 @@ export default function Walker({ progress }: WalkerProps) {
           src={frameSrc}
           alt="Walking character"
           className="w-full h-full object-contain object-bottom mix-blend-screen"
+          style={{
+            transform: isStandFrame ? "scale(1.6)" : "scale(1)",
+            transformOrigin: "bottom center"
+          }}
         />
       </motion.div>
     </>

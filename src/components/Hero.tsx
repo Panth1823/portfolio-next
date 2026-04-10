@@ -282,8 +282,8 @@ export default function Hero() {
       </div>
 
       {/* Central Content */}
-      <div className="relative z-10 w-[calc(100%-2rem)] sm:w-[90vw] md:w-[737px] max-w-[737px] min-h-[200px] sm:h-[268px] flex items-center justify-center pointer-events-none px-2 sm:px-0">
-        <div className="hero-content-inner bg-[var(--hero-bg)] backdrop-blur-xl border border-[var(--border)] w-full h-full rounded-[24px] sm:rounded-[40px] flex flex-col items-center justify-center px-5 sm:px-12 py-8 sm:py-0 shadow-2xl">
+      <div className="relative z-10 w-[calc(100%-2rem)] sm:w-[90vw] md:w-[737px] max-w-[737px] min-h-[200px] flex items-center justify-center pointer-events-none px-2 sm:px-0">
+        <div className="hero-content-inner bg-[var(--hero-bg)] backdrop-blur-xl border border-[var(--border)] w-full h-full rounded-[24px] sm:rounded-[40px] flex flex-col items-center justify-center px-5 sm:px-12 py-8 sm:py-10 shadow-2xl">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--accent)]/40 bg-[var(--accent)]/5 mb-4 sm:mb-6">
             <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
             <span className="text-[var(--text-primary)] text-xs font-medium tracking-wide">
@@ -297,6 +297,20 @@ export default function Hero() {
             Turning user insights into real product decisions for{" "}
             <span className="text-[var(--accent)] font-medium">3+ years</span>
           </p>
+          <button
+            aria-label="Scroll down"
+            onClick={() =>
+              window.scrollBy({ top: window.innerHeight, behavior: "smooth" })
+            }
+            className="bounce-twice mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[var(--accent)] text-black text-sm font-semibold tracking-wide hover:opacity-90 hover:scale-[1.04] active:scale-[0.98] transition-all duration-200 shadow-[0_4px_24px_-4px_var(--accent)] pointer-events-auto"
+            onMouseDown={(e) => e.stopPropagation()}
+            onTouchStart={(e) => e.stopPropagation()}
+          >
+            See My Work
+            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 5v14M5 12l7 7 7-7" />
+            </svg>
+          </button>
         </div>
       </div>
 
@@ -366,7 +380,7 @@ export default function Hero() {
           </svg>
         </button>
       </div>
-      {/* Scroll Down Indicator — bottom center */}
+      {/* Bounce animation for scroll-down button */}
       <style>{`
         @keyframes bounce2x {
           0%, 100% { transform: translateY(0); }
@@ -377,26 +391,6 @@ export default function Hero() {
           animation: bounce2x 0.7s ease-in-out 2;
         }
       `}</style>
-      <div
-        className="absolute bottom-7 left-1/2 -translate-x-1/2 z-20 pointer-events-auto"
-        onMouseDown={(e) => e.stopPropagation()}
-        onTouchStart={(e) => e.stopPropagation()}
-      >
-        <button
-          aria-label="Scroll down"
-          onClick={() =>
-            window.scrollBy({ top: window.innerHeight, behavior: "smooth" })
-          }
-          className="bounce-twice flex items-center justify-center w-10 h-10 rounded-full border border-[var(--border)] bg-[var(--bg-card)]/60 backdrop-blur-sm hover:bg-[var(--bg-card)] transition-colors duration-300"
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/ic_round-keyboard-double-arrow-up.png"
-            alt="Scroll down"
-            className="w-5 h-5 opacity-70"
-          />
-        </button>
-      </div>
     </section>
   );
 }

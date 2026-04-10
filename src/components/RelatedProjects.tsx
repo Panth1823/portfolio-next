@@ -20,7 +20,7 @@ const ALL_PROJECTS = [
   {
     name: "Design Experiments",
     href: "/projects/design-experiments",
-    img: "/images/Design Experiments.png",
+    img: "/images/Project 4 Cover.png",
   },
 ];
 

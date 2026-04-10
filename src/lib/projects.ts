@@ -100,7 +100,7 @@ export const PROJECT_LIST: Project[] = [
       "Driven by curiosity and a desire to go beyond conventional design patterns. It captures my process of learning, testing ideas, and discovering what truly works.",
     tags: ["2024", "Branding", "UI Exploration"],
     href: "/projects/design-experiments",
-    image: "/images/Design Experiments.png",
+    image: "/images/Project 4 Cover.png",
     iconColor: "#e5e7eb",
     iconImage:
       "/images/Project card icons/Project card icons/Design Experiments.png",
