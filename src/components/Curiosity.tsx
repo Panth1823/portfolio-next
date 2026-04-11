@@ -4,8 +4,8 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 
 const ITEMS = [
-  { src: "/images/Brew.png", alt: "Brew" },
-  { src: "/images/Crunch.png", alt: "Crunch" },
+  { src: "/images/Radiante.png", alt: "Brew" },
+  { src: "/images/Radiante.png", alt: "Crunch" },
   { src: "/images/Jamora.png", alt: "Jamora" },
   { src: "/images/Radiante.png", alt: "Radiante" },
   { src: "/images/Scentaura.png", alt: "Scentaura" },

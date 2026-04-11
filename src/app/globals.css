@@ -15,8 +15,8 @@
     --border: rgba(0, 0, 0, 0.08);
     --overlay: rgba(245, 245, 240, 0.7);
     --ground-line: #c8ff00;
-    --card-icon-bg: rgba(0, 0, 0, 0.04);
-    --card-icon-border: rgba(0, 0, 0, 0.1);
+    --card-icon-bg: #ffffff;
+    --card-icon-border: rgba(0, 0, 0, 0.08);
     --grid-line: rgba(0, 0, 0, 0.06);
     --scrollbar-track: #f5f5f0;
     --scrollbar-thumb: #ccc;

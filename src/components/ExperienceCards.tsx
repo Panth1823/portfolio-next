@@ -57,17 +57,17 @@ function ExperienceCard({
       </div>
       <div
         style={{
-          color: isActive ? "rgba(200,255,0,0.72)" : undefined,
+          color: isActive ? "var(--accent)" : undefined,
           transition: "color 300ms ease",
         }}
         className="text-[22px] max-md:text-[18px] max-sm:text-[16px] font-semibold leading-tight mb-2.5 text-[var(--text-primary)]"
       >
         {title}
       </div>
-      <div className="text-[11px] font-medium text-[var(--text-muted)] tracking-wide mb-3">
+      <div className="text-[14px] font-medium text-[var(--text-muted)] tracking-wide mb-3">
         {date}
       </div>
-      <p className="text-[13px] font-light leading-relaxed text-[var(--text-muted)] max-w-[230px]">
+      <p className="text-[16px] font-light leading-relaxed text-[var(--text-muted)] max-w-[230px]">
         {description}
       </p>
     </motion.div>
@@ -91,7 +91,7 @@ export default function ExperienceCards({
         date="2022 – 2024"
         description="I've been commissioned to create custom websites, apps and identity systems."
         icon={
-          <Image src="/images/1 - Freelance logo.png" alt="Freelance" width={24} height={24} className="w-6 h-6 object-contain" />
+          <Image src="/images/1 - Freelance logo.png" alt="Freelance" width={24} height={24} className="w-6 h-6 " />
         }
       />
 
@@ -105,7 +105,7 @@ export default function ExperienceCards({
         date="2024 · Uttar Pradesh"
         description="Co-created wireframes and prototypes, driving a 40% increase in user engagement."
         icon={
-          <Image src="/images/2 - Mentorsity Icon.png" alt="Mentorsity" width={24} height={24} className="w-6 h-6 object-contain" />
+          <Image src="/images/2 - Mentorsity Icon.png" alt="Mentorsity" width={24} height={24} className="w-6 h-6 " />
         }
       />
 
@@ -119,7 +119,7 @@ export default function ExperienceCards({
         date="2025 · Bangalore"
         description="As an early design hire, worked across brand and product design."
         icon={
-          <Image src="/images/3 - Koios Logo.png" alt="Koiostudio" width={24} height={24} className="w-6 h-6 object-contain" />
+          <Image src="/images/3 - Koios Logo.png" alt="Koiostudio" width={24} height={24} className="w-6 h-6 " />
         }
       />
     </div>

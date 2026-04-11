@@ -5,7 +5,7 @@ const ALL_PROJECTS = [
   {
     name: "Portfolio Breakdown",
     href: "/projects/portfolio-strategy",
-    img: "/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png",
+    img: "/images/Portfolio Breakdown/1 Summary - Portfolio.png",
   },
   {
     name: "Design Intelligence",
@@ -51,7 +51,7 @@ export default function RelatedProjects({
                   src={proj.img}
                   alt={proj.name}
                   fill
-                  className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.03]"
+                  className=" transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.03]"
                 />
               ) : (
                 <div className="absolute inset-0 pattern-dots pattern-gray-400 pattern-bg-transparent pattern-size-4 pattern-opacity-10 scale-150 mix-blend-overlay"></div>

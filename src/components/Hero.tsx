@@ -302,11 +302,11 @@ export default function Hero() {
             onClick={() =>
               window.scrollBy({ top: window.innerHeight, behavior: "smooth" })
             }
-            className="bounce-twice mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[var(--accent)] text-black text-sm font-semibold tracking-wide hover:opacity-90 hover:scale-[1.04] active:scale-[0.98] transition-all duration-200 shadow-[0_4px_24px_-4px_var(--accent)] pointer-events-auto"
+            className="bounce-twice mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[var(--accent)] text-black text-sm font-semibold tracking-wide hover:opacity-90 hover:scale-[1.04] active:scale-[0.98] transition-all duration-200 shadow-[0_2px_10px_-2px_var(--accent)] pointer-events-auto"
             onMouseDown={(e) => e.stopPropagation()}
             onTouchStart={(e) => e.stopPropagation()}
           >
-            See My Work
+            Explore
             <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 5v14M5 12l7 7 7-7" />
             </svg>

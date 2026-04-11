@@ -71,7 +71,7 @@ export function ConceptBlock({
             src={imageSrc}
             alt={imageAlt}
             fill
-            className="object-cover rounded-[16px]"
+            className=" rounded-[16px]"
           />
         </div>
       </div>
@@ -142,22 +142,31 @@ export function TwoColumnBulletList({
 
 type CheckerboardFrameProps = {
   label: string;
+  imageSrc?: string;
 };
 
-export function CheckerboardFrame({ label }: CheckerboardFrameProps) {
+export function CheckerboardFrame({ label, imageSrc }: CheckerboardFrameProps) {
   return (
     <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
       <div
-        className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white"
-        style={{
-          backgroundImage:
-            "linear-gradient(45deg, #e5e5e5 25%, transparent 25%), linear-gradient(-45deg, #e5e5e5 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e5e5e5 75%), linear-gradient(-45deg, transparent 75%, #e5e5e5 75%)",
-          backgroundSize: "24px 24px",
-          backgroundPosition: "0 0, 0 12px, 12px -12px, -12px 0px",
-          backgroundColor: "#fff",
-        }}
+        className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white flex items-center justify-center p-0 m-0"
+        style={
+          !imageSrc
+            ? {
+                backgroundImage:
+                  "linear-gradient(45deg, #e5e5e5 25%, transparent 25%), linear-gradient(-45deg, #e5e5e5 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e5e5e5 75%), linear-gradient(-45deg, transparent 75%, #e5e5e5 75%)",
+                backgroundSize: "24px 24px",
+                backgroundPosition: "0 0, 0 12px, 12px -12px, -12px 0px",
+                backgroundColor: "#fff",
+              }
+            : undefined
+        }
         aria-label={label}
-      />
+      >
+        {imageSrc && (
+          <Image src={imageSrc} alt={label} fill className="" />
+        )}
+      </div>
     </div>
   );
 }

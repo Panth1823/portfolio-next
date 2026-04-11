@@ -205,11 +205,11 @@ export default function FinanceAppPage() {
                 </div>
                 <div className="w-full flex justify-center mb-16">
                   <Image
-                    src="/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png"
+                    src="/images/Portfolio Breakdown/1 Summary - Portfolio.png"
                     alt="Portfolio Strategy Summary"
                     width={1000}
                     height={700}
-                    className="w-auto max-h-[700px] object-contain rounded-[24px]"
+                    className="w-auto max-h-[700px]  rounded-[24px]"
                     priority
                   />
                 </div>
@@ -235,10 +235,10 @@ export default function FinanceAppPage() {
                   <div className="flex flex-col border rounded-[20px] p-2 bg-[var(--theme-surface)] border-[var(--theme-border)]">
                     <div className="w-full aspect-[4/3] rounded-[8px] mb-4 relative overflow-hidden">
                       <Image
-                        src="/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png"
+                        src="/images/Portfolio Breakdown/Problem 1 -  Low signal.png"
                         alt="Low signal to noise ratio"
                         fill
-                        className="object-cover"
+                        className=""
                       />
                     </div>
                     <div className="px-2 pb-2 flex flex-col">
@@ -254,10 +254,10 @@ export default function FinanceAppPage() {
                   <div className="flex flex-col border rounded-[20px] p-2 bg-[var(--theme-surface)] border-[var(--theme-border)]">
                     <div className="w-full aspect-[4/3] rounded-[8px] mb-4 relative overflow-hidden">
                       <Image
-                        src="/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png"
+                        src="/images/Portfolio Breakdown/Problem 2 -  Unstructured Flow.png"
                         alt="Unstructured evaluation flow"
                         fill
-                        className="object-cover"
+                        className=""
                       />
                     </div>
                     <div className="px-2 pb-2 flex flex-col">
@@ -273,10 +273,10 @@ export default function FinanceAppPage() {
                   <div className="flex flex-col border rounded-[20px] p-2 bg-[var(--theme-surface)] border-[var(--theme-border)]">
                     <div className="w-full aspect-[4/3] rounded-[8px] mb-4 relative overflow-hidden">
                       <Image
-                        src="/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png"
+                        src="/images/Portfolio Breakdown/Problem 3 - Hard to Evaluate.png"
                         alt="Hard to evaluate decisions"
                         fill
-                        className="object-cover"
+                        className=""
                       />
                     </div>
                     <div className="px-2 pb-2 flex flex-col">
@@ -342,10 +342,10 @@ export default function FinanceAppPage() {
                     <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
                       <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
                         <Image
-                          src="/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png"
+                          src="/images/Portfolio Breakdown/1 User Research.png"
                           alt="Research approach"
                           fill
-                          className="object-cover"
+                          className=""
                         />
                       </div>
                     </div>
@@ -364,10 +364,10 @@ export default function FinanceAppPage() {
                     <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
                       <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
                         <Image
-                          src="/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png"
+                          src="/images/Portfolio Breakdown/2 User Research - Evaluation Opportunity.png"
                           alt="Evaluation Signals"
                           fill
-                          className="object-cover"
+                          className=""
                         />
                       </div>
                     </div>
@@ -451,7 +451,7 @@ export default function FinanceAppPage() {
                     {
                       title: "AI Portfolio Assistant",
                       imageSrc:
-                        "/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/Design Concept - 1 - AI Portfolio Assistant.png",
+                        "/images/Portfolio Breakdown/Design Concept - 1 - AI Portfolio Assistant.png",
                       description:
                         "An AI-powered assistant that answers questions about the portfolio, helping recruiters explore projects, decisions, and outcomes without manual navigation.",
                       bullets: [
@@ -465,7 +465,7 @@ export default function FinanceAppPage() {
                     {
                       title: "Voice Brief",
                       imageSrc:
-                        "/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/Design Concept - 2 - Voice Brief.png",
+                        "/images/Portfolio Breakdown/Design Concept - 2 - Voice Brief.png",
                       description:
                         "A voice-driven summary that narrates the project, helping recruiters quickly understand the problem, approach, and outcome without reading everything.",
                       bullets: [
@@ -479,7 +479,7 @@ export default function FinanceAppPage() {
                     {
                       title: "Adaptive Contrast",
                       imageSrc:
-                        "/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/Design Concept - 3 - Adaptive Contrast.png",
+                        "/images/Portfolio Breakdown/Design Concept - 3 - Adaptive Contrast.png",
                       description:
                         "A dynamic theme system that adapts visual contrast across multiple modes, improving accessibility and allowing users to view content comfortably in different conditions.",
                       bullets: [
@@ -493,7 +493,7 @@ export default function FinanceAppPage() {
                     {
                       title: "Signature Journey",
                       imageSrc:
-                        "/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/Design Concept - 4- Signature Journey.png",
+                        "/images/Portfolio Breakdown/Design Concept - 4- Signature Journey.png",
                       description:
                         "A guided storytelling experience where a walking character leads users through my journey, making the portfolio more engaging and memorable.",
                       bullets: [
@@ -552,8 +552,14 @@ export default function FinanceAppPage() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mt-4">
-                  <CheckerboardFrame label="Portfolio testing one" />
-                  <CheckerboardFrame label="Portfolio testing two" />
+                  <CheckerboardFrame 
+                    label="Portfolio testing one" 
+                    imageSrc="/images/Portfolio Breakdown/User Testing 1.png" 
+                  />
+                  <CheckerboardFrame 
+                    label="Portfolio testing two" 
+                    imageSrc="/images/Portfolio Breakdown/User Testing 2.png" 
+                  />
                 </div>
               </div>
 
@@ -571,10 +577,10 @@ export default function FinanceAppPage() {
                     <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
                       <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
                         <Image
-                          src="/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png"
+                          src="/images/Portfolio Breakdown/Before.png"
                           alt="Before"
                           fill
-                          className="object-contain"
+                          className=""
                         />
                       </div>
                     </div>
@@ -586,10 +592,10 @@ export default function FinanceAppPage() {
                     <div className="w-full aspect-[4/3] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
                       <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
                         <Image
-                          src="/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png"
+                          src="/images/Portfolio Breakdown/After.png"
                           alt="After"
                           fill
-                          className="object-contain"
+                          className=""
                         />
                       </div>
                     </div>
@@ -605,10 +611,10 @@ export default function FinanceAppPage() {
                 <div className="w-full aspect-[16/9] md:aspect-[2/1] relative overflow-hidden bg-[#1A1A1A] border border-[#FAFAFA] rounded-[12px] p-[8px]">
                   <div className="relative w-full h-full rounded-[4px] overflow-hidden border border-black/20 bg-white">
                     <Image
-                      src="/images/Portfolio Breakdown Project Images/Portfolio Breakdown Project Images/1 Summary - Portfolio.png"
+                      src="/images/Portfolio Breakdown/Design Exploration.png"
                       alt="Design explorations"
                       fill
-                      className="object-cover"
+                      className="fill"
                     />
                   </div>
                 </div>
@@ -650,7 +656,7 @@ export default function FinanceAppPage() {
 
               {/* 09: Next */}
               <div id="next" className="scroll-mt-32 mt-16 mb-24 lg:ml-2">
-                <div className="w-full border rounded-[32px] p-10 lg:p-14 relative overflow-hidden bg-[var(--theme-surface)] border-[var(--theme-border)]">
+                <div className="w-full border rounded-[32px] p-10 lg:p-14 relative overflow-hidden border-[var(--theme-border)]">
                   <h2 className="text-[32px] md:text-[32px] font-medium mb-3 tracking-tight text-[var(--theme-text-hi)]">
                     What&apos;s Next
                   </h2>

@@ -120,7 +120,7 @@ export default function Polaroid() {
                     alt={item.alt}
                     fill
                     sizes="45vw"
-                    className="object-cover opacity-85"
+                    className={`${i !== 1 ? "object-cover " : ""}opacity-85`}
                   />
                 </div>
                 <div className="flex items-center justify-center gap-1.5 text-[11px] font-medium text-[var(--text-primary)]">
@@ -159,7 +159,7 @@ export default function Polaroid() {
                   alt={item.alt}
                   fill
                   sizes="180px"
-                  className="object-cover opacity-80"
+                  className={`${i !== 1 ? "object-cover " : ""}opacity-80`}
                 />
               </div>
               <div className="flex items-center justify-center gap-2 text-[12px] font-medium text-[var(--text-primary)]">
@@ -210,7 +210,7 @@ export default function Polaroid() {
                   alt={item.alt}
                   fill
                   sizes="(max-width: 1200px) 14vw, 280px"
-                  className="object-cover opacity-80 transition-opacity duration-300 group-hover:opacity-100"
+                  className={`${i !== 1 ? "object-cover " : ""}opacity-80 transition-opacity duration-300 group-hover:opacity-100`}
                 />
               </div>
               <div className="polaroid-caption flex items-center justify-center gap-1.5 text-[clamp(10px,1vw,15px)] font-medium text-[var(--text-primary)] tracking-[-0.2px]">

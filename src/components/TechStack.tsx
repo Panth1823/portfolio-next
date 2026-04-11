@@ -83,7 +83,7 @@ const ToolIcon: FC<{
           alt={tool.name}
           width={50}
           height={50}
-          className={`w-[50px] h-[50px] object-contain transition-all duration-300 ${
+          className={`w-[50px] h-[50px]  transition-all duration-300 ${
             isHovered
               ? "opacity-100 scale-110"
               : "grayscale saturate-0 opacity-60"

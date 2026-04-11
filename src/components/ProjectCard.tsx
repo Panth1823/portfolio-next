@@ -36,7 +36,7 @@ export default function ProjectCard({ project, variant = "page" }: ProjectCardPr
                 src={project.image}
                 alt={`${project.title} preview`}
                 fill
-                className="object-cover object-top"
+                className=""
                 sizes="(max-width: 1024px) 100vw, 55vw"
               />
             ) : (
@@ -65,7 +65,7 @@ export default function ProjectCard({ project, variant = "page" }: ProjectCardPr
                     alt={`${project.title} icon`}
                     width={36}
                     height={36}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full "
                   />
                 ) : (
                   <div

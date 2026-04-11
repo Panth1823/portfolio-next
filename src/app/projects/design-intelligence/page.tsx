@@ -203,7 +203,7 @@ export default function FinanceAppPage() {
                     alt="Summary mockup"
                     width={1000}
                     height={700}
-                    className="w-auto max-h-[700px] object-contain rounded-[24px]"
+                    className="w-auto max-h-[700px]  rounded-[24px]"
                   />
                 </div>
               </div>
@@ -231,7 +231,7 @@ export default function FinanceAppPage() {
                         src="/images/Project 2 - Design Intelligence Case study Images/DI Problem - 1.png"
                         alt="Missed Design Issues"
                         fill
-                        className="object-cover"
+                        className=""
                       />
                     </div>
                     <div className="px-2 pb-2 flex flex-col">
@@ -251,7 +251,7 @@ export default function FinanceAppPage() {
                         src="/images/Project 2 - Design Intelligence Case study Images/DI Problem - 2.png"
                         alt="Fragmented Workflow"
                         fill
-                        className="object-cover"
+                        className=""
                       />
                     </div>
                     <div className="px-2 pb-2 flex flex-col">
@@ -270,7 +270,7 @@ export default function FinanceAppPage() {
                         src="/images/Project 2 - Design Intelligence Case study Images/DI Problem - 3.png"
                         alt="Delayed Feedback"
                         fill
-                        className="object-cover"
+                        className=""
                       />
                     </div>
                     <div className="px-2 pb-2 flex flex-col">
@@ -340,7 +340,7 @@ export default function FinanceAppPage() {
                           src="/images/Project 2 - Design Intelligence Case study Images/DI User Research - Research Approach - 1.png"
                           alt="Research Approach"
                           fill
-                          className="object-cover"
+                          className=""
                         />
                       </div>
                     </div>
@@ -361,7 +361,7 @@ export default function FinanceAppPage() {
                           src="/images/Project 2 - Design Intelligence Case study Images/DI User Research - Intelligence oppurtunity - 2.png"
                           alt="Intelligence Opportunity"
                           fill
-                          className="object-cover"
+                          className=""
                         />
                       </div>
                     </div>
@@ -463,7 +463,7 @@ export default function FinanceAppPage() {
                         src="/images/Project 2 - Design Intelligence Case study Images/DI Design concept - 1.png"
                         alt="Guided Design Awareness"
                         fill
-                        className="object-cover rounded-[8px]"
+                        className=" rounded-[8px]"
                       />
                     </div>
                   </div>
@@ -501,7 +501,7 @@ export default function FinanceAppPage() {
                         src="/images/Project 2 - Design Intelligence Case study Images/DI Design concept - 2.png"
                         alt="In-Flow Accessibility Checks"
                         fill
-                        className="object-cover rounded-[8px]"
+                        className=" rounded-[8px]"
                       />
                     </div>
                   </div>
@@ -539,7 +539,7 @@ export default function FinanceAppPage() {
                         src="/images/Project 2 - Design Intelligence Case study Images/DI Design concept - 3.png"
                         alt="Design System Integrity"
                         fill
-                        className="object-cover rounded-[8px]"
+                        className=" rounded-[8px]"
                       />
                     </div>
                   </div>
@@ -577,7 +577,7 @@ export default function FinanceAppPage() {
                         src="/images/Project 2 - Design Intelligence Case study Images/DI Design concept - 4.png"
                         alt="Connection Intelligence"
                         fill
-                        className="object-cover rounded-[8px]"
+                        className=" rounded-[8px]"
                       />
                     </div>
                   </div>
@@ -615,7 +615,7 @@ export default function FinanceAppPage() {
                         src="/images/Project 2 - Design Intelligence Case study Images/DI Design concept - 5.png"
                         alt="Design Health Visibility"
                         fill
-                        className="object-cover rounded-[8px]"
+                        className=" rounded-[8px]"
                       />
                     </div>
                   </div>
@@ -663,7 +663,7 @@ export default function FinanceAppPage() {
                         src="/images/Project 2 - Design Intelligence Case study Images/DI User Testing - 1.png"
                         alt="Testing 1"
                         fill
-                        className="object-contain"
+                        className=""
                       />
                     </div>
                   </div>
@@ -673,7 +673,7 @@ export default function FinanceAppPage() {
                         src="/images/Project 2 - Design Intelligence Case study Images/DI User Testing - 2.png"
                         alt="Testing 2"
                         fill
-                        className="object-contain"
+                        className=""
                       />
                     </div>
                   </div>
@@ -698,7 +698,7 @@ export default function FinanceAppPage() {
                           src="/images/Project 2 - Design Intelligence Case study Images/DI Before.png"
                           alt="Before"
                           fill
-                          className="object-contain"
+                          className=""
                         />
                       </div>
                     </div>
@@ -713,7 +713,7 @@ export default function FinanceAppPage() {
                           src="/images/Project 2 - Design Intelligence Case study Images/DI After.png"
                           alt="After"
                           fill
-                          className="object-contain"
+                          className=""
                         />
                       </div>
                     </div>
@@ -732,7 +732,7 @@ export default function FinanceAppPage() {
                       src="/images/Project 2 - Design Intelligence Case study Images/DI Design Explorations.png"
                       alt="Design Explorations"
                       fill
-                      className="object-cover"
+                      className=""
                     />
                   </div>
                 </div>
@@ -813,7 +813,7 @@ export default function FinanceAppPage() {
 
               {/* 09: Next */}
               <div id="next" className="scroll-mt-32 mt-16 mb-24 lg:ml-2">
-                <div className="w-full border rounded-[32px] p-10 lg:p-14 relative overflow-hidden bg-[var(--theme-surface)] border-[var(--theme-border)]">
+                <div className="w-full border rounded-[32px] p-10 lg:p-14 relative overflow-hidden border-[var(--theme-border)]">
                   <h2 className="text-[32px] md:text-[32px] font-medium mb-3 tracking-tight text-[var(--theme-text-hi)]">
                     What&apos;s Next
                   </h2>
