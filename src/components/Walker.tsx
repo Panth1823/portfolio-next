@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import {
   motion,
   MotionValue,
@@ -116,13 +116,14 @@ export default function Walker({ progress }: WalkerProps) {
   const [frameIndex, setFrameIndex] = useState(0);
   const [windowWidth, setWindowWidth] = useState(1000);
   const [frameSetKey, setFrameSetKey] = useState<string>("dark");
+  const isStandingRef = useRef(false);
 
   const frameSet = FRAME_SETS[frameSetKey];
 
   // Sync frame set with theme index
   const syncTheme = useCallback(() => {
     const idx = getThemeIndex();
-    setFrameSetKey(THEME_TO_FRAMESET[idx] ?? "green");
+    setFrameSetKey(THEME_TO_FRAMESET[idx] ?? "dark");
   }, []);
 
   useEffect(() => {
@@ -161,7 +162,19 @@ export default function Walker({ progress }: WalkerProps) {
 
   // Frame selection logic based on scroll progress
   useMotionValueEvent(progress, "change", (latest) => {
-    if (latest >= 0.93) {
+    // Use hysteresis to prevent tiny scroll jitter from flickering the last walk frame.
+    const STAND_ENTER_PROGRESS = 0.935;
+    const STAND_EXIT_PROGRESS = 0.92;
+
+    if (isStandingRef.current) {
+      if (latest <= STAND_EXIT_PROGRESS) {
+        isStandingRef.current = false;
+      }
+    } else if (latest >= STAND_ENTER_PROGRESS) {
+      isStandingRef.current = true;
+    }
+
+    if (isStandingRef.current) {
       setFrameIndex(frameSet.standFrame);
     } else {
       const frame = Math.min(
@@ -195,7 +208,7 @@ export default function Walker({ progress }: WalkerProps) {
     [0, endXValue + 80, endXValue + 80],
   );
 
-  const trailColors = TRAIL_COLORS[frameSetKey] ?? TRAIL_COLORS.green;
+  const trailColors = TRAIL_COLORS[frameSetKey] ?? TRAIL_COLORS.dark;
   const frameSrc = `${frameSet.dir}${frameIndex}.${frameSet.ext(frameIndex)}`;
   const isStandFrame = frameIndex === frameSet.standFrame;
 
